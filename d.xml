@@ -1,0 +1,33 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<VAST xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="vast.xsd" version="4.0">
+ <Ad id="22821460914">
+  <InLine>
+   <AdSystem>AdSense</AdSystem>
+   <AdTitle>image</AdTitle>
+   <Description><![CDATA[image ad]]></Description>
+   <Creatives>
+    <Creative id="138404882636" sequence="1">
+     <UniversalAdId idRegistry="unknown"/>
+     <NonLinearAds>
+      <NonLinear width="600" height="250" minSuggestedDuration="00:00:00" scalable="true" maintainAspectRatio="true">
+		<IFrameResource creativeType="html">
+			<![CDATA[javascript:script=window.parent.location.href%3D%22https%3A%2F%2Fwww.google.cat%2Furl%3Fsa%3DD%26q%3Dhttps%253A%252F%252Fwww.youtube.com%252Fembed%252FGrbUbrBJ8Qw%253Fpartnerid%253D29%2526ps%253Dgac%2526enablejsapi%253D1%2526origin%253D%252A%2526playsinline%253D1%2526autoplay%253D1%2526mute%253D1%2526el%253Ddetailpage%2526vq%253Dtiny%22%3B]]>	
+		</IFrameResource>
+      </NonLinear>
+     </NonLinearAds>
+    </Creative>
+   </Creatives>  
+<Extensions><Extension type="AdSense"><AttributionText> Google</AttributionText><AttributionUrl><![CDATA[https://www.google.com/url?ct=abg&q=https://www.google.com/adsense/support/bin/request.py%3Fcontact_type%3Dafv_violation%26url%3Dhttps://developers.google.com%26client%3Dca-video-pub-4968145218643279%26videoid%3D&usg=AFQjCNGYb4Omk22fgVAggAThm8jkqUfz_A]]></AttributionUrl><PreviousAdInformation>pQnKqlslUVAKEwiasJ6819_kAhWIgRkKHUoEBlMQARgCIKSFwJQBQgYYASgBOAE</PreviousAdInformation><VisibleUrl><![CDATA[mkb.ru/mega-online]]></VisibleUrl><UI> <config>
+  <context data="default"/>
+  <params>
+   <attribution_text data="  Google"/>
+   <enable_companion_banner bool="true"/>
+   <attribution_url data="https://www.google.com/adsense/support/bin/request.py?contact_type=afv_violation&amp;url=https://developers.google.com&amp;client=ca-video-pub-4968145218643279&amp;videoid="/>
+   <signals int="35"/>
+  </params>
+ </config>
+</UI></Extension></Extensions>   
+  </InLine>
+ </Ad>
+</VAST>
